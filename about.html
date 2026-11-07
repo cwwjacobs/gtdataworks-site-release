@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Gold Trace Dataworks — GTDataWorks</title>
+<meta name="description" content="Gold Trace Dataworks builds AI agents, evaluation tools and traceable datasets, preserving useful behavior and the evidence needed to inspect and reuse it.">
+<link rel="canonical" href="https://gtdataworks.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="About Gold Trace Dataworks — GTDataWorks">
+<meta property="og:description" content="Gold Trace Dataworks builds AI agents, evaluation tools and traceable datasets, preserving useful behavior and the evidence needed to inspect and reuse it.">
+<meta property="og:url" content="https://gtdataworks.com/about.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-about">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="services/index.html" >Services</a></li>
+      <li><a href="tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="about.html" aria-current="page">About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+  body.page-about .page-hero + .section { padding-top: clamp(16px, 2vw, 28px); }
+  body.page-about .about-intro { max-width: 70ch; }
+  body.page-about .about-intro > p:last-child { margin-bottom: 0; }
+  body.page-about .about-method { margin-top: 30px; }
+  body.page-about .about-method h3 { font-size: 22px; margin-bottom: 12px; }
+  body.page-about .about-method p:last-child { margin-bottom: 0; }
+  body.page-about .about-note { max-width: 78ch; margin-top: 28px; }
+  body.page-about .about-technical { max-width: 78ch; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(221,202,167,.2); }
+  body.page-about .about-technical summary { color: #e4c999; cursor: pointer; padding: 4px 0; }
+  body.page-about .about-technical p { margin: 16px 0 0; }
+  body.page-about .about-technical code { overflow-wrap: anywhere; }
+  body.page-about .about-byline { color: var(--muted); font-size: 15px; margin-top: 24px; }
+</style>
+
+<section class="page-hero" aria-labelledby="about-heading">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>About</p>
+    <h1 id="about-heading">Gold Trace Dataworks</h1>
+    <div class="about-intro">
+      <p class="lede">We build AI agents and integrations, evaluation tools, and datasets with traceable sources.</p>
+      <p>The name describes our approach: preserve useful behavior together with its history, so the work can be inspected, improved, and reused. A result becomes more useful when you can follow the evidence that produced it.</p>
+      <p class="about-byline">Founded and run by Corey J. in St. Paul, Minnesota, as the AI engineering and dataset practice of Terminus Protocol.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="method-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="method-heading">Capture. Assess. Derive.</h2>
+      <p class="lede">Our internal tools keep the original record connected to the conclusions and datasets made from it.</p>
+    </div>
+    <div class="grid grid-3 about-method">
+      <article class="glass-soft tile">
+        <h3>Capture the run</h3>
+        <p>Labyrinth records attempts, tool interactions, and outcomes. Sealed records and source hashes help identify exactly which evidence belongs to a run.</p>
+      </article>
+      <article class="glass-soft tile">
+        <h3>Assess the result</h3>
+        <p>Foundry evaluates records against pinned criteria. Checks can cover tool contracts, authority boundaries, and reported outcomes, with the criteria and findings retained for inspection.</p>
+      </article>
+      <article class="glass-soft tile">
+        <h3>Derive useful data</h3>
+        <p>Refinery normalizes records, applies privacy checks, and prepares structured data. Source links, evaluation results, and review status travel with the derived record.</p>
+      </article>
+    </div>
+    <p class="about-note">Original evidence and derived views have distinct roles. We retain the source record and identify the transformations used to create a summary, label, or dataset projection. That makes it possible to revisit a conclusion without treating the projection as the original event.</p>
+    <details class="about-technical">
+      <summary>Technical note: what is an ingot?</summary>
+      <p>In our data contract, an ingot is a normalized record linked to source hashes and evaluation information. Its disposition is explicit: <code>PASSED</code>, <code>HOLD</code>, <code>QUARANTINED</code>, <code>FAILED</code>, or <code>RIGHTS_ASSERTED</code>.</p>
+      <p>The artifact name does not certify safety or approval. A held or failed record remains an ingot; its permitted use depends on the recorded status, rights, and supporting evidence. A claim about rights also remains distinct from an evaluation result.</p>
+    </details>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="work-heading">
+  <div class="wrap">
+    <div class="glass-soft slab">
+      <h2 id="work-heading">See the work in context</h2>
+      <p class="lede">Tool Failure Recovery examines what happens when an agent's tools fail, including successful recovery and terminal outcomes.</p>
+      <p>Our case study explains the records, their scope, and what can be learned from them.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="tool-failure-recovery.html">Read the case study</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="contact-heading">
+  <div class="wrap">
+    <h2 id="contact-heading">Bring us a system to build or evaluate.</h2>
+    <p class="lede">Tell us what it should do, which tools and data it uses, and what you need to learn about its behavior.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="contact.html">Send a project request</a>
+      <a class="btn btn-glass" href="services/index.html">Explore our services</a>
+    </div>
+    <p class="small muted" style="margin-top:20px"><a href="mailto:agents@gtdataworks.com">agents@gtdataworks.com</a></p>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "GTDataWorks",
+  "alternateName": "Gold Trace Dataworks",
+  "url": "https://gtdataworks.com/",
+  "logo": "https://gtdataworks.com/assets/logo.svg",
+  "email": "agents@gtdataworks.com",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Terminus Protocol",
+    "url": "https://terminusprotocol.io"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "St. Paul",
+    "addressRegion": "MN",
+    "addressCountry": "US"
+  },
+  "founder": { "@type": "Person", "name": "Corey J." },
+  "sameAs": [
+    "https://github.com/cwwjacobs",
+    "https://huggingface.co/novcor"
+  ]
+}
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="services/index.html">Services</a><a href="tool-failure-recovery.html">Selected work</a><a href="about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

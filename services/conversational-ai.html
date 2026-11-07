@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conversational AI &amp; RAG Agents — GTDataWorks</title>
+<meta name="description" content="RAG chatbots and Q&amp;A assistants built on your own documents, with a citation on every answer, session logs and an evaluation suite. From $1,000, 1–3 weeks.">
+<link rel="canonical" href="https://gtdataworks.com/services/conversational-ai.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Conversational AI &amp; RAG Agents — GTDataWorks">
+<meta property="og:description" content="RAG chatbots and Q&amp;A assistants built on your own documents, with a citation on every answer, session logs and an evaluation suite. From $1,000, 1–3 weeks.">
+<meta property="og:url" content="https://gtdataworks.com/services/conversational-ai.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-services-conversational-ai">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="../services/index.html" aria-current="page">Services</a></li>
+      <li><a href="../tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="../about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="../contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+  /* Service detail — page-specific layout only; components come from styles.css */
+  body.page-services-conversational-ai .svc-block + .svc-block { margin-top: clamp(44px, 5.5vw, 72px); }
+  body.page-services-conversational-ai .svc-block > .lede { font-size: 16.5px; margin: -.4em 0 1.3em; }
+  body.page-services-conversational-ai .deliverables .checklist li + li { margin-top: .6em; }
+  body.page-services-conversational-ai .deliverables .seal { margin: 24px 0 0; }
+  /* the build sequence: a real sequence, so it is numbered */
+  body.page-services-conversational-ai .steps-list { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  body.page-services-conversational-ai .steps-list li { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; row-gap: 4px; margin: 0; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.08); }
+  body.page-services-conversational-ai .steps-list li:first-child { border-top: 0; padding-top: 0; }
+  body.page-services-conversational-ai .steps-list li:last-child { padding-bottom: 0; }
+  body.page-services-conversational-ai .steps-list li::before { counter-increment: step; content: counter(step, decimal-leading-zero); grid-row: 1 / span 2; font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: .25em; }
+  body.page-services-conversational-ai .steps-list h3 { font-size: 18px; margin: 0; }
+  body.page-services-conversational-ai .steps-list p { margin: 0; color: #d7d2e6; font-size: 15.5px; max-width: 58ch; }
+  /* tiers sit in a 670px column: name above price reads the same in every tier */
+  body.page-services-conversational-ai .tier .row-between { flex-direction: column; align-items: flex-start; gap: 2px; margin-bottom: 10px; }
+  body.page-services-conversational-ai .tier .price { font-size: 20px; }
+  /* three tiers beside a sidebar get too narrow between 901px and 1140px; stack them there,
+     and use three columns once the sidebar has dropped below the main column */
+  @media (min-width: 901px) and (max-width: 1140px) { body.page-services-conversational-ai .pricing-grid { grid-template-columns: 1fr; } }
+  @media (min-width: 761px) and (max-width: 900px) { body.page-services-conversational-ai .pricing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  body.page-services-conversational-ai .fit h3 { font-size: 17px; margin-bottom: .5em; }
+  body.page-services-conversational-ai .fit ul { margin: 0; padding-left: 1.1em; color: #d7d2e6; font-size: 16px; }
+  body.page-services-conversational-ai .fit li + li { margin-top: .55em; }
+  body.page-services-conversational-ai .qa details { border-top: 1px solid rgba(255,255,255,.09); }
+  body.page-services-conversational-ai .qa details:last-of-type { border-bottom: 1px solid rgba(255,255,255,.09); }
+  body.page-services-conversational-ai .qa summary { cursor: pointer; list-style: none; position: relative; padding: 16px 40px 16px 0; font-weight: 500; font-size: 17px; }
+  body.page-services-conversational-ai .qa summary::-webkit-details-marker { display: none; }
+  body.page-services-conversational-ai .qa summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 18px; color: var(--muted); }
+  body.page-services-conversational-ai .qa details[open] summary::after { content: "−"; }
+  body.page-services-conversational-ai .qa details p { margin: 0 0 18px; color: #d7d2e6; max-width: var(--measure); }
+  body.page-services-conversational-ai .side .related { list-style: none; padding: 0; margin: 0; }
+  body.page-services-conversational-ai .side .related li + li { margin-top: 8px; }
+  body.page-services-conversational-ai .side .proto { margin: 24px 0 0; }
+  body.page-services-conversational-ai .side .badge-live { align-items: flex-start; line-height: 1.45; }
+  body.page-services-conversational-ai .side .badge-live::before { flex: none; margin-top: .5em; }
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../services/index.html">Services</a><span>/</span>Conversational AI &amp; RAG Agents</p>
+    <h1>Conversational AI &amp; RAG Agents</h1>
+    <p class="lede">Chatbots and assistants that answer from your documents and show their sources.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="../contact.html?service=conversational-ai">Start a brief for this service</a>
+      <a class="btn btn-glass btn-lg" href="../services/index.html">All services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <span class="light-local is-gold" style="left:-120px;top:54%" aria-hidden="true"></span>
+  <div class="wrap grid grid-sidebar">
+    <div class="svc-main">
+
+      <div class="svc-block">
+        <h2>What it is</h2>
+        <div class="prose">
+          <p>A customer-support bot, an internal Q&amp;A assistant or a product guide, built on content you already have: help-centre articles, PDFs, policies, a product manual. Retrieval-augmented generation (RAG) means the model looks up the relevant passages in your documents before it writes, so the answer comes from what you have published rather than from what the model remembers from training.</p>
+          <p>Your users type a question into a widget on your site or inside your app and get a direct answer with its sources listed underneath, each one linking to the document it came from. When the content does not cover the question, the bot says so and points to a human channel instead of guessing. Every session is logged, so you can read back what the bot said, which passages it used, and why.</p>
+        </div>
+      </div>
+
+      <div class="svc-block">
+        <h2>What you get</h2>
+        <div class="stack lift lit lit-cyan deliverables"><article class="glass slab">
+          <ul class="checklist">
+            <li>Working bot with commented source code</li>
+            <li>Retrieval index and ingestion script</li>
+            <li>Evaluation suite and results</li>
+            <li>Deployment notes</li>
+            <li>Handover call</li>
+          </ul>
+          <p class="seal">Every answer cites its source</p>
+        </article></div>
+      </div>
+
+      <div class="svc-block">
+        <h2>How the work runs</h2>
+        <p class="lede">The build steps once the quote is agreed. The brief, scoping call and quote are <a href="../services/index.html#process">the same for every service</a>.</p>
+        <div class="glass-soft tile">
+          <ol class="steps-list">
+            <li>
+              <h3>Content audit and ingestion</h3>
+              <p>Inventory the sources (help centre, PDFs, wiki, resolved tickets), decide what is in scope, and write the ingestion script that cleans, chunks and embeds them. It is re-runnable, so new content can be added later.</p>
+            </li>
+            <li>
+              <h3>Retrieval design and index</h3>
+              <p>Choose the chunking, the embedding model and the store (Chroma, pgvector or Pinecone), build the index, and check retrieval on 30 to 50 real questions before any answer is generated.</p>
+            </li>
+            <li>
+              <h3>Agent build with citations</h3>
+              <p>The answer prompt and format, the citation display, the refusal path for questions the content does not cover, and the embeddable widget for your site or app.</p>
+            </li>
+            <li>
+              <h3>Evaluation set and pass/fail receipts</h3>
+              <p>A held-out question set with known answers, graded deterministically. Every attempt in the run gets a pass/fail receipt, and the results ship with the bot.</p>
+            </li>
+            <li>
+              <h3>Launch and a week of tuning</h3>
+              <p>Deploy to Modal, Google Cloud Run or your own Docker host, read the first week of real sessions, and adjust retrieval and prompts from what they show.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="svc-block">
+        <h2>Pricing</h2>
+        <div class="grid grid-3 pricing-grid">
+          <div class="glass-soft tier">
+            <div class="row-between"><h3>Starter</h3><span class="price">$1,000</span></div>
+            <p>Single-source RAG Q&amp;A bot, embeddable web widget, citation display, one week of tuning after launch.</p>
+          </div>
+          <div class="glass-soft tier tier-featured">
+            <div class="row-between"><h3>Standard</h3><span class="price">$3,000</span></div>
+            <p>Multi-turn agent with memory, CRM or helpdesk integration, evaluation suite with pass/fail receipts.</p>
+          </div>
+          <div class="glass-soft tier">
+            <div class="row-between"><h3>Enterprise</h3><span class="price">from $10,000</span></div>
+            <p>Multi-channel (web, Slack, email), custom retrieval pipeline, provenance ledger, uptime and response SLAs.</p>
+          </div>
+        </div>
+        <div class="note" style="margin-top:20px"><p>Prices are in USD and are starting points. The final quote follows a scoping call.</p></div>
+      </div>
+
+      <div class="svc-block fit">
+        <h2>Where it fits</h2>
+        <div class="grid grid-2">
+          <div>
+            <h3>A good fit when</h3>
+            <ul>
+              <li>The answers already exist in writing: a help centre, manuals, policies, resolved tickets.</li>
+              <li>You need to know what the bot said and where it got it, for support quality or for a regulator.</li>
+              <li>Question volume has outgrown the people answering it.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Not a fit when</h3>
+            <ul>
+              <li>The answers are not written down yet. The bot can only cite what exists; if you are still deciding what to build first, start with <a href="../services/consulting-poc.html">AI Consulting &amp; Proof-of-Concept</a>.</li>
+              <li>You need a feature inside an existing app (summaries, drafting, classification) rather than a chat surface. That is <a href="../services/ai-integration.html">AI Integration &amp; APIs</a>.</li>
+              <li>The task is a fixed transformation of text with no lookup, such as classifying tickets. That is <a href="../services/prompt-engineering.html">Prompt Engineering &amp; Fine-Tuning</a>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-block qa">
+        <h2>Questions</h2>
+        <details>
+          <summary>Where does my data live?</summary>
+          <p>In your accounts. Documents are indexed into a vector store you control (Chroma or pgvector on your host, or your own Pinecone project), the bot runs under your API keys, and session logs are stored where you choose. GTDataWorks does not train models on your content and keeps no copy of it after handover.</p>
+        </details>
+        <details>
+          <summary>Which model answers the questions?</summary>
+          <p>Whichever fits the content and the budget: OpenAI or Anthropic models through the API, or an open model if the data cannot leave your network. You bring your own API keys, so usage is billed to you and you can switch providers later. The retrieval layer does not depend on which model writes the answer.</p>
+        </details>
+        <details>
+          <summary>How is accuracy measured?</summary>
+          <p>Against a held-out set of real questions with known answers, graded deterministically: did the answer cite the right passage, did it refuse when the content had no answer, did it stay within the source. You get the question set, the grading script and a pass/fail receipt for every attempt, so you can re-run the suite after any change to the content or the model.</p>
+        </details>
+        <details>
+          <summary>What happens after handover?</summary>
+          <p>You own the source, the index and the ingestion script, and the handover call walks through all three. Starter includes a week of tuning after launch. From there you can run the bot yourself, or add <a href="../services/monitoring-analytics.html">Monitoring &amp; Analytics</a> for dashboards and session replay over the logs it already writes.</p>
+        </details>
+      </div>
+
+    </div>
+
+    <aside class="glass-soft tile sticky side" aria-label="Service facts">
+      <h3>At a glance</h3>
+      <dl class="facts">
+        <dt>Timeline</dt><dd>1–3 weeks</dd>
+        <dt>Pricing from</dt><dd><span class="price">$1,000</span></dd>
+        <dt>Best for</dt><dd>Small and mid-sized businesses that want support or Q&amp;A automation without losing control of what the bot says.</dd>
+      </dl>
+      <h3>Stack</h3>
+      <ul class="chips">
+        <li><span class="chip">Python or Node.js</span></li>
+        <li><span class="chip">OpenAI and Anthropic APIs</span></li>
+        <li><span class="chip">LangChain or a hand-rolled pipeline</span></li>
+        <li><span class="chip">Chroma, pgvector or Pinecone</span></li>
+        <li><span class="chip">React or web-component widget</span></li>
+        <li><span class="chip">Modal, Google Cloud Run or Docker hosting</span></li>
+      </ul>
+      <h3>Related</h3>
+      <ul class="related">
+        <li><a href="../services/ai-integration.html">AI Integration &amp; APIs</a></li>
+        <li><a href="../services/evaluation-benchmarking.html">Agent Evaluation &amp; Benchmarking</a></li>
+        <li><a href="../services/monitoring-analytics.html">Monitoring &amp; Analytics for AI Systems</a></li>
+      </ul>
+      <p class="proto"><a class="badge-live" href="../demos.html#showcase">See the Data Expert Showcase Agent prototype</a></p>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="stack lit lit-pink"><div class="glass slab cta-band">
+      <h2>Start with the documents you have</h2>
+      <p class="lede">Send a link to your help centre or a sample of the documents, and five questions your users ask. That is enough for a scoping call and a quote.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="../contact.html?service=conversational-ai">Start a brief for this service</a>
+        <a class="btn btn-glass btn-lg" href="mailto:agents@gtdataworks.com">Email the studio</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Conversational AI & RAG Agents",
+  "description": "Chatbots and assistants that answer from your documents and show their sources.",
+  "serviceType": "Conversational AI and retrieval-augmented generation development",
+  "provider": {"@type": "Organization", "name": "GTDataWorks", "url": "https://gtdataworks.com/"},
+  "areaServed": "Worldwide",
+  "url": "https://gtdataworks.com/services/conversational-ai.html",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": 1000,
+    "url": "https://gtdataworks.com/contact.html?service=conversational-ai"
+  }
+}
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="../services/index.html">Services</a><a href="../tool-failure-recovery.html">Selected work</a><a href="../about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

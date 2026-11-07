@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deployment, MLOps &amp; Hosting — GTDataWorks</title>
+<meta name="description" content="Containerize, deploy and monitor your model or agent on Modal, Google Cloud Run, Hugging Face or your own Docker hosts, with CI/CD, secrets and a runbook.">
+<link rel="canonical" href="https://gtdataworks.com/services/deployment-mlops.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Deployment, MLOps &amp; Hosting — GTDataWorks">
+<meta property="og:description" content="Containerize, deploy and monitor your model or agent on Modal, Google Cloud Run, Hugging Face or your own Docker hosts, with CI/CD, secrets and a runbook.">
+<meta property="og:url" content="https://gtdataworks.com/services/deployment-mlops.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-services-deployment-mlops">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="../services/index.html" aria-current="page">Services</a></li>
+      <li><a href="../tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="../about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="../contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+  body.page-services-deployment-mlops .col-main > * + * { margin-top: clamp(44px, 6vw, 72px); }
+  body.page-services-deployment-mlops .col-main .note { margin-top: 18px; }
+  body.page-services-deployment-mlops .run { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  body.page-services-deployment-mlops .run li { position: relative; margin: 0; padding: 16px 0 16px 52px; border-top: 1px solid rgba(255,255,255,.07); }
+  body.page-services-deployment-mlops .run li:first-child { border-top: 0; padding-top: 0; }
+  body.page-services-deployment-mlops .run li:last-child { padding-bottom: 0; }
+  body.page-services-deployment-mlops .run li::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: 20px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  body.page-services-deployment-mlops .run li:first-child::before { top: 4px; }
+  body.page-services-deployment-mlops .run strong { display: block; margin-bottom: 3px; }
+  body.page-services-deployment-mlops .run p { margin: 0; color: #d3cee1; font-size: 15.5px; }
+  body.page-services-deployment-mlops .fit ul { margin: 0; padding-left: 1.1em; }
+  body.page-services-deployment-mlops .fit li { color: #d3cee1; font-size: 15.5px; }
+  body.page-services-deployment-mlops .fit li + li { margin-top: .6em; }
+  body.page-services-deployment-mlops .qa h3 { font-size: 19px; margin: 1.5em 0 .4em; }
+  body.page-services-deployment-mlops .qa h3:first-child { margin-top: 0; }
+  body.page-services-deployment-mlops .side .related { list-style: none; margin: 0; padding: 0; }
+  body.page-services-deployment-mlops .side .related li + li { margin-top: 8px; }
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../services/index.html">Services</a><span>/</span>Deployment, MLOps &amp; Hosting</p>
+    <h1>Deployment, MLOps &amp; Hosting</h1>
+    <p class="lede">Prototypes turned into services that stay up.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="../contact.html?service=deployment-mlops">Start a brief for this service</a>
+      <a class="btn btn-glass btn-lg" href="../services/index.html">All services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <span class="light-local is-gold" style="right:-140px;top:60px"></span>
+  <div class="wrap grid grid-sidebar">
+    <div class="col-main">
+
+      <div>
+        <h2>What it is</h2>
+        <div class="prose">
+          <p>You have a model or agent that works on a laptop, in a notebook or on a single box, and it now has to serve real users without someone watching it. GTDataWorks containerizes it, puts it behind CI/CD with secrets management, and deploys it to Modal, Google Cloud Run, Hugging Face or your own Docker hosts. Where an agent executes tools or code, it can run inside a default-deny microVM sandbox, so a bad instruction cannot reach anything it was not meant to.</p>
+          <p>Your users should notice nothing, which is the point: the service answers at the same address every day, releases roll out without taking it down, and when something breaks an alert reaches you before a customer does. You keep the accounts, the keys and the repository. The studio works inside them, and its access ends at handover.</p>
+        </div>
+      </div>
+
+      <div class="stack lift lit lit-cyan"><article class="glass slab">
+        <h2>What you get</h2>
+        <div class="grid grid-2">
+          <p class="muted">Every item lands in your repository and your hosting account, not the studio's. The runbook is written for whoever will be on call, and the handover call walks them through it.</p>
+          <ul class="checklist">
+            <li>Dockerfiles and deployment config</li>
+            <li>CI/CD pipeline</li>
+            <li>Monitoring and alerting</li>
+            <li>Runbook</li>
+            <li>Handover</li>
+          </ul>
+        </div>
+      </article></div>
+
+      <div>
+        <h2>How the work runs</h2>
+        <div class="glass-soft tile">
+          <ol class="run">
+            <li><strong>Containerize</strong><p>A Dockerfile and Compose file for the service as it exists today: pinned dependencies, a health endpoint, configuration through environment variables. The same image runs on your laptop and on the host.</p></li>
+            <li><strong>CI/CD</strong><p>A GitHub Actions pipeline that builds the image, runs your tests and deploys a tagged release to Modal, Google Cloud Run, Hugging Face or your Docker host. Rolling back is redeploying the previous tag.</p></li>
+            <li><strong>Secrets and sandboxing</strong><p>Provider keys move out of the repository and into the host's secrets store, one scoped key per provider. Agent workloads that run tools or code go into a gVisor or Firecracker sandbox (cindermote) with a default-deny network policy, so the agent can reach only the hosts on its allow-list.</p></li>
+            <li><strong>Monitoring</strong><p>Prometheus metrics and Grafana dashboards for latency, error rate, throughput and spend, with alert rules for the failures the runbook anticipates, routed to your email or Slack.</p></li>
+            <li><strong>Runbook and handover</strong><p>A runbook that covers deploy, rollback, key rotation and the likeliest failures, then a handover call with whoever will be on call. The studio's access is removed at the end unless you ask for ongoing hourly support.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div>
+        <h2>Pricing</h2>
+        <div class="grid grid-2">
+          <div class="glass-soft tier"><div class="row-between"><h3>Hourly</h3><span class="price">$80–$150/hr</span></div><p>Deployment, pipeline and monitoring work billed by the hour.</p></div>
+          <div class="glass-soft tier tier-featured"><div class="row-between"><h3>Per project</h3><span class="price">$2,000–$6,000</span></div><p>Fixed scope from container to monitored production service.</p></div>
+        </div>
+        <div class="note"><p>Prices are in USD and are starting points. The final quote follows a scoping call.</p></div>
+      </div>
+
+      <div>
+        <h2>Where it fits</h2>
+        <div class="grid grid-2 fit">
+          <div class="glass-soft tile">
+            <h3>A good fit when</h3>
+            <ul>
+              <li>A prototype works and there is a repository the studio can build from.</li>
+              <li>You want to own the infrastructure: your Modal, Google Cloud or Hugging Face account, or your own Docker hosts.</li>
+              <li>The agent runs tools or code and needs isolation from the rest of your network.</li>
+            </ul>
+          </div>
+          <div class="glass-soft tile">
+            <h3>Not a fit when</h3>
+            <ul>
+              <li>There is no prototype yet. Start with <a href="../services/consulting-poc.html">AI Consulting &amp; Proof-of-Concept</a>, or have the agent built under <a href="../services/conversational-ai.html">Conversational AI &amp; RAG Agents</a>.</li>
+              <li>You need AWS, Azure, SageMaker or Kubernetes delivery. GTDataWorks deploys to Modal, Google Cloud Run, Hugging Face and Docker hosts, and does not take on stacks it has not shipped.</li>
+              <li>You would rather not run anything yourself. For MCP servers there is a hosted option: <a href="../services/mcp-servers.html">Managed MCP Servers</a>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>Questions</h2>
+        <div class="prose qa">
+          <h3>Where does the service run, and whose account is it?</h3>
+          <p>Yours. Modal, Google Cloud Run, Hugging Face and Docker hosts are set up under accounts you own and pay for directly; GTDataWorks is added as a collaborator for the length of the engagement. Your production traffic never passes through a GTDataWorks system.</p>
+          <h3>Who holds the API keys?</h3>
+          <p>You do. Keys for OpenAI, Anthropic and any other provider are created in your provider accounts and stored in the host's secrets manager, never in the repository or in a chat thread. Bring the keys you already have; the deployment reads them from the secrets store at runtime.</p>
+          <h3>What does the monitoring cover?</h3>
+          <p>The service: latency, error rate, throughput, spend and the host's own health, as Prometheus metrics on Grafana dashboards with alert rules. What the bot said and how often it was right is a different question, answered by <a href="../services/monitoring-analytics.html">Monitoring &amp; Analytics for AI Systems</a>.</p>
+          <h3>What happens after handover?</h3>
+          <p>The pipeline, dashboards and runbook work without the studio, and most teams run on their own from there. If you want changes later, the work is billed at the hourly rate on this page, and the runbook, config and pipeline history from the original engagement are the starting point.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="glass-soft tile sticky side" aria-label="Service facts">
+      <h3>At a glance</h3>
+      <dl class="facts">
+        <dt>Timeline</dt><dd>1–3 weeks</dd>
+        <dt>Pricing from</dt><dd><span class="price">$80/hr</span>, or <span class="price">$2,000</span> per project</dd>
+        <dt>Best for</dt><dd>Teams with a working prototype that now needs to run reliably for real users.</dd>
+      </dl>
+      <h3>Stack</h3>
+      <ul class="chips">
+        <li><span class="chip">Docker and Compose</span></li>
+        <li><span class="chip">Modal</span></li>
+        <li><span class="chip">Google Cloud Run</span></li>
+        <li><span class="chip">Hugging Face Spaces and Inference</span></li>
+        <li><span class="chip">GitHub Actions</span></li>
+        <li><span class="chip">gVisor and Firecracker sandboxing (cindermote)</span></li>
+        <li><span class="chip">Prometheus and Grafana</span></li>
+      </ul>
+      <h3>Related</h3>
+      <ul class="related">
+        <li><a href="../services/monitoring-analytics.html">Monitoring &amp; Analytics for AI Systems</a></li>
+        <li><a href="../services/security-compliance.html">Security &amp; Compliance for AI</a></li>
+        <li><a href="../services/mcp-servers.html">Managed MCP Servers</a></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="stack lit lit-pink"><div class="glass slab cta-band">
+      <h2>Put the prototype into production</h2>
+      <p class="lede">Describe what you have and where you want it to run. The brief builder asks the rest, and a scoping call sets the quote.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="../contact.html?service=deployment-mlops">Start a brief for this service</a>
+        <a class="btn btn-glass btn-lg" href="mailto:agents@gtdataworks.com">Email the studio</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Deployment, MLOps & Hosting",
+  "serviceType": "AI deployment, MLOps and hosting",
+  "description": "Prototypes turned into services that stay up.",
+  "url": "https://gtdataworks.com/services/deployment-mlops.html",
+  "provider": {"@type": "Organization", "name": "GTDataWorks", "url": "https://gtdataworks.com/"},
+  "offers": [
+    {"@type": "Offer", "name": "Hourly", "description": "Deployment, pipeline and monitoring work billed by the hour. $80–$150 per hour.", "priceCurrency": "USD"},
+    {"@type": "Offer", "name": "Per project", "description": "Fixed scope from container to monitored production service. $2,000–$6,000.", "priceCurrency": "USD"}
+  ]
+}
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="../services/index.html">Services</a><a href="../tool-failure-recovery.html">Selected work</a><a href="../about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

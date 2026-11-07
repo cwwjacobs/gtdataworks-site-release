@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market insights: LLM and agent services on Upwork — GTDataWorks</title>
+<meta name="description" content="Estimated Upwork demand for LLM and agent work in November 2026: postings by category, project budgets, skills named, and Upwork&#x27;s own 2026 growth figures.">
+<link rel="canonical" href="https://gtdataworks.com/insights.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Market insights: LLM and agent services on Upwork — GTDataWorks">
+<meta property="og:description" content="Estimated Upwork demand for LLM and agent work in November 2026: postings by category, project budgets, skills named, and Upwork&#x27;s own 2026 growth figures.">
+<meta property="og:url" content="https://gtdataworks.com/insights.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-insights">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="services/index.html" >Services</a></li>
+      <li><a href="tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+/* ---- insights: hero note, figures, HTML/CSS charts ------------------------- */
+body.page-insights .page-hero .note { margin-top: 28px; max-width: var(--measure); }
+body.page-insights .fig { margin: 0; }
+body.page-insights .chart { --surf: #0e0e16; }
+body.page-insights .chart-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px 24px; flex-wrap: wrap; margin-bottom: 16px; }
+body.page-insights .chart-title { margin: 0; font-size: 15px; font-weight: 500; color: var(--text); line-height: 1.4; }
+body.page-insights .chart-head .legend { margin: 0; color: var(--text); }
+body.page-insights .legend-swatch.is-cyan { background: var(--cyan); }
+body.page-insights .legend-swatch.is-gray { background: rgba(255,255,255,.26); }
+body.page-insights .legend-tick { display: inline-block; width: 2px; height: 14px; background: var(--text); margin-right: 10px; vertical-align: -3px; }
+body.page-insights .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
+body.page-insights .legend-dot.is-lo { border: 2px solid var(--gold); background: transparent; }
+body.page-insights .legend-dot.is-hi { background: var(--gold); }
+
+/* rows: label | track | value. Tracks share one scale (--max) so the per-row gridlines line up. */
+body.page-insights .rb { --label-w: minmax(0, 15.5rem); --val-w: 7rem; }
+body.page-insights .rb-list { list-style: none; margin: 0; padding: 0; }
+body.page-insights .rb-row { display: grid; grid-template-columns: var(--label-w) minmax(0, 1fr) var(--val-w); column-gap: 16px; align-items: center; border-radius: 6px; transition: background .15s ease; }
+body.page-insights .rb-row + .rb-row { margin-top: 0; }
+body.page-insights .rb-row:hover { background: rgba(255,255,255,.04); }
+body.page-insights .rb-label { font-size: 14.5px; line-height: 1.3; color: var(--text); padding: 7px 0 7px 8px; }
+body.page-insights .rb-label small { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+body.page-insights .rb-val { text-align: right; color: var(--muted); font-size: 13.5px; padding-right: 8px; white-space: nowrap; }
+body.page-insights .rb-track { position: relative; align-self: stretch; min-height: 44px; }
+body.page-insights .rb-track::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to right, rgba(255,255,255,.085) 1px, transparent 1px) 0 0 / calc(100% / var(--ticks)) 100% repeat-x;
+  border-right: 1px solid rgba(255,255,255,.085);
+}
+/* range bar + midpoint tick (Figure 1) */
+body.page-insights .rb-bar { position: absolute; top: calc(50% - 5px); height: 10px; border-radius: 5px; left: calc(var(--lo) / var(--max) * 100%); width: calc((var(--hi) - var(--lo)) / var(--max) * 100%); background: rgba(255,255,255,.26); }
+body.page-insights .is-lead .rb-bar { background: var(--cyan); }
+body.page-insights .rb-mid { position: absolute; top: calc(50% - 9px); height: 18px; width: 2px; left: calc(var(--mid) / var(--max) * 100% - 1px); background: var(--text); box-shadow: 0 0 0 2px var(--surf); }
+/* dumbbell (Figure 2) */
+body.page-insights .db-line { position: absolute; top: calc(50% - 1px); height: 2px; left: calc(var(--lo) / var(--max) * 100%); width: calc((var(--hi) - var(--lo)) / var(--max) * 100%); background: var(--gold); opacity: .75; }
+body.page-insights .db-dot { position: absolute; top: calc(50% - 5px); width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 0 2px var(--surf); }
+body.page-insights .db-lo { left: calc(var(--lo) / var(--max) * 100% - 5px); background: var(--surf); border: 2px solid var(--gold); }
+body.page-insights .db-hi { left: calc(var(--hi) / var(--max) * 100% - 5px); background: var(--gold); }
+/* axis */
+body.page-insights .rb-axis { display: grid; grid-template-columns: var(--label-w) minmax(0, 1fr) var(--val-w); column-gap: 16px; margin-top: 0; }
+body.page-insights .rb-axis-ticks { position: relative; height: 24px; border-top: 1px solid rgba(255,255,255,.16); }
+body.page-insights .rb-axis-ticks > span { position: absolute; top: 6px; left: calc(var(--p) * 100%); transform: translateX(-50%); font-family: var(--font-mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+body.page-insights .rb-axis-ticks > span:first-child { transform: none; }
+body.page-insights .rb-axis-ticks > span:last-child { transform: translateX(-100%); }
+body.page-insights .rb-axis-ticks .short { display: none; }
+body.page-insights .rb-axis-title { grid-column: 2; margin: 6px 0 0; font-size: 12.5px; color: var(--muted); }
+
+/* budgets: hourly table below the chart */
+body.page-insights .rates { max-width: 640px; margin-top: clamp(20px, 3vw, 32px); }
+body.page-insights .rates .table { font-size: 14px; }
+body.page-insights .rates .table th, body.page-insights .rates .table td { padding: 12px 10px; }
+body.page-insights .rates .table th:first-child, body.page-insights .rates .table td:first-child { padding-left: 0; }
+body.page-insights .rates .table th:last-child, body.page-insights .rates .table td:last-child { padding-right: 0; }
+body.page-insights .rates .table .num { color: var(--text); white-space: nowrap; }
+
+/* Table 1 */
+body.page-insights .table-panel { padding: 8px; }
+body.page-insights .table-panel::before { display: none; } /* no sheen over the header row */
+body.page-insights .table-panel .table-wrap { border-radius: 14px; }
+body.page-insights .table-panel .table { min-width: 760px; }
+body.page-insights .table-panel .table th:first-child, body.page-insights .table-panel .table td:first-child { padding-left: 20px; }
+body.page-insights .table-panel .table thead th { color: var(--muted); }
+body.page-insights .table-panel .table td small { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+body.page-insights .table-panel .table td.num { white-space: nowrap; color: var(--text); }
+body.page-insights .table-note { margin-top: 14px; }
+
+/* reading */
+body.page-insights .prose h3 { margin-top: 1.5em; }
+body.page-insights .prose h3:first-child { margin-top: 0; }
+body.page-insights .aside-block + .aside-block { margin-top: 24px; }
+
+/* Upwork figures */
+body.page-insights .stat .num { font-size: clamp(26px, 2.5vw, 34px); }
+body.page-insights .stat .stat-label { margin-bottom: 12px; }
+body.page-insights .stat-src { font-size: 13px; color: var(--muted); border-bottom: 1px solid rgba(255,255,255,.18); }
+body.page-insights .stat-src:hover { color: var(--text); border-color: var(--gold); text-decoration: none; }
+body.page-insights .stats-note { margin-top: 20px; }
+
+/* sources */
+body.page-insights .sources li { color: #d7d2e6; }
+body.page-insights .sources li + li { margin-top: .7em; }
+body.page-insights .sources a { overflow-wrap: anywhere; }
+
+@media (max-width: 900px) {
+  body.page-insights .rb { --label-w: minmax(0, 12rem); --val-w: 6.5rem; }
+}
+@media (max-width: 640px) {
+  body.page-insights .rb-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "label val" "track track"; column-gap: 10px; padding-bottom: 4px; }
+  body.page-insights .rb-label { grid-area: label; padding: 8px 0 0 4px; }
+  body.page-insights .rb-val { grid-area: val; padding: 9px 4px 0 0; align-self: start; }
+  body.page-insights .rb-track { grid-area: track; min-height: 30px; }
+  body.page-insights .rb-track::before { background-image: linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px); border-right-color: rgba(255,255,255,.06); }
+  body.page-insights .rb-axis { grid-template-columns: 1fr; }
+  body.page-insights .rb-axis-pad { display: none; }
+  body.page-insights .rb-axis-title { grid-column: 1; }
+  body.page-insights .rb-axis-ticks .full { display: none; }
+  body.page-insights .rb-axis-ticks .short { display: inline; }
+  body.page-insights .table-panel { padding: 4px; }
+  /* phones: each table row becomes a labelled block instead of a sideways scroll */
+  body.page-insights .table-panel .table { min-width: 0; }
+  body.page-insights .table-panel .table thead { display: none; }
+  body.page-insights .table-panel .table tr { display: block; padding: 16px 14px 18px; border-top: 1px solid rgba(255,255,255,.07); }
+  body.page-insights .table-panel .table tbody tr:first-child { border-top: 0; }
+  body.page-insights .table-panel .table td { display: block; border: 0; padding: 0; text-align: left; }
+  body.page-insights .table-panel .table td + td { margin-top: 10px; }
+  body.page-insights .table-panel .table td:first-child { font-size: 16px; font-weight: 500; padding-left: 0; }
+  body.page-insights .table-panel .table td.num { white-space: normal; }
+  body.page-insights .table-panel .table td[data-label]::before { content: attr(data-label); display: block; font: 400 12.5px/1.4 var(--font-body); color: var(--muted); margin-bottom: 2px; }
+}
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>Market insights</p>
+    <h1>What buyers are asking for</h1>
+    <p class="lede">A November 2026 review of Upwork postings and freelancer listings for LLM and agent work: where demand concentrates, what projects budget, and which skills are named.</p>
+    <div class="note">
+      <p>The counts and budget ranges on this page are GTDataWorks' estimates from a sample of Upwork listings reviewed in November 2026. They are not an Upwork export, and Upwork does not publish category counts. Figures from Upwork's own research are marked as such and linked in the <a href="#sources">sources</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demand">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Where demand concentrates</h2>
+      <p class="lede">Estimated Upwork postings in the 30 days before the review, by service category. By midpoint, chatbot and agent work is about a third of the sample, and the three categories the catalog leads with are about three-fifths of it.</p>
+    </div>
+    <div class="stack depth-3 lit lit-cyan" style="--lit-opacity:.28"><article class="glass slab">
+      <figure class="fig">
+        <div class="chart-head">
+          <p class="chart-title">Figure 1. Estimated postings in 30 days, by category</p>
+          <div class="legend">
+            <span><span class="legend-swatch is-cyan"></span>Categories the catalog leads with</span>
+            <span><span class="legend-swatch is-gray"></span>Other categories</span>
+            <span><span class="legend-tick"></span>Midpoint of the estimate</span>
+          </div>
+        </div>
+        <div class="glass-dark chart">
+          <div class="rb" style="--max:50;--ticks:5">
+            <ol class="rb-list">
+              <li class="rb-row is-lead" style="--lo:30;--hi:50;--mid:40">
+                <span class="rb-label">Chatbot &amp; agent development<small>RAG chatbots, virtual agents</small></span>
+                <span class="rb-track" aria-hidden="true" title="Chatbot and agent development: an estimated 30 to 50 or more postings; midpoint 40"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">30–50+</span>
+              </li>
+              <li class="rb-row is-lead" style="--lo:15;--hi:25;--mid:20">
+                <span class="rb-label">Prompt engineering &amp; fine-tuning</span>
+                <span class="rb-track" aria-hidden="true" title="Prompt engineering and fine-tuning: an estimated 15 to 25 postings; midpoint 20"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">15–25</span>
+              </li>
+              <li class="rb-row is-lead" style="--lo:10;--hi:20;--mid:15">
+                <span class="rb-label">Workflow integration &amp; orchestration<small>n8n, Zapier, Node-RED</small></span>
+                <span class="rb-track" aria-hidden="true" title="AI workflow integration and orchestration: an estimated 10 to 20 postings; midpoint 15"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">10–20</span>
+              </li>
+              <li class="rb-row" style="--lo:5;--hi:10;--mid:7.5">
+                <span class="rb-label">Model deployment &amp; MLOps</span>
+                <span class="rb-track" aria-hidden="true" title="AI/ML model deployment and MLOps: an estimated 5 to 10 postings; midpoint 7.5"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">5–10</span>
+              </li>
+              <li class="rb-row" style="--lo:5;--hi:10;--mid:7.5">
+                <span class="rb-label">Monitoring &amp; analytics</span>
+                <span class="rb-track" aria-hidden="true" title="AI system monitoring and analytics: an estimated 5 to 10 postings; midpoint 7.5"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">5–10</span>
+              </li>
+              <li class="rb-row" style="--lo:5;--hi:10;--mid:7.5">
+                <span class="rb-label">CRM/ERP AI integration<small>Salesforce, Dynamics</small></span>
+                <span class="rb-track" aria-hidden="true" title="CRM/ERP AI integration: an estimated 5 to 10 postings; midpoint 7.5"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">5–10</span>
+              </li>
+              <li class="rb-row" style="--lo:5;--hi:10;--mid:7.5">
+                <span class="rb-label">Custom connectors &amp; APIs<small>LLM plugins, database connectors</small></span>
+                <span class="rb-track" aria-hidden="true" title="Custom connectors and APIs: an estimated 5 to 10 postings; midpoint 7.5"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">5–10</span>
+              </li>
+              <li class="rb-row" style="--lo:5;--hi:10;--mid:7.5">
+                <span class="rb-label">AI consulting &amp; strategy</span>
+                <span class="rb-track" aria-hidden="true" title="AI consulting and strategy: an estimated 5 to 10 postings; midpoint 7.5"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">5–10</span>
+              </li>
+              <li class="rb-row" style="--lo:3;--hi:7;--mid:5">
+                <span class="rb-label">Evaluation &amp; benchmarking<small>LLM fine-tune evaluation</small></span>
+                <span class="rb-track" aria-hidden="true" title="Evaluation and benchmarking: an estimated 3 to 7 postings; midpoint 5"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">3–7</span>
+              </li>
+              <li class="rb-row" style="--lo:2;--hi:5;--mid:3.5">
+                <span class="rb-label">Security &amp; compliance for AI</span>
+                <span class="rb-track" aria-hidden="true" title="Security and compliance for AI: an estimated 2 to 5 postings; midpoint 3.5"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">2–5</span>
+              </li>
+              <li class="rb-row" style="--lo:1;--hi:3;--mid:2">
+                <span class="rb-label">Managed chatbot hosting</span>
+                <span class="rb-track" aria-hidden="true" title="Managed chatbot hosting: an estimated 1 to 3 postings; midpoint 2"><span class="rb-bar"></span><span class="rb-mid"></span></span>
+                <span class="rb-val num">1–3</span>
+              </li>
+            </ol>
+            <div class="rb-axis" aria-hidden="true">
+              <span class="rb-axis-pad"></span>
+              <div class="rb-axis-ticks">
+                <span style="--p:0">0</span><span style="--p:.2">10</span><span style="--p:.4">20</span><span style="--p:.6">30</span><span style="--p:.8">40</span><span style="--p:1">50</span>
+              </div>
+              <span class="rb-axis-pad"></span>
+              <p class="rb-axis-title">Estimated postings in the 30 days before the review</p>
+            </div>
+          </div>
+        </div>
+        <figcaption class="chart-caption">Figure 1. Estimated number of Upwork postings per category in the 30 days before GTDataWorks' November 2026 review, from a sample of listings, not an Upwork export. Each bar runs from the low to the high estimate and the tick marks the midpoint; "50+" is drawn at 50. Cyan marks the three categories the <a href="services/index.html">service catalog</a> leads with.</figcaption>
+      </figure>
+    </article></div>
+  </div>
+</section>
+
+<section class="section" id="budgets">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What projects budget</h2>
+      <p class="lede">Fixed-price ranges named in the sampled postings, by category. Most of the work sits between a few hundred and a few thousand dollars, and no category's range tops $5,000.</p>
+    </div>
+    <div class="stack lit lit-purple"><article class="glass slab">
+        <figure class="fig">
+          <div class="chart-head">
+            <p class="chart-title">Figure 2. Fixed-price budget ranges, by category</p>
+            <div class="legend">
+              <span><span class="legend-dot is-lo"></span>Low end of the range</span>
+              <span><span class="legend-dot is-hi"></span>High end of the range</span>
+            </div>
+          </div>
+          <div class="glass-dark chart">
+            <div class="rb" style="--max:5000;--ticks:5">
+              <ol class="rb-list">
+                <li class="rb-row" style="--lo:1000;--hi:5000">
+                  <span class="rb-label">Model deployment &amp; MLOps</span>
+                  <span class="rb-track" aria-hidden="true" title="Model deployment and MLOps: about $1,000 to $5,000 fixed price"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$1,000–5,000</span>
+                </li>
+                <li class="rb-row" style="--lo:500;--hi:5000">
+                  <span class="rb-label">Chatbot &amp; agent development<small>also quoted hourly, see below</small></span>
+                  <span class="rb-track" aria-hidden="true" title="Chatbot and agent development: about $500 to $5,000 fixed price, or $30 to $120 per hour"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$500–5,000</span>
+                </li>
+                <li class="rb-row" style="--lo:800;--hi:4000">
+                  <span class="rb-label">CRM/ERP AI integration</span>
+                  <span class="rb-track" aria-hidden="true" title="CRM/ERP AI integration: about $800 to $4,000 fixed price"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$800–4,000</span>
+                </li>
+                <li class="rb-row" style="--lo:1000;--hi:3000">
+                  <span class="rb-label">Managed chatbot hosting<small>project fee plus a retainer</small></span>
+                  <span class="rb-track" aria-hidden="true" title="Managed chatbot hosting: project fee of about $1,000 to $3,000 plus a retainer"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$1,000–3,000</span>
+                </li>
+                <li class="rb-row" style="--lo:500;--hi:3000">
+                  <span class="rb-label">Workflow integration &amp; orchestration</span>
+                  <span class="rb-track" aria-hidden="true" title="Workflow integration and orchestration: about $500 to $3,000 fixed price"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$500–3,000</span>
+                </li>
+                <li class="rb-row" style="--lo:500;--hi:3000">
+                  <span class="rb-label">Security &amp; compliance for AI</span>
+                  <span class="rb-track" aria-hidden="true" title="Security and compliance for AI: about $500 to $3,000 fixed price"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$500–3,000</span>
+                </li>
+                <li class="rb-row" style="--lo:500;--hi:2500">
+                  <span class="rb-label">Custom connectors &amp; APIs</span>
+                  <span class="rb-track" aria-hidden="true" title="Custom connectors and APIs: about $500 to $2,500 fixed price"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$500–2,500</span>
+                </li>
+                <li class="rb-row" style="--lo:500;--hi:2000">
+                  <span class="rb-label">Evaluation &amp; benchmarking</span>
+                  <span class="rb-track" aria-hidden="true" title="Evaluation and benchmarking: about $500 to $2,000 fixed price"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$500–2,000</span>
+                </li>
+                <li class="rb-row" style="--lo:300;--hi:2000">
+                  <span class="rb-label">Monitoring &amp; analytics</span>
+                  <span class="rb-track" aria-hidden="true" title="Monitoring and analytics: about $300 to $2,000 fixed price"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$300–2,000</span>
+                </li>
+                <li class="rb-row" style="--lo:200;--hi:2000">
+                  <span class="rb-label">Prompt engineering &amp; fine-tuning</span>
+                  <span class="rb-track" aria-hidden="true" title="Prompt engineering and fine-tuning: about $200 to $2,000 fixed price"><span class="db-line"></span><span class="db-dot db-lo"></span><span class="db-dot db-hi"></span></span>
+                  <span class="rb-val num">$200–2,000</span>
+                </li>
+              </ol>
+              <div class="rb-axis" aria-hidden="true">
+                <span class="rb-axis-pad"></span>
+                <div class="rb-axis-ticks">
+                  <span style="--p:0">$0</span>
+                  <span style="--p:.2"><span class="full">$1,000</span><span class="short">$1k</span></span>
+                  <span style="--p:.4"><span class="full">$2,000</span><span class="short">$2k</span></span>
+                  <span style="--p:.6"><span class="full">$3,000</span><span class="short">$3k</span></span>
+                  <span style="--p:.8"><span class="full">$4,000</span><span class="short">$4k</span></span>
+                  <span style="--p:1"><span class="full">$5,000</span><span class="short">$5k</span></span>
+                </div>
+                <span class="rb-axis-pad"></span>
+                <p class="rb-axis-title">Fixed-price budget, USD, linear scale</p>
+              </div>
+            </div>
+          </div>
+          <figcaption class="chart-caption">Figure 2. Approximate fixed-price budget ranges named in the sampled postings, by category, sorted by midpoint. Estimates from GTDataWorks' November 2026 sample of Upwork listings, not an Upwork export. The hollow dot is the low end of the range and the filled dot the high end. AI consulting was quoted hourly only and appears in the table below the chart.</figcaption>
+        </figure>
+    </article></div>
+    <aside class="glass-soft tile rates">
+        <h3>Quoted by the hour</h3>
+        <p class="muted small">Two categories were priced by the hour, one of them alongside fixed-price work. Managed hosting added a retainer whose size the postings did not state.</p>
+        <table class="table">
+          <thead><tr><th scope="col">Category</th><th scope="col" class="num">Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Chatbot &amp; agent development<br><span class="muted small">alongside fixed-price work</span></td><td class="num">$30–120/hr</td></tr>
+            <tr><td>AI consulting &amp; strategy<br><span class="muted small">often on retainer</span></td><td class="num">$50–150/hr</td></tr>
+            <tr><td>Managed chatbot hosting<br><span class="muted small">retainer on top of the project fee</span></td><td class="num">not stated</td></tr>
+          </tbody>
+        </table>
+        <p class="muted small" style="margin:16px 0 0">Hourly figures are from the same November 2026 sample and are estimates. For Upwork's published rate guidance, see <a href="#context">what Upwork reports</a>.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="table">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The sample in one table</h2>
+      <p class="lede">Every category from the review with its estimated posting count, budget range and the skills buyers named. Skills are as written in postings.</p>
+    </div>
+    <div class="glass-soft table-panel">
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Service category</th>
+              <th scope="col" class="num">Estimated postings, 30 days</th>
+              <th scope="col">Budget range</th>
+              <th scope="col">Key skills and tools named</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LLM/chatbot agent development<small>RAG chatbots, virtual agents</small></td>
+              <td class="num" data-label="Estimated postings, 30 days">30–50+</td>
+              <td data-label="Budget range">~$500–$5,000 fixed, or $30–$120/hr</td>
+              <td data-label="Key skills and tools named">LLMs (OpenAI GPT, Anthropic), LangChain/Semantic Kernel, vector DBs, cloud hosting</td>
+            </tr>
+            <tr>
+              <td>Prompt engineering &amp; fine-tuning</td>
+              <td class="num" data-label="Estimated postings, 30 days">15–25</td>
+              <td data-label="Budget range">~$200–$2,000</td>
+              <td data-label="Key skills and tools named">GPT/Claude prompting, tuning frameworks (LoRA, Alpaca), prompt eval tools</td>
+            </tr>
+            <tr>
+              <td>AI workflow integration &amp; orchestration<small>n8n, Zapier, Node-RED</small></td>
+              <td class="num" data-label="Estimated postings, 30 days">10–20</td>
+              <td data-label="Budget range">~$500–$3,000</td>
+              <td data-label="Key skills and tools named">n8n, Node-RED, Zapier, Python/JS scripting, API integration</td>
+            </tr>
+            <tr>
+              <td>AI/ML model deployment &amp; MLOps</td>
+              <td class="num" data-label="Estimated postings, 30 days">5–10</td>
+              <td data-label="Budget range">~$1,000–$5,000</td>
+              <td data-label="Key skills and tools named">Cloud hosting, Docker/Kubernetes, CI/CD pipelines, monitoring (Prometheus, Grafana)</td>
+            </tr>
+            <tr>
+              <td>AI system monitoring &amp; analytics</td>
+              <td class="num" data-label="Estimated postings, 30 days">5–10</td>
+              <td data-label="Budget range">~$300–$2,000</td>
+              <td data-label="Key skills and tools named">Analytics stacks, logging, LangFlow, LangSmith, interpretability tools</td>
+            </tr>
+            <tr>
+              <td>Security &amp; compliance (AI)</td>
+              <td class="num" data-label="Estimated postings, 30 days">2–5</td>
+              <td data-label="Budget range">~$500–$3,000</td>
+              <td data-label="Key skills and tools named">Data privacy (GDPR, HIPAA), secure API design, token filtering, audit logging</td>
+            </tr>
+            <tr>
+              <td>CRM/ERP AI integration<small>e.g. Salesforce, Dynamics</small></td>
+              <td class="num" data-label="Estimated postings, 30 days">5–10</td>
+              <td data-label="Budget range">~$800–$4,000</td>
+              <td data-label="Key skills and tools named">Salesforce API, HubSpot, SAP, Mulesoft, integration patterns</td>
+            </tr>
+            <tr>
+              <td>Custom connectors &amp; APIs<small>LLM plugins, DB connectors</small></td>
+              <td class="num" data-label="Estimated postings, 30 days">5–10</td>
+              <td data-label="Budget range">~$500–$2,500</td>
+              <td data-label="Key skills and tools named">REST APIs, SDKs (OpenAI, Hugging Face), database connectors, middleware</td>
+            </tr>
+            <tr>
+              <td>Managed chatbot hosting</td>
+              <td class="num" data-label="Estimated postings, 30 days">1–3</td>
+              <td data-label="Budget range">Project ($1k–3k) plus retainer</td>
+              <td data-label="Key skills and tools named">Rasa, Botpress, Dialogflow, multi-channel hosting</td>
+            </tr>
+            <tr>
+              <td>Evaluation &amp; benchmarking<small>LLM fine-tune evaluation</small></td>
+              <td class="num" data-label="Estimated postings, 30 days">3–7</td>
+              <td data-label="Budget range">~$500–$2,000</td>
+              <td data-label="Key skills and tools named">Evaluation metrics (BLEU, ROUGE), benchmark suites (LM Bench, Hugging Face evals)</td>
+            </tr>
+            <tr>
+              <td>AI consulting &amp; strategy</td>
+              <td class="num" data-label="Estimated postings, 30 days">5–10</td>
+              <td data-label="Budget range">$50–$150/hr, often on retainer</td>
+              <td data-label="Key skills and tools named">Business analysis, ROI modeling, proof-of-concept development, workshops</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="chart-caption table-note">Table 1. AI and LLM service categories observed in GTDataWorks' November 2026 sample of Upwork postings and freelancer listings. Posting counts and budgets are representative estimates from that sample, not an Upwork export. Cloud platforms are listed generically; postings named several.</p>
+  </div>
+</section>
+
+<section class="section" id="buying">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What this means if you are buying</h2>
+    </div>
+    <div class="grid grid-sidebar">
+    <div class="prose">
+      <h3>Demand is for applying models, not training them</h3>
+      <p>Nearly every posting in the sample asks for an existing model put to work: a chatbot that answers from a document set, an LLM feature inside an app that already exists, an automation that moves records between tools. Requests to train a model from scratch were rare. Upwork's own figures point the same way: AI integration grew 178% last year and AI chatbot development 71%, while generative AI modeling grew 21%.</p>
+      <h3>Chatbots are the crowded, mature end</h3>
+      <p>An analysis of Upwork postings by Bloomberry put the growth in chatbot-development jobs at roughly 2,000% between ChatGPT's release and February 2024. Upwork's 2026 report shows the category still growing, at 71% last year, now behind AI integration. For a buyer that means many bidders and a wide quality range: freelancer packages in the sample ran from about $100 for a minimal LangChain agent to $850 for an advanced one, and project budgets for nominally the same deliverable ran from $500 to $5,000.</p>
+      <h3>A few hundred to a few thousand dollars, with expert hours above that</h3>
+      <p>Fixed-price ranges in the sample start between $200 and $1,000 and top out between $2,000 and $5,000, depending on category. Hourly work was quoted at $30–$120 for chatbot development and $50–$150 for consulting; Upwork's own rate guide puts highly specialized development, AI and consulting work at $75–$150 and above per hour. The starting prices in the <a href="services/index.html">service catalog</a> sit inside these ranges.</p>
+      <h3>Buyers specify the deliverable and a short turnaround</h3>
+      <p>Postings that read as ready to hire name what arrives at the end: a working agent or chatbot, the source code with comments, documentation, and often deployment scripts or notes. Gig turnarounds ran 3 to 14 days; integrations that touch several systems ran a few weeks. Clients were in e-commerce, finance, healthcare and software, mostly in the United States and the European Union.</p>
+      <h3>Writing a brief that gets a fixed quote</h3>
+      <p>Name the system the agent has to touch, the content it answers from, who will use it and how often, what done looks like, and a budget band. With those five, a fixed quote is possible without a discovery call; without them, every bid is a guess padded for risk. Bring them to the <a href="contact.html#brief">brief builder on the contact page</a>.</p>
+    </div>
+    <aside class="glass-soft tile">
+      <div class="aside-block">
+        <h3>Named in postings</h3>
+        <ul class="chips">
+          <li><span class="chip">OpenAI API</span></li><li><span class="chip">Anthropic API</span></li><li><span class="chip">LangChain</span></li><li><span class="chip">Semantic Kernel</span></li><li><span class="chip">Vector databases</span></li><li><span class="chip">n8n</span></li><li><span class="chip">Zapier</span></li><li><span class="chip">Node-RED</span></li><li><span class="chip">Python</span></li><li><span class="chip">REST APIs</span></li><li><span class="chip">Docker</span></li><li><span class="chip">LangSmith</span></li><li><span class="chip">GDPR / HIPAA data handling</span></li>
+        </ul>
+      </div>
+      <div class="aside-block">
+        <h3>Typical terms</h3>
+        <dl class="facts">
+          <dt>Gig turnaround</dt><dd>3–14 days</dd>
+          <dt>Multi-system work</dt><dd>A few weeks</dd>
+          <dt>Deliverables</dt><dd>Working agent, source, docs, deployment notes</dd>
+          <dt>Buyers</dt><dd>E-commerce, finance, healthcare, software; US and EU</dd>
+        </dl>
+      </div>
+      <p class="muted small" style="margin:22px 0 0">All from the November 2026 sample; estimates, not an export.</p>
+    </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="context">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What Upwork reports</h2>
+      <p class="lede">Four figures from Upwork's own publications, for context. The sample above is GTDataWorks' work; these are Upwork's, and each links to its source.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="glass-soft tile stat">
+        <span class="num">109%</span>
+        <span class="stat-label">Year-over-year growth in demand for skills that explicitly mention AI, against 23% for the remaining skills.</span>
+        <a class="stat-src" href="#src-upwork-skills">Upwork In-Demand Skills, 2026</a>
+      </div>
+      <div class="glass-soft tile stat">
+        <span class="num">178%</span>
+        <span class="stat-label">Growth in AI integration, the fastest-growing skill in Upwork's coding and web development category.</span>
+        <a class="stat-src" href="#src-upwork-skills">Upwork In-Demand Skills, 2026</a>
+      </div>
+      <div class="glass-soft tile stat">
+        <span class="num">71%</span>
+        <span class="stat-label">Growth in AI chatbot development, second in the same category.</span>
+        <a class="stat-src" href="#src-upwork-skills">Upwork In-Demand Skills, 2026</a>
+      </div>
+      <div class="glass-soft tile stat">
+        <span class="num">$75–150+</span>
+        <span class="stat-label">Per hour: the rate highly specialized roles in development, AI and consulting often reach.</span>
+        <a class="stat-src" href="#src-upwork-rates">Upwork hourly-rate guide, 2026</a>
+      </div>
+    </div>
+    <div class="note note-cyan stats-note">
+      <p>Upwork's growth figures compare freelancer earnings on contracted jobs between 1 January and 31 December 2025 with the same period of 2024, for demand originating in the United States; Upwork describes them as demand growth. They measure money paid, not posting counts, so they are not directly comparable with the estimates above.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sources">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Sources</h2>
+    </div>
+    <ol class="sources measure">
+      <li id="src-upwork-skills">Upwork Research Institute, <a href="https://www.upwork.com/research/in-demand-skills-2026" rel="noopener">In-Demand Skills 2026: A Market View of Skills Demand in an AI Economy</a>, 4 February 2026. Source of the 109%, 178%, 71% and 21% growth figures. Also published as a <a href="https://investors.upwork.com/news-releases/news-release-details/upworks-demand-skills-2026-demand-top-ai-skills-more-doubles-ai" rel="noopener">press release</a> on the same date.</li>
+      <li id="src-upwork-rates">Upwork, <a href="https://www.upwork.com/resources/upwork-hourly-rates" rel="noopener">Upwork Hourly Rates: Average Rates by Skill and Experience in 2026</a>, 2026 (the page carries no publication date). Source of the $75–$150+ per hour figure, quoted in its own words.</li>
+      <li id="src-bloomberry">Henley Wing Chiu, Bloomberry, <a href="https://bloomberry.com/i-analyzed-5m-freelancing-jobs-to-see-what-jobs-are-being-replaced-by-ai/" rel="noopener">I analyzed 5M freelancing jobs to see what jobs are being replaced by AI</a>, 16 February 2024, updated 23 January 2026. Source of the 2,000% chatbot-development figure; covers Upwork postings from 1 November 2022 to 14 February 2024.</li>
+      <li id="src-sample">GTDataWorks, November 2026 sample of Upwork postings and freelancer listings for LLM and agent work. Source of Table 1, Figure 1, Figure 2 and the hourly table. Posting counts and budget ranges are estimates from that sample, not an Upwork export.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="stack lit lit-pink"><div class="glass slab cta-band">
+      <h2>Bring a brief, get a fixed quote</h2>
+      <p class="lede">Describe the system, the content and what done looks like. GTDataWorks replies with a scope and a price inside the ranges above, and every engagement ships with receipts.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="contact.html#brief">Start a project brief</a>
+        <a class="btn btn-glass btn-lg" href="services/index.html">See the service catalog</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="services/index.html">Services</a><a href="tool-failure-recovery.html">Selected work</a><a href="about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

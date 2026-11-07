@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tool Failure Recovery — a recorded evaluation study — GTDataWorks</title>
+<meta name="description" content="Inspect a 500-scenario recovery study: 447 accepted outcomes, 53 exhausted retry budgets, and distinct evaluation and training views of retained evidence.">
+<link rel="canonical" href="https://gtdataworks.com/tool-failure-recovery.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Tool Failure Recovery — a recorded evaluation study — GTDataWorks">
+<meta property="og:description" content="Inspect a 500-scenario recovery study: 447 accepted outcomes, 53 exhausted retry budgets, and distinct evaluation and training views of retained evidence.">
+<meta property="og:url" content="https://gtdataworks.com/tool-failure-recovery.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-tool-failure-recovery">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="services/index.html" >Services</a></li>
+      <li><a href="tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+.study-wrap { max-width:1020px; }
+.study-intro { max-width:720px; }
+.study-intro h1 { font-size:clamp(36px,5vw,58px); }
+.study-label { display:inline-block; font-size:13px; color:#c5b394; margin-top:18px; }
+.study-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(24px,5vw,60px); align-items:start; }
+.study-grid h2,.study-section h2 { font-size:clamp(27px,3vw,36px); line-height:1.2; }
+.study-section { border-top:1px solid #465450; padding-top:42px; margin-top:48px; }
+.study-section p { max-width:70ch; color:#bfcbc7; }
+.study-card { background:linear-gradient(140deg,#303d3f,#202c32); border:1px solid #52635f; border-radius:18px; padding:clamp(22px,3vw,36px); }
+.view-buttons { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px; }
+.view-buttons button { appearance:none; border:1px solid #73817a; border-radius:7px; padding:10px 12px; font:inherit; font-size:14px; color:#e4e7dd; background:#263237; cursor:pointer; }
+.view-buttons button[aria-pressed="true"] { color:#17211f; background:#dcc49a; border-color:#dcc49a; }
+.view-buttons button:focus-visible { outline:3px solid #b8dcd0; outline-offset:3px; }
+.view-number { display:block; font-family:var(--font-mono); color:#e4c99e; font-size:56px; line-height:1.1; margin-bottom:12px; }
+.view-title { font-size:21px; margin:0 0 12px; }
+.view-note { min-height:5em; color:#c4cfca; font-size:15px; }
+.study-bar { display:flex; height:18px; gap:4px; margin:24px 0 14px; }
+.study-bar span:first-child { width:89.4%; background:#a8c4b8; border-radius:4px 0 0 4px; }
+.study-bar span:last-child { flex:1; background:repeating-linear-gradient(45deg,#dfb574,#dfb574 3px,#604e35 3px,#604e35 6px); border-radius:0 4px 4px 0; }
+.study-bar.training span:first-child { width:100%; border-radius:4px; }
+.study-bar.training span:last-child { display:none; }
+.study-legend { font-size:13px; color:#c4cfca; }
+.study-table-wrap { overflow-x:auto; border:1px solid #52635f; border-radius:10px; }
+.study-table { width:100%; border-collapse:collapse; font-size:15px; margin:0; }
+.study-table caption { text-align:left; padding:18px; color:#d5c3a4; font-size:14px; }
+.study-table th,.study-table td { padding:13px 18px; border-top:1px solid #45524f; text-align:right; }
+.study-table th:first-child { text-align:left; font-weight:400; }
+.study-table thead th { font-weight:500; color:#c5d2cb; font-size:13px; }
+.study-table tbody th { color:#e8e5db; }
+.study-table tbody td { font-family:var(--font-mono); color:#d6dcd2; }
+.study-table tfoot { background:#2e3b3a; }
+.study-facts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin:28px 0; }
+.study-facts div { border-top:1px solid #53615a; padding-top:17px; }
+.study-facts dt { color:#bbc9c3; font-size:14px; }
+.study-facts dd { font-family:var(--font-mono); font-size:32px; margin:12px 0 0; color:#dfc79e; }
+.study-details { border-top:1px solid #53615a; padding:20px 0; }
+.study-details summary { cursor:pointer; color:#dfc79e; font-size:17px; }
+.study-details p { font-size:15px; }
+.study-details code { font-size:12px; overflow-wrap:anywhere; color:#d7c9b2; }
+.study-download { display:flex; gap:16px 24px; flex-wrap:wrap; align-items:center; margin:28px 0; }
+@media(max-width:760px) { .study-grid { grid-template-columns:minmax(0,1fr); } .study-facts { grid-template-columns:1fr; gap:12px; } .study-facts div { display:flex; justify-content:space-between; align-items:baseline; gap:20px; } .study-facts dd { margin:0; } .study-table th,.study-table td { padding:12px 9px; } .study-table { font-size:13px; } }
+</style>
+<section class="page-hero"><div class="wrap study-wrap study-intro">
+  <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>Selected work</p>
+  <p class="eyebrow">GTD DATASET FACTORY CORE</p>
+  <h1>A recovery study that keeps the whole record.</h1>
+  <p class="lede">A useful training example and an honest evaluation need different views of the same evidence. This study preserves that distinction.</p>
+  <p class="study-label">Historical Tool Failure Recovery v2 · Archived August 2026 · Counts rechecked November 7, 2026</p>
+</div></section>
+<section class="section"><div class="wrap study-wrap">
+  <div class="study-grid" id="results">
+    <div>
+      <h2>What changes when you select only successes?</h2>
+      <p class="muted">The evaluation contains 500 scenarios across ten tool-failure templates. Each scenario receives up to three semantic attempts; the protocol stops when the grader accepts a recovery.</p>
+      <p class="muted">447 scenarios met the recovery criteria. 53 exhausted their retry budget. A training projection selects one successful example per accepted scenario; the evaluation retains the full scenario population.</p>
+      <p class="muted small">The controls inspect recorded aggregate results. They do not run a model.</p>
+    </div>
+    <div class="study-card">
+      <div class="view-buttons" role="group" aria-label="Choose a recorded data view">
+        <button type="button" data-study-view="evaluation" aria-pressed="true">Full evaluation</button>
+        <button type="button" data-study-view="training" aria-pressed="false">Training selection</button>
+      </div>
+      <div aria-live="polite" aria-atomic="true">
+        <span class="view-number" id="view-number">500</span>
+        <h3 class="view-title" id="view-title">All evaluated scenarios</h3>
+        <p class="view-note" id="view-note">447 accepted outcomes and 53 retry-exhausted outcomes. Failed scenarios remain visible in the denominator.</p>
+        <div class="study-bar" id="study-bar" aria-hidden="true"><span></span><span></span></div>
+        <p class="study-legend" id="view-legend">447 accepted · 53 retries exhausted</p>
+      </div>
+      <noscript><p>Training selection: 447 successful examples. The 53 retry-exhausted scenarios remain in the evaluation, outside this training view.</p></noscript>
+    </div>
+  </div>
+  <div class="study-section">
+    <h2>Results by failure template</h2>
+    <p>“Accepted” means the recorded recovery met this study’s declared rubric. Each template contributes 50 scenarios.</p>
+    <div class="study-table-wrap" role="region" aria-label="Outcome breakdown" tabindex="0"><table class="study-table">
+      <caption>Primary cohort · Recorded model ID: gpt-5.6-luna</caption>
+      <thead><tr><th scope="col">Failure template</th><th scope="col">Accepted</th><th scope="col">Retries exhausted</th><th scope="col">Scenarios</th></tr></thead>
+      <tbody><tr><th scope="row">Wrong step order</th><td>50</td><td>0</td><td>50</td></tr>
+<tr><th scope="row">Skipped step</th><td>50</td><td>0</td><td>50</td></tr>
+<tr><th scope="row">Cascading failure</th><td>50</td><td>0</td><td>50</td></tr>
+<tr><th scope="row">Recovery loop</th><td>50</td><td>0</td><td>50</td></tr>
+<tr><th scope="row">Wrong tool</th><td>50</td><td>0</td><td>50</td></tr>
+<tr><th scope="row">Missing argument</th><td>50</td><td>0</td><td>50</td></tr>
+<tr><th scope="row">Schema violation</th><td>49</td><td>1</td><td>50</td></tr>
+<tr><th scope="row">Wrong argument value</th><td>48</td><td>2</td><td>50</td></tr>
+<tr><th scope="row">Timeout</th><td>50</td><td>0</td><td>50</td></tr>
+<tr><th scope="row">Permission denial</th><td>0</td><td>50</td><td>50</td></tr></tbody>
+      <tfoot><tr><th scope="row">Total</th><td>447</td><td>53</td><td>500</td></tr></tfoot>
+    </table></div>
+    <p class="small">These are scenario outcomes under a fixed protocol. Later attempts are conditioned on earlier failures; the attempts are not independent trials. The model identifier is taken from the retained records.</p>
+  </div>
+  <div class="study-section">
+    <h2>A rejected result needs a diagnosis.</h2>
+    <p>The permission-denial template produced no accepted recovery in the primary cohort. A separate nine-attempt diagnostic also produced no accepted recovery across its 50 scenarios.</p>
+    <p>That does not establish permission bypass. All 450 diagnostic attempts recorded the strategy <code>respect_permission_boundary</code> and an empty forbidden-tools list. One inspected blocked response failed schema checks for a missing required field and an additional field.</p>
+    <p>The distinction matters: a rubric failure can expose an output-contract problem. The diagnostic remains separate from the 500-scenario evaluation.</p>
+  </div>
+  <div class="study-section" id="evidence">
+    <h2>What the record contains</h2>
+    <dl class="study-facts"><div><dt>Model-attempt records</dt><dd>629</dd></div><div><dt>Synthetic terminal markers</dt><dd>54</dd></div><div><dt>Total receipt records</dt><dd>683</dd></div></dl>
+    <p>Scenario outcomes, attempt records, and terminal markers are different counts. Preserving them separately lets a training view change without rewriting the historical record.</p>
+    <div class="study-download"><a class="btn btn-primary" href="assets/tool-failure-recovery-v2-summary.json" download>Download aggregate results</a><a class="link-quiet" href="assets/tool-failure-recovery-v2-summary.json">Inspect JSON</a></div>
+    <details class="study-details"><summary>Source verification and limits</summary>
+      <p>On November 7, 2026, we recounted scenario rows, training rows, and receipt-index records from the retained August archive. All eight files listed in the pack’s checksum manifest matched. The packaged scenario view matched the retained source view byte for byte.</p>
+      <p>This check did not rerun the model, recompute the rubric, validate every sealed tape, or establish independent human sign-off. The downloadable summary contains aggregate counts and source hashes; it does not contain the raw traces needed to independently regrade the study.</p>
+      <p>The success-only training view contains examples from both planned splits and is not a held-out evaluation set. This historical upstream pack has been superseded as a commercial release.</p>
+      <p>A hash identifies bytes and detects changes relative to a recorded value. It does not establish correctness, authorship, or general safety.</p>
+      <p>Scenario view SHA-256<br><code>a7654b7f8a4d583dc92b45cb9bdd0c38a1ea8219949bfd5cf5aaa4fe02ef83cb</code></p>
+    </details>
+    <details class="study-details"><summary>How the dataset is produced</summary>
+      <p>The factory distinguishes the scenario, each attempt, the retained evidence, and the projection built from it. Evaluation reports and training rows are derived views. They do not replace the underlying execution records.</p>
+      <p>For this capture, the recorded protocol is <code>tool_failure_semantic_v2</code> with the <code>replay_direct</code> prompt builder and a three-attempt primary budget. The permission diagnostic has a separate context and budget.</p>
+      <p><a href="about.html">Read about Gold Trace Dataworks and the evidence pipeline</a></p>
+    </details>
+  </div>
+  <div class="study-section"><h2>Test the behavior your workflow depends on.</h2><p>We can help define the scenarios, build the runner, and turn the resulting records into an evaluation or dataset suited to your use.</p><div class="study-download"><a class="btn btn-primary" href="contact.html">Discuss an evaluation</a><a href="mailto:agents@gtdataworks.com">agents@gtdataworks.com</a></div></div>
+</div></section>
+<script>
+(() => {
+  const views = {
+    evaluation: ['500','All evaluated scenarios','447 accepted outcomes and 53 retry-exhausted outcomes. Failed scenarios remain visible in the denominator.','447 accepted · 53 retries exhausted'],
+    training: ['447','Selected successful examples','One successful example per accepted scenario. The 53 retry-exhausted scenarios are excluded from this training view, not erased from the evidence.','447 selected · 53 excluded from this view']
+  };
+  document.querySelectorAll('[data-study-view]').forEach(button => button.addEventListener('click', () => {
+    const key=button.dataset.studyView;
+    if (!views[key]) return;
+    document.querySelectorAll('[data-study-view]').forEach(b => b.setAttribute('aria-pressed',String(b===button)));
+    ['view-number','view-title','view-note','view-legend'].forEach((id,i) => {document.getElementById(id).textContent=views[key][i];});
+    document.getElementById('study-bar').classList.toggle('training',key==='training');
+  }));
+})();
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="services/index.html">Services</a><a href="tool-failure-recovery.html">Selected work</a><a href="about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

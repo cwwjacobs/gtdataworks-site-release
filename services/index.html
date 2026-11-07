@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — GTDataWorks</title>
+<meta name="description" content="Twelve services for teams putting LLM agents to work: RAG assistants, agent workflows, prompt tuning, MCP servers and evaluation. Fixed tiers or hourly rates.">
+<link rel="canonical" href="https://gtdataworks.com/services/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Services — GTDataWorks">
+<meta property="og:description" content="Twelve services for teams putting LLM agents to work: RAG assistants, agent workflows, prompt tuning, MCP servers and evaluation. Fixed tiers or hourly rates.">
+<meta property="og:url" content="https://gtdataworks.com/services/">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-services">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="../services/index.html" aria-current="page">Services</a></li>
+      <li><a href="../tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="../about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="../contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+  /* Service catalog — page-specific layout only; components come from styles.css */
+  body.page-services .nb { white-space: nowrap; }
+
+  /* lead cards: tiers compressed to one line each, footer pinned to the bottom */
+  body.page-services .lead-card { display: flex; flex-direction: column; }
+  body.page-services .tiers { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid rgba(255,255,255,.09); }
+  body.page-services .tiers li { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 0; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.09); font-size: 15px; color: var(--muted); }
+  body.page-services .tiers .price { font-size: 15px; white-space: nowrap; }
+  body.page-services .card-foot { margin-top: auto; padding-top: 20px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px 18px; flex-wrap: wrap; }
+  body.page-services .card-foot dl.facts { gap: 4px 10px; }
+
+  /* evaluation panel: copy on the left, the four figures in a dark inset on the right */
+  body.page-services .eval-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px clamp(28px, 4vw, 56px); align-items: center; }
+  body.page-services .eval-panel .seal { margin-bottom: 14px; }
+  body.page-services .eval-panel p { color: #d7d2e6; }
+  body.page-services .eval-panel .lede { color: var(--muted); }
+  body.page-services .eval-actions { margin-top: 24px; gap: 14px 22px; }
+  body.page-services .eval-stats { padding: clamp(20px, 2.4vw, 30px); }
+  body.page-services .eval-stats-title { margin: 0 0 18px; font-size: 15px; color: var(--text); font-weight: 500; }
+  body.page-services .stat-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 20px; }
+  body.page-services .eval-stats .small { margin: 20px 0 0; }
+
+  /* catalog groups */
+  body.page-services .catalog-group + .catalog-group { margin-top: clamp(36px, 4.6vw, 56px); }
+  body.page-services .group-head { display: flex; align-items: baseline; gap: 10px 22px; flex-wrap: wrap; margin-bottom: 16px; }
+  body.page-services .group-head h3 { margin: 0; }
+  body.page-services .group-head p { margin: 0; color: var(--muted); font-size: 15px; }
+  body.page-services .ledger-row h4 { font-family: var(--font-body); font-size: 18px; font-weight: 600; letter-spacing: -.005em; line-height: 1.3; color: var(--text); margin: 0; }
+  body.page-services .ledger-row > :nth-child(2) { color: var(--muted); font-size: 15px; text-wrap: pretty; }
+  body.page-services .ledger-row .num small { display: block; font-family: var(--font-body); font-size: 13px; color: var(--muted); letter-spacing: 0; margin-top: 3px; line-height: 1.35; }
+
+  /* process: a real sequence, so it is numbered */
+  body.page-services .process { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  body.page-services .process li { display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 18px; row-gap: 6px; margin: 0; padding: 22px 0; border-top: 1px solid rgba(255,255,255,.08); }
+  body.page-services .process li:first-child { border-top: 0; padding-top: 0; }
+  body.page-services .process li:last-child { padding-bottom: 0; }
+  body.page-services .process li::before { counter-increment: step; content: counter(step, decimal-leading-zero); grid-row: 1 / span 2; font-family: var(--font-mono); font-size: 15px; color: var(--muted); padding-top: .3em; }
+  body.page-services .process h3 { font-size: 19px; margin: 0; }
+  body.page-services .process p { margin: 0; color: #d7d2e6; font-size: 16px; max-width: 58ch; }
+  body.page-services .pricing-notes { padding: 22px 24px 22px 26px; align-self: start; }
+  body.page-services .pricing-notes h3 { font-size: 17px; margin: 0 0 12px; color: var(--text); }
+  body.page-services .pricing-notes p + p { margin-top: .75em; }
+
+  @media (max-width: 900px) {
+    body.page-services .eval-grid { grid-template-columns: 1fr; }
+    /* the hourly alternative would squeeze the service name; the pricing notes carry the rates */
+    body.page-services .ledger-row .num small { display: none; }
+  }
+  @media (max-width: 760px) {
+    body.page-services .process li { grid-template-columns: 36px minmax(0, 1fr); column-gap: 14px; }
+    body.page-services .process h3 { font-size: 18px; }
+  }
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../index.html">Home</a><span>/</span>Services</p>
+    <h1>Service catalog</h1>
+    <p class="lede">Twelve offerings for teams putting LLM agents to work. Priced as fixed tiers or hourly rates, most delivered in one to three weeks, and every one handed over with its receipts.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="../contact.html">Start a project brief</a>
+      <a class="btn btn-glass btn-lg" href="#process">How engagements run</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Lead services</h2>
+      <p class="lede">The three services teams ask for most.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="stack lift lit lit-pink"><article class="glass slab lead-card">
+        <h3>Conversational AI &amp; RAG Agents</h3>
+        <p class="muted">Chatbots and assistants that answer from your documents and show their sources.</p>
+        <ul class="tiers">
+          <li><span>Starter</span><span class="price">$1,000</span></li>
+          <li><span>Standard</span><span class="price">$3,000</span></li>
+          <li><span>Enterprise</span><span class="price">from $10,000</span></li>
+        </ul>
+        <div class="card-foot">
+          <dl class="facts"><dt>Timeline</dt><dd>1–3 weeks</dd></dl>
+          <a class="link-quiet" href="../services/conversational-ai.html">Details</a>
+        </div>
+      </article></div>
+
+      <div class="stack lift lit lit-cyan"><article class="glass slab lead-card">
+        <h3>Agent Orchestration &amp; Workflow Automation</h3>
+        <p class="muted">Multi-step agents that move work between your tools, with a receipt for every action.</p>
+        <ul class="tiers">
+          <li><span>Per workflow</span><span class="price">$2,000–$5,000</span></li>
+          <li><span>Retainer</span><span class="price">$50–$100/hr</span></li>
+        </ul>
+        <div class="card-foot">
+          <dl class="facts"><dt>Timeline</dt><dd>2–4 weeks</dd></dl>
+          <a class="link-quiet" href="../services/agent-orchestration.html">Details</a>
+        </div>
+      </article></div>
+
+      <div class="stack lift lit lit-purple"><article class="glass slab lead-card">
+        <h3>Prompt Engineering &amp; Fine-Tuning</h3>
+        <p class="muted">Prompts and model tunes measured against a test set, not a demo.</p>
+        <ul class="tiers">
+          <li><span>Fixed price</span><span class="price">$500–$2,000</span></li>
+          <li><span>Hourly</span><span class="price">$80–$150/hr</span></li>
+        </ul>
+        <div class="card-foot">
+          <dl class="facts"><dt>Timeline</dt><dd>1–2 weeks</dd></dl>
+          <a class="link-quiet" href="../services/prompt-engineering.html">Details</a>
+        </div>
+      </article></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="evaluation">
+  <div class="wrap">
+    <div class="stack depth-3 lit lit-purple"><article class="glass slab eval-panel">
+      <div class="eval-grid">
+        <div>
+          <p class="seal">Included in every engagement</p>
+          <h2>Every engagement ships with receipts</h2>
+          <p class="lede">Agent Evaluation &amp; Benchmarking is a service on its own, from $500 per evaluation. It is also the part of every other service that says whether the work is done.</p>
+          <p>A RAG bot is handed over with its test set and results; a workflow with its action receipt log; a prompt pack with its score report; a security audit as a retained-proof report with a finding ledger, an evidence manifest of <span class="nb">SHA-256</span> hashes, and a negative control that proves the checks can fail.</p>
+          <p>The historical Tool Failure Recovery study shows the method in practice: declared recovery criteria, retained attempt records, and separate evaluation and training views.</p>
+          <div class="cluster eval-actions">
+            <a class="btn btn-glass" href="../services/evaluation-benchmarking.html">See the evaluation service</a>
+            <a class="link-quiet" href="../tool-failure-recovery.html">Inspect the recorded study</a>
+          </div>
+        </div>
+        <div class="glass-dark eval-stats">
+          <p class="eval-stats-title">Tool Failure Recovery v2</p>
+          <div class="stat-row">
+            <div class="stat"><span class="num">500</span><span class="stat-label">scenarios</span></div>
+            <div class="stat"><span class="num">629</span><span class="stat-label">recorded attempts</span></div>
+            <div class="stat"><span class="num">447</span><span class="stat-label">accepted scenarios</span></div>
+            <div class="stat"><span class="num">53</span><span class="stat-label">retries exhausted</span></div>
+          </div>
+          <p class="small muted">Historical study under one fixed protocol. Counts rechecked from retained artifacts; model attempts exclude 54 synthetic terminal markers.</p>
+        </div>
+      </div>
+    </article></div>
+  </div>
+</section>
+
+<section class="section" id="catalog">
+  <span class="light-local is-purple" style="left:-260px;top:300px"></span>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Full catalog</h2>
+      <p class="lede">All twelve services, grouped by where they sit in an agent's life: build it, tune and test it, run it, or decide whether to build it at all. The price shown is where each one starts.</p>
+    </div>
+
+    <div class="catalog-group">
+      <div class="group-head"><h3>Build</h3><p>Assistants, agents and integrations built on your content and your systems.</p></div>
+      <div class="ledger">
+        <div class="ledger-row ledger-head"><span>Service</span><span>Who it is for</span><span>From</span><span></span></div>
+        <div class="ledger-row"><h4>Conversational AI &amp; RAG Agents</h4><span>Small and mid-sized businesses automating support or Q&amp;A</span><span class="num">$1,000</span><a href="../services/conversational-ai.html">Details</a></div>
+        <div class="ledger-row"><h4>Agent Orchestration &amp; Workflow Automation</h4><span>Sales, operations and HR teams with repetitive tasks that span several systems</span><span class="num">$2,000<small>retainer $50–$100/hr</small></span><a href="../services/agent-orchestration.html">Details</a></div>
+        <div class="ledger-row"><h4>AI Integration &amp; APIs</h4><span>Software companies and operations teams modernizing an existing product</span><span class="num">$1,000</span><a href="../services/ai-integration.html">Details</a></div>
+        <div class="ledger-row"><h4>CRM &amp; ERP AI Integration</h4><span>Sales, finance and HR teams on HubSpot, Salesforce, Zoho or an ERP with an API</span><span class="num">$1,500</span><a href="../services/crm-erp-integration.html">Details</a></div>
+        <div class="ledger-row"><h4>Custom LLM Connectors &amp; MCP Tools</h4><span>Teams with internal data that want a knowledge agent without copying it into a vendor</span><span class="num">$1,000</span><a href="../services/llm-connectors.html">Details</a></div>
+      </div>
+    </div>
+
+    <div class="catalog-group">
+      <div class="group-head"><h3>Tune and test</h3><p>Make the model behave on your task, then prove it against a test set.</p></div>
+      <div class="ledger">
+        <div class="ledger-row ledger-head"><span>Service</span><span>Who it is for</span><span>From</span><span></span></div>
+        <div class="ledger-row"><h4>Prompt Engineering &amp; Fine-Tuning</h4><span>Agencies, legal and finance teams, and product teams that need consistent model output</span><span class="num">$500<small>or $80–$150/hr</small></span><a href="../services/prompt-engineering.html">Details</a></div>
+        <div class="ledger-row"><h4>Agent Evaluation &amp; Benchmarking</h4><span>R&amp;D teams, serious AI deployments, and buyers evaluating vendors</span><span class="num">$500</span><a href="../services/evaluation-benchmarking.html">Details</a></div>
+      </div>
+    </div>
+
+    <div class="catalog-group">
+      <div class="group-head"><h3>Run</h3><p>Keep what you built up, watched and defended once real users arrive.</p></div>
+      <div class="ledger">
+        <div class="ledger-row ledger-head"><span>Service</span><span>Who it is for</span><span>From</span><span></span></div>
+        <div class="ledger-row"><h4>Deployment, MLOps &amp; Hosting</h4><span>Teams with a working prototype that now needs to run reliably for real users</span><span class="num">$80/hr<small>or $2,000–$6,000 per project</small></span><a href="../services/deployment-mlops.html">Details</a></div>
+        <div class="ledger-row"><h4>Monitoring &amp; Analytics for AI Systems</h4><span>Any team with a chatbot or agent in production</span><span class="num">$500<small>or $50–$100/hr</small></span><a href="../services/monitoring-analytics.html">Details</a></div>
+        <div class="ledger-row"><h4>Security &amp; Compliance for AI</h4><span>Healthcare, finance, legal, and any team whose AI touches customer data</span><span class="num">$80/hr<small>or $1,000–$3,000 per audit</small></span><a href="../services/security-compliance.html">Details</a></div>
+        <div class="ledger-row"><h4>Managed MCP Servers</h4><span>Teams that want an MCP server as a service, and tool builders who want to sell one</span><span class="num">$1,000<small>then $50–$200/month per server</small></span><a href="../services/mcp-servers.html">Details</a></div>
+      </div>
+    </div>
+
+    <div class="catalog-group">
+      <div class="group-head"><h3>Advise</h3><p>Decide what is worth building before paying to build it.</p></div>
+      <div class="ledger">
+        <div class="ledger-row ledger-head"><span>Service</span><span>Who it is for</span><span>From</span><span></span></div>
+        <div class="ledger-row"><h4>AI Consulting &amp; Proof-of-Concept</h4><span>Startups and small businesses deciding where AI fits</span><span class="num">$100/hr<small>proof-of-concept from $1,000</small></span><a href="../services/consulting-poc.html">Details</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <span class="light-local is-cyan" style="right:-120px;top:-40px"></span>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How engagements run</h2>
+      <p class="lede">The same five steps for a $500 prompt pack and a $10,000 assistant. The evaluation criteria are agreed before the build starts, so “done” is not a matter of opinion.</p>
+    </div>
+    <div class="grid grid-sidebar">
+      <div class="glass-soft slab">
+        <ol class="process">
+          <li>
+            <h3>You send a brief</h3>
+            <p>Use the <a href="../contact.html">brief builder on the contact page</a>, or email <a href="mailto:agents@gtdataworks.com">agents@gtdataworks.com</a>. Say what the agent should do, which systems it touches, and roughly when you need it.</p>
+          </li>
+          <li>
+            <h3>A scoping call</h3>
+            <p>A call to walk through the systems involved, what a good result looks like, and what is out of scope.</p>
+          </li>
+          <li>
+            <h3>A fixed quote</h3>
+            <p>A written quote with the price, the deliverables, the timeline, and the evaluation criteria the work will be graded against, agreed up front. Retainer and hourly work gets a rate and an estimate instead of a fixed price.</p>
+          </li>
+          <li>
+            <h3>The build</h3>
+            <p>Work ships in milestones, each with its receipts: test results, action logs and hashes of what was delivered. You get a short written note every week on what moved and what comes next.</p>
+          </li>
+          <li>
+            <h3>Handover</h3>
+            <p>Source code, documentation, the evaluation results and a recorded walkthrough, so your team can run and change the work without GTDataWorks.</p>
+          </li>
+        </ol>
+      </div>
+      <aside class="note pricing-notes">
+        <h3>Pricing notes</h3>
+        <p>Prices are in USD.</p>
+        <p>Tiers are starting points. The price shown is where a scoped engagement of that kind begins; the final quote follows the scoping call.</p>
+        <p>Fixed tiers cover scoped builds, audits and evaluations. Hourly rates cover retainers, ongoing iteration, deployment, hardening and consulting: $50–$100/hr for retainers and reporting, $80–$150/hr for development, deployment and hardening, $100–$200/hr for consulting.</p>
+        <p>Managed MCP servers are priced as a setup fee plus monthly hosting per server; a per-call model is available for high-volume servers.</p>
+        <p>Receipts are listed among each service's deliverables. They are not priced separately.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="stack lit lit-pink"><div class="glass slab cta-band">
+      <h2>Start with a brief</h2>
+      <p class="lede">Describe the job in the brief builder. The next step is a scoping call, then a fixed quote with the deliverables and evaluation criteria written in.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="../contact.html">Start a project brief</a>
+        <a class="btn btn-glass btn-lg" href="mailto:agents@gtdataworks.com">Email the studio</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "GTDataWorks service catalog",
+  "url": "https://gtdataworks.com/services/",
+  "numberOfItems": 12,
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Conversational AI & RAG Agents", "url": "https://gtdataworks.com/services/conversational-ai.html"},
+    {"@type": "ListItem", "position": 2, "name": "Agent Orchestration & Workflow Automation", "url": "https://gtdataworks.com/services/agent-orchestration.html"},
+    {"@type": "ListItem", "position": 3, "name": "Prompt Engineering & Fine-Tuning", "url": "https://gtdataworks.com/services/prompt-engineering.html"},
+    {"@type": "ListItem", "position": 4, "name": "AI Integration & APIs", "url": "https://gtdataworks.com/services/ai-integration.html"},
+    {"@type": "ListItem", "position": 5, "name": "Deployment, MLOps & Hosting", "url": "https://gtdataworks.com/services/deployment-mlops.html"},
+    {"@type": "ListItem", "position": 6, "name": "Monitoring & Analytics for AI Systems", "url": "https://gtdataworks.com/services/monitoring-analytics.html"},
+    {"@type": "ListItem", "position": 7, "name": "Security & Compliance for AI", "url": "https://gtdataworks.com/services/security-compliance.html"},
+    {"@type": "ListItem", "position": 8, "name": "CRM & ERP AI Integration", "url": "https://gtdataworks.com/services/crm-erp-integration.html"},
+    {"@type": "ListItem", "position": 9, "name": "Custom LLM Connectors & MCP Tools", "url": "https://gtdataworks.com/services/llm-connectors.html"},
+    {"@type": "ListItem", "position": 10, "name": "Managed MCP Servers", "url": "https://gtdataworks.com/services/mcp-servers.html"},
+    {"@type": "ListItem", "position": 11, "name": "Agent Evaluation & Benchmarking", "url": "https://gtdataworks.com/services/evaluation-benchmarking.html"},
+    {"@type": "ListItem", "position": 12, "name": "AI Consulting & Proof-of-Concept", "url": "https://gtdataworks.com/services/consulting-poc.html"}
+  ]
+}
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="../services/index.html">Services</a><a href="../tool-failure-recovery.html">Selected work</a><a href="../about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

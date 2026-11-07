@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Orchestration &amp; Workflow Automation — GTDataWorks</title>
+<meta name="description" content="Multi-step agents for lead qualification, reporting and triage across your tools, with a policy gate and a receipt for every action. $2,000–$5,000 per workflow.">
+<link rel="canonical" href="https://gtdataworks.com/services/agent-orchestration.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Agent Orchestration &amp; Workflow Automation — GTDataWorks">
+<meta property="og:description" content="Multi-step agents for lead qualification, reporting and triage across your tools, with a policy gate and a receipt for every action. $2,000–$5,000 per workflow.">
+<meta property="og:url" content="https://gtdataworks.com/services/agent-orchestration.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-services-agent-orchestration">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="../services/index.html" aria-current="page">Services</a></li>
+      <li><a href="../tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="../about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="../contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+  /* Service detail — page-specific layout only; components come from styles.css */
+  body.page-services-agent-orchestration .svc-block + .svc-block { margin-top: clamp(44px, 5.5vw, 72px); }
+  body.page-services-agent-orchestration .svc-block > .lede { font-size: 16.5px; margin: -.4em 0 1.3em; }
+  body.page-services-agent-orchestration .deliverables .checklist li + li { margin-top: .6em; }
+  body.page-services-agent-orchestration .deliverables .seal { margin: 24px 0 0; }
+  /* the build sequence: a real sequence, so it is numbered */
+  body.page-services-agent-orchestration .steps-list { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  body.page-services-agent-orchestration .steps-list li { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; row-gap: 4px; margin: 0; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.08); }
+  body.page-services-agent-orchestration .steps-list li:first-child { border-top: 0; padding-top: 0; }
+  body.page-services-agent-orchestration .steps-list li:last-child { padding-bottom: 0; }
+  body.page-services-agent-orchestration .steps-list li::before { counter-increment: step; content: counter(step, decimal-leading-zero); grid-row: 1 / span 2; font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: .25em; }
+  body.page-services-agent-orchestration .steps-list h3 { font-size: 18px; margin: 0; }
+  body.page-services-agent-orchestration .steps-list p { margin: 0; color: #d7d2e6; font-size: 15.5px; max-width: 58ch; }
+  /* tiers sit in a 670px column: name above price reads the same in every tier */
+  body.page-services-agent-orchestration .tier .row-between { flex-direction: column; align-items: flex-start; gap: 2px; margin-bottom: 10px; }
+  body.page-services-agent-orchestration .tier .price { font-size: 20px; }
+  body.page-services-agent-orchestration .fit h3 { font-size: 17px; margin-bottom: .5em; }
+  body.page-services-agent-orchestration .fit ul { margin: 0; padding-left: 1.1em; color: #d7d2e6; font-size: 16px; }
+  body.page-services-agent-orchestration .fit li + li { margin-top: .55em; }
+  body.page-services-agent-orchestration .qa details { border-top: 1px solid rgba(255,255,255,.09); }
+  body.page-services-agent-orchestration .qa details:last-of-type { border-bottom: 1px solid rgba(255,255,255,.09); }
+  body.page-services-agent-orchestration .qa summary { cursor: pointer; list-style: none; position: relative; padding: 16px 40px 16px 0; font-weight: 500; font-size: 17px; }
+  body.page-services-agent-orchestration .qa summary::-webkit-details-marker { display: none; }
+  body.page-services-agent-orchestration .qa summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 18px; color: var(--muted); }
+  body.page-services-agent-orchestration .qa details[open] summary::after { content: "−"; }
+  body.page-services-agent-orchestration .qa details p { margin: 0 0 18px; color: #d7d2e6; max-width: var(--measure); }
+  body.page-services-agent-orchestration .side .related { list-style: none; padding: 0; margin: 0; }
+  body.page-services-agent-orchestration .side .related li + li { margin-top: 8px; }
+  body.page-services-agent-orchestration .side .proto { margin: 24px 0 0; }
+  body.page-services-agent-orchestration .side .badge-live { align-items: flex-start; line-height: 1.45; }
+  body.page-services-agent-orchestration .side .badge-live::before { flex: none; margin-top: .5em; }
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../services/index.html">Services</a><span>/</span>Agent Orchestration &amp; Workflow Automation</p>
+    <h1>Agent Orchestration &amp; Workflow Automation</h1>
+    <p class="lede">Multi-step agents that move work between your tools, with a receipt for every action.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="../contact.html?service=agent-orchestration">Start a brief for this service</a>
+      <a class="btn btn-glass btn-lg" href="../services/index.html">All services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <span class="light-local is-cyan" style="left:-120px;top:54%" aria-hidden="true"></span>
+  <div class="wrap grid grid-sidebar">
+    <div class="svc-main">
+
+      <div class="svc-block">
+        <h2>What it is</h2>
+        <div class="prose">
+          <p>Lead qualification, weekly report generation, data clean-up, inbox triage: recurring work that starts in one system, needs a judgement call in the middle, and ends in another. GTDataWorks maps the workflow with you, builds the agent that runs it in n8n, Node-RED or Zapier (with Python and LangGraph where a step needs reasoning), and connects it to the Slack, Teams, HubSpot and Google Workspace APIs the work already lives in.</p>
+          <p>Every external action the agent takes (a record updated, a message sent, a file written) passes a policy check first; actions you have not authorized stop and wait for a person. Each action that does run is appended to a JSONL receipt log: what the agent saw, what it decided and what it changed. Your team experiences it as work that arrives finished in the right place, with a log they can open when something looks off.</p>
+        </div>
+      </div>
+
+      <div class="svc-block">
+        <h2>What you get</h2>
+        <div class="stack lift lit lit-gold deliverables"><article class="glass slab">
+          <ul class="checklist">
+            <li>Workflow diagram and spec</li>
+            <li>Deployed automation</li>
+            <li>Action receipt log</li>
+            <li>Runbook</li>
+            <li>30 days of fixes</li>
+          </ul>
+          <p class="seal">A receipt for every action</p>
+        </article></div>
+      </div>
+
+      <div class="svc-block">
+        <h2>How the work runs</h2>
+        <p class="lede">The build steps once the quote is agreed. The brief, scoping call and quote are <a href="../services/index.html#process">the same for every service</a>.</p>
+        <div class="glass-soft tile">
+          <ol class="steps-list">
+            <li>
+              <h3>Workflow mapping</h3>
+              <p>A working session to walk the task as it is done today: the trigger, the inputs, each decision point, and who approves what. The output is a diagram and a written spec you sign off before any build.</p>
+            </li>
+            <li>
+              <h3>Policy and receipt design</h3>
+              <p>Decide which actions run on their own, which need approval and which are off limits. Those decisions become the gate rules and the fields recorded in every receipt.</p>
+            </li>
+            <li>
+              <h3>Build and dry run</h3>
+              <p>Build the agent in n8n, Node-RED or Zapier, with Python and LangGraph for the steps that need reasoning. The first runs are dry: receipts are written, no external action fires.</p>
+            </li>
+            <li>
+              <h3>Supervised launch</h3>
+              <p>Live on real work with approvals set high. Receipts are reviewed with you during the first week, and thresholds are loosened as the log shows the agent deciding well.</p>
+            </li>
+            <li>
+              <h3>30 days of fixes</h3>
+              <p>Edge cases that production turns up are fixed within the engagement, and the runbook is updated to match.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="svc-block">
+        <h2>Pricing</h2>
+        <div class="grid grid-2">
+          <div class="glass-soft tier">
+            <div class="row-between"><h3>Per workflow</h3><span class="price">$2,000–$5,000</span></div>
+            <p>Scoped by the number of systems touched and decision points; includes deployment and 30 days of fixes.</p>
+          </div>
+          <div class="glass-soft tier">
+            <div class="row-between"><h3>Retainer</h3><span class="price">$50–$100/hr</span></div>
+            <p>Ongoing changes, new workflows and monitoring.</p>
+          </div>
+        </div>
+        <div class="note" style="margin-top:20px"><p>Prices are in USD and are starting points. The final quote follows a scoping call.</p></div>
+      </div>
+
+      <div class="svc-block fit">
+        <h2>Where it fits</h2>
+        <div class="grid grid-2">
+          <div>
+            <h3>A good fit when</h3>
+            <ul>
+              <li>The same task is done several times a week by hand, across two or more systems.</li>
+              <li>Parts of the task need judgement (is this lead worth a call, which queue does this ticket belong in) and the rest is mechanical.</li>
+              <li>You have to be able to show what the automation did and why, step by step.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Not a fit when</h3>
+            <ul>
+              <li>It is a single step: send text to a model, get a result, store it. That is <a href="../services/ai-integration.html">AI Integration &amp; APIs</a>, and it costs less.</li>
+              <li>The work never leaves one platform such as HubSpot or Salesforce. <a href="../services/crm-erp-integration.html">CRM &amp; ERP AI Integration</a> is the closer fit.</li>
+              <li>You want a chat interface that answers questions, not a process that runs on its own. That is <a href="../services/conversational-ai.html">Conversational AI &amp; RAG Agents</a>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-block qa">
+        <h2>Questions</h2>
+        <details>
+          <summary>What stops the agent doing something it should not?</summary>
+          <p>Policy before action. Every external call goes through a gate (the Terminus Gate Protocol pattern) with an allow, approve or deny rule; anything without an allow rule stops and waits for a person. The rules are a file you can read and change, and every decision the gate makes is written to the receipt log alongside the action.</p>
+        </details>
+        <details>
+          <summary>Where does my data go?</summary>
+          <p>Nowhere new. The workflow runs in your n8n, Zapier or Node-RED account or on your own host, talks to your systems with your credentials, and calls the model with your API key. Receipts are stored where you choose. GTDataWorks does not train on your data and keeps no copy of it after handover.</p>
+        </details>
+        <details>
+          <summary>Which model does it use, and do I have to choose one?</summary>
+          <p>Most steps in a workflow need no model at all. The steps that do can use OpenAI or Anthropic through the API, or an open model on your own hardware, with your own keys. Model choice is a per-step setting in the spec, so it can change later without rebuilding the workflow.</p>
+        </details>
+        <details>
+          <summary>What happens after the 30 days?</summary>
+          <p>You own the workflow, the gate rules, the receipt log and the runbook, and you can run it yourself from there. The retainer covers ongoing changes, new workflows and monitoring if you would rather hand that off. <a href="../services/monitoring-analytics.html">Monitoring &amp; Analytics</a> adds dashboards and alerts over the receipt log.</p>
+        </details>
+      </div>
+
+    </div>
+
+    <aside class="glass-soft tile sticky side" aria-label="Service facts">
+      <h3>At a glance</h3>
+      <dl class="facts">
+        <dt>Timeline</dt><dd>2–4 weeks</dd>
+        <dt>Pricing from</dt><dd><span class="price">$2,000</span> per workflow</dd>
+        <dt>Best for</dt><dd>Sales, operations and HR teams with repetitive tasks that span several systems.</dd>
+      </dl>
+      <h3>Stack</h3>
+      <ul class="chips">
+        <li><span class="chip">n8n, Node-RED or Zapier</span></li>
+        <li><span class="chip">Python</span></li>
+        <li><span class="chip">LangChain / LangGraph</span></li>
+        <li><span class="chip">Slack, Teams, HubSpot and Google Workspace APIs</span></li>
+        <li><span class="chip">JSONL action receipts (Terminus Gate Protocol)</span></li>
+      </ul>
+      <h3>Related</h3>
+      <ul class="related">
+        <li><a href="../services/crm-erp-integration.html">CRM &amp; ERP AI Integration</a></li>
+        <li><a href="../services/llm-connectors.html">Custom LLM Connectors &amp; MCP Tools</a></li>
+        <li><a href="../services/monitoring-analytics.html">Monitoring &amp; Analytics for AI Systems</a></li>
+      </ul>
+      <p class="proto"><a class="badge-live" href="../demos.html#lead-qual">See the Lead Qualification Voice/SMS Agent prototype</a></p>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="stack lit lit-pink"><div class="glass slab cta-band">
+      <h2>Pick one workflow to start</h2>
+      <p class="lede">Describe the task as it runs today, the systems it touches and the decision that slows it down. That is enough for a scoping call and a quote.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="../contact.html?service=agent-orchestration">Start a brief for this service</a>
+        <a class="btn btn-glass btn-lg" href="mailto:agents@gtdataworks.com">Email the studio</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Agent Orchestration & Workflow Automation",
+  "description": "Multi-step agents that move work between your tools, with a receipt for every action.",
+  "serviceType": "AI agent orchestration and workflow automation",
+  "provider": {"@type": "Organization", "name": "GTDataWorks", "url": "https://gtdataworks.com/"},
+  "areaServed": "Worldwide",
+  "url": "https://gtdataworks.com/services/agent-orchestration.html",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": 2000, "maxPrice": 5000},
+    "url": "https://gtdataworks.com/contact.html?service=agent-orchestration"
+  }
+}
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="../services/index.html">Services</a><a href="../tool-failure-recovery.html">Selected work</a><a href="../about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

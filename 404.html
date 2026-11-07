@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — GTDataWorks</title>
+<meta name="description" content="That address is not on gtdataworks.com. Start again from the home page, the service catalog or the project brief builder.">
+<link rel="canonical" href="https://gtdataworks.com/404.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Page not found — GTDataWorks">
+<meta property="og:description" content="That address is not on gtdataworks.com. Start again from the home page, the service catalog or the project brief builder.">
+<meta property="og:url" content="https://gtdataworks.com/404.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css?v=20261107-contrast1">
+<base href="/"><meta name="robots" content="noindex">
+</head>
+<body class="page-404">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="services/index.html" >Services</a></li>
+      <li><a href="tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+  /* Apache serves this page at whatever address was missing (ErrorDocument 404 /404.html), so the
+     base element in the head keeps the relative asset and nav paths working at any depth. */
+  body.page-404 .hero { min-height: calc(100vh - var(--nav-h) - var(--space-section) - 120px); display: grid; align-items: center; }
+  body.page-404 .stack { max-width: 880px; } /* cap the wrapper, so the ghost sheets match the slab */
+  body.page-404 .code { display: block; font-family: var(--font-mono); font-size: 14px; color: var(--muted); letter-spacing: .04em; margin-bottom: 14px; }
+  body.page-404 .hero-actions .btn-ghost { color: var(--text); }
+</style>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="stack lit lit-purple"><div class="hero-slab glass tilt" data-tilt-max="3">
+      <span class="code">404</span>
+      <h1>Page not found</h1>
+      <p class="lede">The address may be out of date or mistyped. Everything on this site is reachable from the three links below.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="index.html">Go to the home page</a>
+        <a class="btn btn-glass btn-lg" href="services/index.html">See the service catalog</a>
+        <a class="btn btn-ghost btn-lg" href="contact.html">Start a project brief</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<script>
+/* the base element would send the skip link to the home page; point it back at this document. */
+(function () {
+  var skip = document.querySelector('a.skip');
+  if (skip) skip.setAttribute('href', window.location.href.split('#')[0] + '#main');
+})();
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="services/index.html">Services</a><a href="tool-failure-recovery.html">Selected work</a><a href="about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

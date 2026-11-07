@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP servers on MCPize and managed hosting — GTDataWorks</title>
+<meta name="description" content="GTDataWorks is listing MCP servers on the MCPize marketplace and hosts yours: metered endpoint, keys, logging and usage receipts, $50–$200 a month per server.">
+<link rel="canonical" href="https://gtdataworks.com/mcpize.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="MCP servers on MCPize and managed hosting — GTDataWorks">
+<meta property="og:description" content="GTDataWorks is listing MCP servers on the MCPize marketplace and hosts yours: metered endpoint, keys, logging and usage receipts, $50–$200 a month per server.">
+<meta property="og:url" content="https://gtdataworks.com/mcpize.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-mcpize">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="services/index.html" >Services</a></li>
+      <li><a href="tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+/* MCPize page. Scoped to body.page-mcpize: hero figure (HTML flow of glass nodes), process steps, small helpers. */
+body.page-mcpize .mcp-figure { margin-top: clamp(34px, 5vw, 56px); }
+body.page-mcpize .mcp-figure .hero-slab { padding: clamp(22px, 3vw, 36px); }
+body.page-mcpize .mcp-figure-head { margin-bottom: 18px; }
+body.page-mcpize .mcp-figure-head h2 { margin: 0; font-family: var(--font-body); font-size: 18px; letter-spacing: -.005em; }
+
+/* the flow: three nodes in a row, a receipt branching down from the server */
+body.page-mcpize .mcp-flow {
+  display: grid; gap: 0;
+  grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr) 92px minmax(0, 1fr);
+  grid-template-rows: auto 58px auto;
+  grid-template-areas:
+    "client e1 server e2 source"
+    ".      .  ev     .  ."
+    ".      .  receipt cap cap";
+}
+body.page-mcpize .mcp-node {
+  display: flex; flex-direction: column; gap: 5px; justify-content: center;
+  padding: 14px 16px; border-radius: var(--r-ui);
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.24);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+}
+body.page-mcpize .mcp-node strong { font-size: 16px; font-weight: 600; line-height: 1.3; }
+body.page-mcpize .mcp-node span { color: var(--muted); font-size: 13.5px; line-height: 1.4; }
+body.page-mcpize .mcp-node.is-cyan { background: rgba(47,227,255,.08); border-color: rgba(47,227,255,.55); }
+body.page-mcpize .mcp-node.is-gold { background: rgba(242,193,78,.09); border-color: rgba(242,193,78,.55); }
+body.page-mcpize .mcp-edge { position: relative; font: 500 12px/1 var(--font-mono); color: var(--muted); }
+body.page-mcpize .mcp-edge::before, body.page-mcpize .mcp-edge::after { content: ""; position: absolute; }
+body.page-mcpize .mcp-edge span { position: absolute; white-space: nowrap; }
+/* horizontal edge: line with an arrowhead, label above the line */
+body.page-mcpize .mcp-edge-h::before { top: 50%; left: 6px; right: 6px; height: 1px; background: rgba(255,255,255,.34); }
+body.page-mcpize .mcp-edge-h::after { top: 50%; right: 5px; border: 5px solid transparent; border-right: 0; border-left: 7px solid rgba(255,255,255,.6); transform: translateY(-50%); }
+body.page-mcpize .mcp-edge-h span { left: 50%; top: 50%; transform: translate(-50%, calc(-100% - 7px)); }
+/* vertical edge: line with an arrowhead, label beside the line */
+body.page-mcpize .mcp-edge-v::before { left: 50%; top: 6px; bottom: 6px; width: 1px; background: rgba(255,255,255,.34); }
+body.page-mcpize .mcp-edge-v::after { left: 50%; bottom: 5px; border: 5px solid transparent; border-bottom: 0; border-top: 7px solid rgba(255,255,255,.6); transform: translateX(-50%); }
+body.page-mcpize .mcp-edge-v span { left: calc(50% + 10px); top: 50%; transform: translateY(-50%); }
+body.page-mcpize .mcp-cap { align-self: center; margin: 0; padding-left: 20px; color: var(--muted); font-size: 14px; line-height: 1.45; max-width: 44ch; }
+
+/* listing status: an unlit ring (the live badge is a lit dot) */
+body.page-mcpize .mcp-card-head { margin-bottom: 14px; }
+body.page-mcpize .mcp-card-head h3 { margin: 0; }
+body.page-mcpize .mcp-card-head code { font-size: .9em; }
+body.page-mcpize .mcp-status { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); white-space: nowrap; }
+body.page-mcpize .mcp-status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--muted); }
+body.page-mcpize .mcp-sub { margin: clamp(30px, 4vw, 44px) 0 14px; font-size: 18px; }
+body.page-mcpize .mcp-sub + p { margin-bottom: 16px; }
+
+/* hosting slab */
+body.page-mcpize .mcp-host-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(22px, 3vw, 44px); margin-bottom: clamp(24px, 3vw, 34px); }
+body.page-mcpize .mcp-host-grid h3 { font-size: 18px; margin-bottom: 12px; }
+body.page-mcpize .mcp-host-grid .facts { margin-top: 18px; }
+body.page-mcpize .mcp-tiers { gap: 16px; }
+/* tiers inside the lit slab are dark insets, so their text is not glass on glass */
+body.page-mcpize .mcp-tiers .tier { background-image: var(--glass-fill-dark), var(--edge-soft); }
+body.page-mcpize .mcp-tiers .tier::before { display: none; }
+/* name above price in every tier: the hosting price is long, and three tiers should read alike */
+body.page-mcpize .mcp-tiers .row-between { flex-direction: column; align-items: flex-start; gap: 2px; margin-bottom: 10px; }
+body.page-mcpize .mcp-note { margin-top: 20px; }
+
+/* process steps: a real sequence */
+body.page-mcpize .mcp-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
+body.page-mcpize .mcp-steps li { margin: 0; counter-increment: step; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.14); }
+body.page-mcpize .mcp-steps li::before { content: counter(step); display: block; font: 500 13px/1 var(--font-mono); color: var(--muted); letter-spacing: .02em; margin-bottom: 12px; }
+body.page-mcpize .mcp-steps strong { display: block; font-size: 17px; font-weight: 600; line-height: 1.3; margin-bottom: 6px; }
+body.page-mcpize .mcp-steps p { margin: 0; color: var(--muted); font-size: 15px; }
+body.page-mcpize .mcp-steps-foot { margin: 22px 0 0; color: var(--muted); font-size: 15px; }
+
+@media (max-width: 1080px) {
+  body.page-mcpize .mcp-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  body.page-mcpize .mcp-flow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto 46px auto 46px auto auto;
+    grid-template-areas:
+      "client client"
+      "e1     e1"
+      "server server"
+      "e2     ev"
+      "source receipt"
+      "cap    cap";
+    column-gap: 12px;
+  }
+  /* every edge turns vertical and the receipt becomes the right fork */
+  body.page-mcpize .mcp-edge-h::before { top: 6px; bottom: 6px; left: 50%; right: auto; width: 1px; height: auto; }
+  body.page-mcpize .mcp-edge-h::after { top: auto; right: auto; left: 50%; bottom: 5px; border: 5px solid transparent; border-bottom: 0; border-top: 7px solid rgba(255,255,255,.6); transform: translateX(-50%); }
+  body.page-mcpize .mcp-edge-h span { left: calc(50% + 10px); top: 50%; transform: translateY(-50%); }
+  body.page-mcpize .mcp-cap { padding-left: 0; margin-top: 16px; max-width: none; }
+  body.page-mcpize .mcp-host-grid { grid-template-columns: 1fr; }
+  body.page-mcpize .mcp-steps { grid-template-columns: 1fr; gap: 0; }
+  body.page-mcpize .mcp-steps li { display: grid; grid-template-columns: 26px minmax(0, 1fr); column-gap: 10px; padding: 14px 0; }
+  body.page-mcpize .mcp-steps li::before { grid-row: 1 / span 2; margin: 5px 0 0; }
+  body.page-mcpize .mcp-steps strong, body.page-mcpize .mcp-steps p { grid-column: 2; }
+  body.page-mcpize .mcp-steps li:first-child { padding-top: 0; border-top: 0; }
+  body.page-mcpize .mcp-steps li:last-child { padding-bottom: 0; }
+}
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>MCPize</p>
+    <h1>MCP servers, hosted and sold</h1>
+    <p class="lede">An MCP server is a tool an AI client such as Claude, ChatGPT or Cursor can call: it publishes a schema, checks who is calling and logs every call. GTDataWorks is bringing its own to the MCPize marketplace and hosts yours, private or listed for sale.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="contact.html?service=mcp-servers">Start a brief</a>
+      <a class="btn btn-glass btn-lg" href="services/mcp-servers.html">Managed MCP servers service</a>
+    </div>
+
+    <div class="stack depth-3 lit lit-cyan mcp-figure" style="--lit-opacity:.28"><div class="hero-slab glass tilt" data-tilt-max="2">
+      <div class="mcp-figure-head">
+        <h2>One tool call, start to finish</h2>
+      </div>
+      <div class="mcp-flow">
+        <div class="mcp-node" style="grid-area:client"><strong>AI client</strong><span>Claude, ChatGPT, Cursor or any MCP-capable client</span></div>
+        <div class="mcp-edge mcp-edge-h" style="grid-area:e1" aria-hidden="true"><span>tool call</span></div>
+        <div class="mcp-node is-cyan" style="grid-area:server"><strong>MCP server</strong><span>Published schema, API key checked, every call logged</span></div>
+        <div class="mcp-edge mcp-edge-h" style="grid-area:e2" aria-hidden="true"><span>reads</span></div>
+        <div class="mcp-node" style="grid-area:source"><strong>Your data or API</strong><span>Database, documents or an internal service</span></div>
+        <div class="mcp-edge mcp-edge-v" style="grid-area:ev" aria-hidden="true"><span>writes</span></div>
+        <div class="mcp-node is-gold" style="grid-area:receipt"><strong>Receipt</strong><span>Who called, which tool, when, and a hash of the result</span></div>
+        <p class="mcp-cap" style="grid-area:cap">Every call leaves a receipt, and the receipts are what you audit later.</p>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>GTDataWorks on MCPize</h2>
+      <p class="lede">Two servers are being packaged for the marketplace now. Neither is live yet; each listing opens with its schema and its pricing.</p>
+    </div>
+    <div class="grid grid-2">
+      <div class="stack lift lit lit-purple"><article class="glass slab">
+        <div class="row-between mcp-card-head">
+          <h3><code>terminus-witness</code></h3>
+          <span class="mcp-status">Listing in preparation</span>
+        </div>
+        <p>A provenance witness. It hashes and timestamps what an agent produced and appends the entry to a receipt chain, so a third party can verify later that the output existed at that time and has not changed since.</p>
+        <p class="muted small">Schema and pricing will be published with the listing.</p>
+      </article></div>
+      <div class="stack lift lit lit-pink"><article class="glass slab">
+        <div class="row-between mcp-card-head">
+          <h3><code>terminus-admission</code></h3>
+          <span class="mcp-status">Listing in preparation</span>
+        </div>
+        <p>Admission control for agent actions. Before an agent's intended action runs, the server checks it against your policy, allows or refuses it, and records the decision.</p>
+        <p class="muted small">Schema and pricing will be published with the listing.</p>
+      </article></div>
+    </div>
+
+    <h3 class="mcp-sub">Apify Actors</h3>
+    <p class="muted">Two Actors for the Apify platform, packaged alongside the servers and also in preparation.</p>
+    <div class="ledger">
+      <div class="ledger-row ledger-head"><span>Actor</span><span>What it does</span><span>Status</span><span></span></div>
+      <div class="ledger-row"><h3><code>gtd-refinery</code></h3><span>Dataset refinery for the GTDataWorks dataset factory</span><span class="muted">In preparation</span><span></span></div>
+      <div class="ledger-row"><h3><code>receipt-fixer</code></h3><span>Turns a folder of receipts into a verified CSV</span><span class="muted">In preparation</span><span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Host your MCP server</h2>
+      <p class="lede">The managed service: your server packaged, hosted, metered and kept current, so your team or your customers can call it without running infrastructure.</p>
+    </div>
+    <div class="stack lit lit-gold"><article class="glass slab">
+      <div class="mcp-host-grid">
+        <div>
+          <h3>What is included</h3>
+          <ul class="checklist">
+            <li>Hosted endpoint on Modal or Google Cloud Run, packaged in Docker</li>
+            <li>An API key for each caller, metered per key</li>
+            <li>Updates on a set cadence</li>
+            <li>Logging and a usage receipt for every call</li>
+            <li>Monthly usage report</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Private or listed</h3>
+          <p>The server can stay private to your team or your customers, or be listed for sale on MCPize. The deliverables are the same either way: a hosted endpoint, key management, a monthly usage report and an update cadence.</p>
+          <dl class="facts">
+            <dt>Timeline</dt><dd>1–2 weeks to launch</dd>
+            <dt>Runs on</dt><dd>Modal or Google Cloud Run</dd>
+            <dt>Access</dt><dd>API keys, one per caller</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="grid grid-3 mcp-tiers">
+        <div class="glass-soft tier"><div class="row-between"><h3>Setup</h3><span class="price">$1,000–$2,000</span></div><p>Packaging, hosting, key management and launch.</p></div>
+        <div class="glass-soft tier tier-featured"><div class="row-between"><h3>Hosting</h3><span class="price">$50–$200/month per server</span></div><p>Updates, logging, monthly usage report.</p></div>
+        <div class="glass-soft tier"><div class="row-between"><h3>High volume</h3><span class="price">per call</span></div><p>A per-call model is available for high-volume servers. Ask for it in the brief.</p></div>
+      </div>
+      <div class="note mcp-note"><p><strong>Cost estimate.</strong> The <a href="insights.html">market review</a> this site draws on puts the compute for a small LLM-connected server at roughly $50–$200 a month, depending on traffic. That is an estimate from the report, not a measured bill; the quote for your server follows a scoping call.</p></div>
+    </article></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How a server gets to market</h2>
+      <p class="lede">Five steps from a working server to a metered endpoint with a monthly report.</p>
+    </div>
+    <div class="glass-soft tile">
+      <ol class="mcp-steps">
+        <li><strong>Package the server</strong><p>MCP schema published, authentication in place, tests passing. The package is what gets hosted and what buyers see.</p></li>
+        <li><strong>Add metering and keys</strong><p>Each caller gets an API key. Every call is counted against that key and logged with a receipt.</p></li>
+        <li><strong>Choose the route</strong><p>A private endpoint for your own team or customers, or a public listing on MCPize.</p></li>
+        <li><strong>Launch</strong><p>The endpoint goes live on Modal or Google Cloud Run. From brief to launch is one to two weeks.</p></li>
+        <li><strong>Report and update</strong><p>A monthly usage report, updates on a set cadence, and logs you can audit.</p></li>
+      </ol>
+      <p class="mcp-steps-foot">Teams without a server start one step earlier: the <a href="services/llm-connectors.html">custom LLM connectors and MCP tools</a> service builds the connector or MCP server with tests, an access policy and an install guide, from $1,000.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Who this is for</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="glass-soft tile">
+        <h3>Teams that want a server as a service</h3>
+        <p class="muted">You have a database, a document set or an internal API that a model should be able to use, and nobody to run the server. GTDataWorks packages and hosts it; your team gets an endpoint, keys for each caller and a usage report every month.</p>
+      </div>
+      <div class="glass-soft tile">
+        <h3>Tool builders who want to sell one</h3>
+        <p class="muted">You wrote an MCP server and want it on MCPize without building hosting and metering yourself. GTDataWorks runs the endpoint and meters every key, so each call is logged with a receipt and the monthly usage report shows usage per key.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="stack lit lit-pink"><div class="glass slab cta-band">
+      <h2>Put a server on the market</h2>
+      <p class="lede">Describe what the server exposes, who should be able to call it, and whether it stays private or goes on MCPize. GTDataWorks replies with a scope and the next step.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="contact.html?service=mcp-servers">Start a brief</a>
+        <a class="btn btn-glass btn-lg" href="services/index.html">See the service catalog</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="services/index.html">Services</a><a href="tool-failure-recovery.html">Selected work</a><a href="about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

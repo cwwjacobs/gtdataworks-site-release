@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start a project brief — GTDataWorks</title>
+<meta name="description" content="Five short questions produce a project brief you can read before you send it. GTDataWorks replies by email with a scoping call.">
+<link rel="canonical" href="https://gtdataworks.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Start a project brief — GTDataWorks">
+<meta property="og:description" content="Five short questions produce a project brief you can read before you send it. GTDataWorks replies by email with a scoping call.">
+<meta property="og:url" content="https://gtdataworks.com/contact.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-contact">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="services/index.html" >Services</a></li>
+      <li><a href="tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" aria-current="page">Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+  /* Contact page — scoped to body.page-contact */
+  body.page-contact .page-hero + .section { padding-top: clamp(12px, 2vw, 28px); }
+  body.page-contact .page-hero .lede + p { margin-top: 14px; }
+  body.page-contact #brief { scroll-margin-top: calc(var(--nav-h) + 60px); }
+  /* the sidebar title is an h2 (the page's first heading after the h1) with the look of an h3 */
+  body.page-contact aside h2 { font-family: var(--font-body); font-size: clamp(20px, 2vw, 23px); letter-spacing: -.005em; margin: 0 0 .5em; }
+  body.page-contact .brief-slab { animation: settle .95s cubic-bezier(.2,.75,.2,1) backwards; }
+  /* the light sits behind the form actions, not behind the step counter and first field */
+  body.page-contact .grid-sidebar > .stack.lit::after { top: auto; bottom: -20%; }
+  body.page-contact fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  body.page-contact legend { display: block; width: 100%; padding: 0; }
+  body.page-contact .brief-step > legend { font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 32px); font-weight: 600; letter-spacing: .012em; line-height: 1.15; margin-bottom: 8px; }
+  body.page-contact .brief-step > legend:focus:not(:focus-visible) { outline: none; }
+  body.page-contact legend.field-label { margin-bottom: 9px; }
+  body.page-contact .step-count { margin: 0 0 10px; font-size: 14px; color: var(--muted); }
+  body.page-contact .step-intro { color: var(--muted); margin-bottom: 22px; }
+  body.page-contact .field-error { margin-bottom: 0; }
+  body.page-contact .input[aria-invalid="true"] { border-color: #ff7ab8; }
+  body.page-contact .field-inline { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+  body.page-contact .other-wrap { margin-top: 14px; }
+  body.page-contact .hint { min-height: 1.5em; margin: 0 0 14px; }
+  body.page-contact .hint .faint { display: block; }
+  body.page-contact .step-links { margin: 0; font-size: 15px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  body.page-contact .brief-out { padding: 8px; }
+  body.page-contact .brief-out .input { background: transparent; border: 0; box-shadow: none; font-family: var(--font-mono); font-size: 14px; line-height: 1.55; min-height: 240px; resize: vertical; }
+  body.page-contact .brief-privacy { margin: 10px 0 0; }
+  body.page-contact .brief-status { min-height: 1.5em; margin: 10px 0 0; font-size: 15px; color: var(--muted); }
+  body.page-contact .sequence { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  body.page-contact .sequence li { position: relative; margin: 0; padding-left: 42px; counter-increment: step; color: var(--muted); font-size: 15px; }
+  body.page-contact .sequence li + li { margin-top: 18px; }
+  body.page-contact .sequence li strong { display: block; color: var(--text); font-size: 16px; margin-bottom: 2px; }
+  body.page-contact .sequence li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(242,193,78,.55); color: var(--gold); font-family: var(--font-mono); font-size: 13px; }
+  body.page-contact .sequence a { color: var(--text); border-bottom: 1px solid rgba(255,255,255,.22); }
+  body.page-contact .sequence a:hover { text-decoration: none; border-color: var(--gold); }
+  /* progressive enhancement: with JS one step at a time; without it, all five in sequence */
+  body.page-contact .brief-form.is-enhanced .brief-step:not(.is-active) { display: none; }
+  body.page-contact .brief-form:not(.is-enhanced) .steps,
+  body.page-contact .brief-form:not(.is-enhanced) .step-count,
+  body.page-contact .brief-form:not(.is-enhanced) .js-only { display: none !important; }
+  body.page-contact .brief-form:not(.is-enhanced) .brief-step + .brief-step { margin-top: 34px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,.09); }
+  @media (max-width: 760px) {
+    body.page-contact .brief-slab { animation-name: settle-flat; }
+  }
+  @media (max-width: 560px) {
+    body.page-contact .field-inline { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>Contact</p>
+    <h1>Start a project brief</h1>
+    <p class="lede">Five short questions, then a brief you can read before you send it. GTDataWorks answers by email with a scoping call.</p>
+    <p class="muted">Prefer email? <a href="mailto:agents@gtdataworks.com?subject=Build%20request">agents@gtdataworks.com</a></p>
+    <p class="muted small">A request starts a conversation. Availability, scope, timeline, and a fixed quote are confirmed before a build is accepted. No payment is taken here.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-sidebar">
+    <div class="stack depth-3 lit lit-pink"><div class="glass slab brief-slab">
+      <form id="brief" class="brief-form" data-endpoint="" data-root="" novalidate>
+        <p class="step-count">Step <span class="num" data-step-now>1</span> of <span class="num">5</span></p>
+        <ol class="steps" aria-hidden="true"><li class="is-current"></li><li></li><li></li><li></li><li></li></ol>
+
+        <fieldset class="brief-step is-active">
+          <legend>What you are building</legend>
+          <p class="step-intro">Pick the closest match. The scoping call settles the details.</p>
+          <div class="field">
+            <label class="field-label" for="f-service">Service</label>
+            <select class="input" id="f-service" name="service" required aria-describedby="err-service service-hint">
+              <option value="">Choose a service</option>
+              <option value="conversational-ai">Conversational AI &amp; RAG Agents</option>
+              <option value="agent-orchestration">Agent Orchestration &amp; Workflow Automation</option>
+              <option value="prompt-engineering">Prompt Engineering &amp; Fine-Tuning</option>
+              <option value="ai-integration">AI Integration &amp; APIs</option>
+              <option value="deployment-mlops">Deployment, MLOps &amp; Hosting</option>
+              <option value="monitoring-analytics">Monitoring &amp; Analytics for AI Systems</option>
+              <option value="security-compliance">Security &amp; Compliance for AI</option>
+              <option value="crm-erp-integration">CRM &amp; ERP AI Integration</option>
+              <option value="llm-connectors">Custom LLM Connectors &amp; MCP Tools</option>
+              <option value="mcp-servers">Managed MCP Servers</option>
+              <option value="evaluation-benchmarking">Agent Evaluation &amp; Benchmarking</option>
+              <option value="consulting-poc">AI Consulting &amp; Proof-of-Concept</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+            <p class="field-error" id="err-service" data-for="service" hidden></p>
+          </div>
+          <p class="hint muted small js-only" id="service-hint"></p>
+          <p class="step-links">
+            <a class="link-quiet" id="service-link" href="services/index.html" hidden>Read about this service</a>
+            <a class="link-quiet" href="services/index.html">See the service catalog</a>
+          </p>
+        </fieldset>
+
+        <fieldset class="brief-step">
+          <legend>Goal and systems</legend>
+          <p class="step-intro">A sentence or two is enough.</p>
+          <div class="field">
+            <label class="field-label" for="f-goal">What should it do, for whom?</label>
+            <textarea class="input" id="f-goal" name="goal" rows="5" required aria-describedby="err-goal" placeholder="Example: answer billing questions for customers from the support articles, and hand off to a person when it is not sure."></textarea>
+            <p class="field-error" id="err-goal" data-for="goal" hidden></p>
+          </div>
+          <fieldset class="field">
+            <legend class="field-label">Systems involved <span class="faint">(optional)</span></legend>
+            <div class="choice">
+              <label><input type="checkbox" name="system" value="HubSpot">HubSpot</label>
+              <label><input type="checkbox" name="system" value="Salesforce">Salesforce</label>
+              <label><input type="checkbox" name="system" value="Zoho">Zoho</label>
+              <label><input type="checkbox" name="system" value="Slack">Slack</label>
+              <label><input type="checkbox" name="system" value="Google Workspace">Google Workspace</label>
+              <label><input type="checkbox" name="system" value="Microsoft 365">Microsoft 365</label>
+              <label><input type="checkbox" name="system" value="Postgres/MySQL">Postgres/MySQL</label>
+              <label><input type="checkbox" name="system" value="Notion">Notion</label>
+              <label><input type="checkbox" name="system" value="Zendesk/Intercom">Zendesk/Intercom</label>
+              <label><input type="checkbox" name="system" value="Other">Other</label>
+            </div>
+            <div class="other-wrap" id="other-wrap" hidden>
+              <label class="field-label" for="f-system-other">Which other systems?</label>
+              <input class="input" id="f-system-other" name="system_other" type="text" autocomplete="off">
+            </div>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="brief-step">
+          <legend>Budget and timeline</legend>
+          <p class="step-intro">A range is enough. A fixed quote follows the scoping call.</p>
+          <fieldset class="field" aria-describedby="err-budget">
+            <legend class="field-label">Budget</legend>
+            <div class="choice">
+              <label><input type="radio" name="budget" value="Under $1,000">Under $1,000</label>
+              <label><input type="radio" name="budget" value="$1,000–$3,000">$1,000–$3,000</label>
+              <label><input type="radio" name="budget" value="$3,000–$10,000">$3,000–$10,000</label>
+              <label><input type="radio" name="budget" value="Over $10,000">Over $10,000</label>
+              <label><input type="radio" name="budget" value="Not sure">Not sure</label>
+            </div>
+            <p class="field-error" id="err-budget" data-for="budget" hidden></p>
+          </fieldset>
+          <fieldset class="field" aria-describedby="err-timeline">
+            <legend class="field-label">Timeline</legend>
+            <div class="choice">
+              <label><input type="radio" name="timeline" value="As soon as possible">As soon as possible</label>
+              <label><input type="radio" name="timeline" value="Within a month">Within a month</label>
+              <label><input type="radio" name="timeline" value="Within a quarter">Within a quarter</label>
+              <label><input type="radio" name="timeline" value="Exploring">Exploring</label>
+            </div>
+            <p class="field-error" id="err-timeline" data-for="timeline" hidden></p>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="brief-step">
+          <legend>About you</legend>
+          <p class="step-intro">Used only to reply to you.</p>
+          <div class="field-inline">
+            <div class="field">
+              <label class="field-label" for="f-name">Name</label>
+              <input class="input" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="err-name">
+              <p class="field-error" id="err-name" data-for="name" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field-label" for="f-company">Company <span class="faint">(optional)</span></label>
+              <input class="input" id="f-company" name="company" type="text" autocomplete="organization">
+            </div>
+          </div>
+          <div class="field-inline">
+            <div class="field">
+              <label class="field-label" for="f-email">Work email</label>
+              <input class="input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="you@company.com" aria-describedby="err-email">
+              <p class="field-error" id="err-email" data-for="email" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field-label" for="f-website">Website <span class="faint">(optional)</span></label>
+              <input class="input" id="f-website" name="website" type="text" autocomplete="url" inputmode="url" placeholder="company.com">
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="f-source">How you found GTDataWorks <span class="faint">(optional)</span></label>
+            <select class="input" id="f-source" name="source">
+              <option value="">Choose one</option>
+              <option value="Upwork">Upwork</option>
+              <option value="Agensi">Agensi</option>
+              <option value="Hugging Face">Hugging Face</option>
+              <option value="GitHub">GitHub</option>
+              <option value="Search">Search</option>
+              <option value="Referral">Referral</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="brief-step">
+          <legend>Review</legend>
+          <p class="step-intro js-only">Read it over. Back changes any answer, and the brief updates.</p>
+          <div class="glass-dark brief-out js-only">
+            <label class="visually-hidden" for="brief-text">Your project brief</label>
+            <textarea class="input" id="brief-text" name="brief" rows="18" readonly spellcheck="false"></textarea>
+          </div>
+          <noscript><p class="muted">JavaScript is off in your browser, so the brief is not assembled here. Send your answers to <a href="mailto:agents@gtdataworks.com">agents@gtdataworks.com</a>, or use the button below to open a blank email.</p></noscript>
+        </fieldset>
+
+        <div class="form-actions step-nav">
+          <button class="btn btn-ghost" type="button" data-nav="back" hidden>Back</button>
+          <button class="btn btn-gold" type="button" data-nav="next" aria-disabled="true" hidden>Continue</button>
+          <a class="btn btn-primary" id="brief-mail" href="mailto:agents@gtdataworks.com?subject=Project%20brief">Email this brief</a>
+          <button class="btn btn-glass js-only" id="brief-copy" type="button" data-copy="#brief-text" data-copied-label="Copied" hidden>Copy brief</button>
+        </div>
+        <p class="brief-status" id="brief-status" role="status" aria-live="polite"></p>
+        <p class="muted small brief-privacy" id="brief-privacy">The brief is sent from your own email client to agents@gtdataworks.com. Nothing is stored on this site.</p>
+        <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Leave this field empty">
+      </form>
+    </div></div>
+
+    <aside class="glass-soft tile sticky">
+      <h2>What happens next</h2>
+      <ol class="sequence">
+        <li><strong>You send the brief</strong>It arrives at <a href="mailto:agents@gtdataworks.com">agents@gtdataworks.com</a> from your own email client. Sending it does not reserve a build slot.</li>
+        <li><strong>GTDataWorks replies by email</strong>Questions about the brief, and a time for a scoping call.</li>
+        <li><strong>You receive a fixed quote</strong>Deliverables, timeline, price, and the evaluation criteria the work will be judged against.</li>
+        <li><strong>Kickoff</strong>Work starts against the written spec. Every deliverable ships with its receipts.</li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <span class="light-local is-cyan" style="left:-220px;top:40%"></span>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Elsewhere</h2>
+      <p class="lede">If you would rather see the work first.</p>
+    </div>
+    <div class="ledger">
+      <div class="ledger-row ledger-head"><span>Place</span><span>What is there</span><span>Kind</span><span></span></div>
+      <div class="ledger-row"><h3>Agensi</h3><span>26 live skills. The AI Agent Testing and Evaluation Bundle is the place to start.</span><span class="num">$19</span><a href="https://agensi.io/skills/ai-agent-testing-evaluation-bundle" rel="noopener">Open</a></div>
+      <div class="ledger-row"><h3>Hugging Face</h3><span>Datasets under novcor, including the Tool Failure Recovery v2 public specimen.</span><span>Datasets</span><a href="https://huggingface.co/novcor" rel="noopener">Open</a></div>
+      <div class="ledger-row"><h3>GitHub</h3><span>cindermote, gtd-dataset-factory-core and other repositories under cwwjacobs.</span><span>Code</span><a href="https://github.com/cwwjacobs" rel="noopener">Open</a></div>
+      <div class="ledger-row"><h3>terminusprotocol.io</h3><span>The parent brand of GTDataWorks.</span><span>Site</span><a href="https://terminusprotocol.io" rel="noopener">Visit</a></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+  var form = document.getElementById('brief');
+  if (!form) return;
+  var root = form.getAttribute('data-root') || '';
+  var endpoint = (form.getAttribute('data-endpoint') || '').trim();
+  var steps = Array.prototype.slice.call(form.querySelectorAll('.brief-step'));
+  var bars = Array.prototype.slice.call(form.querySelectorAll('.steps li'));
+  var back = form.querySelector('[data-nav="back"]');
+  var next = form.querySelector('[data-nav="next"]');
+  var mail = document.getElementById('brief-mail');
+  var copy = document.getElementById('brief-copy');
+  var out = document.getElementById('brief-text');
+  var status = document.getElementById('brief-status');
+  var privacy = document.getElementById('brief-privacy');
+  var stepNow = form.querySelector('[data-step-now]');
+  var select = form.elements.service;
+  var hint = document.getElementById('service-hint');
+  var link = document.getElementById('service-link');
+  var otherWrap = document.getElementById('other-wrap');
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var LAST = steps.length - 1;
+  var SERVICES = {
+    "conversational-ai": ["Chatbots and assistants that answer from your documents and show their sources.", "1–3 weeks", "Starter", "$1,000"],
+    "agent-orchestration": ["Multi-step agents that move work between your tools, with a receipt for every action.", "2–4 weeks", "Per workflow", "$2,000–$5,000"],
+    "prompt-engineering": ["Prompts and model tunes measured against a test set, not a demo.", "1–2 weeks", "Fixed price", "$500–$2,000"],
+    "ai-integration": ["LLM features inside the software you already run.", "1–3 weeks", "Per integration", "$1,000–$5,000"],
+    "deployment-mlops": ["Prototypes turned into services that stay up.", "1–3 weeks", "Hourly", "$80–$150/hr"],
+    "monitoring-analytics": ["Know what your bot said, how fast, and how often it was right.", "1–2 weeks", "Fixed price", "$500–$2,000"],
+    "security-compliance": ["Prompt-injection defense, data handling and audit trails that hold up to review.", "1–2 weeks", "Hourly", "$80–$150/hr"],
+    "crm-erp-integration": ["Assistants that live inside HubSpot, Salesforce or your ERP.", "2–4 weeks", "Per integration", "$1,500–$4,000"],
+    "llm-connectors": ["Give a model safe access to your private data and tools.", "1–2 weeks", "Per connector", "$1,000–$3,000"],
+    "mcp-servers": ["Your MCP server hosted, metered and kept current, or listed on MCPize.", "1–2 weeks to launch", "Setup", "$1,000–$2,000"],
+    "evaluation-benchmarking": ["Deterministic test suites that tell you whether an agent actually works.", "1–2 weeks", "Per evaluation", "$500–$2,000"],
+    "consulting-poc": ["Find the use case worth building, then prove it in two weeks.", "1–2 weeks", "Consulting", "$100–$200/hr"]
+  };
+  var current = 0, attempted = {}, touched = {};
+
+  function val(name) { var el = form.elements[name]; return el && el.nodeType === 1 ? el.value.trim() : ''; }
+  function checked(name) {
+    return Array.prototype.filter.call(form.querySelectorAll('[name="' + name + '"]'), function (i) { return i.checked; })
+      .map(function (i) { return i.value; });
+  }
+  function say(text) { status.textContent = text; }
+  function serviceName() { var o = select.options[select.selectedIndex]; return o && o.value ? o.textContent.trim() : 'Not sure yet'; }
+
+  function problems(i) {
+    var p = [];
+    if (i === 0 && !val('service')) p.push(['service', 'Choose a service, or "Not sure yet".']);
+    if (i === 1 && val('goal').length < 10) p.push(['goal', 'Describe the goal in a sentence or two.']);
+    if (i === 2) {
+      if (!checked('budget').length) p.push(['budget', 'Choose a budget range.']);
+      if (!checked('timeline').length) p.push(['timeline', 'Choose a timeline.']);
+    }
+    if (i === 3) {
+      if (!val('name')) p.push(['name', 'Enter your name.']);
+      if (!EMAIL.test(val('email'))) p.push(['email', 'Enter an email address like you@company.com.']);
+    }
+    return p;
+  }
+
+  /* show inline errors for fields the visitor has touched (or the whole step after a Continue attempt) */
+  function paint(i) {
+    var probs = problems(i), bad = {};
+    probs.forEach(function (pr) { bad[pr[0]] = pr[1]; });
+    Array.prototype.forEach.call(steps[i].querySelectorAll('.field-error'), function (err) {
+      var name = err.getAttribute('data-for'), show = !!bad[name] && !!(touched[name] || attempted[i]);
+      err.hidden = !show;
+      err.textContent = show ? bad[name] : '';
+      var ctl = form.elements[name];
+      if (ctl && ctl.nodeType === 1) ctl.setAttribute('aria-invalid', show ? 'true' : 'false');
+    });
+    next.setAttribute('aria-disabled', probs.length ? 'true' : 'false');
+    return !probs.length;
+  }
+
+  function focusFirstError(i) {
+    var err = steps[i].querySelector('.field-error:not([hidden])');
+    if (!err) return;
+    var ctl = form.elements[err.getAttribute('data-for')];
+    if (ctl && ctl.nodeType === 1) ctl.focus(); else if (ctl && ctl[0]) ctl[0].focus();
+  }
+
+  function hintFor() {
+    var s = SERVICES[select.value];
+    hint.textContent = '';
+    if (s) {
+      hint.appendChild(document.createTextNode(s[0] + ' '));
+      var f = document.createElement('span'); f.className = 'faint';
+      f.textContent = 'Timeline ' + s[1] + '. ' + s[2] + ': ' + s[3] + '.';
+      hint.appendChild(f);
+      link.setAttribute('href', root + 'services/' + select.value + '.html');
+    } else if (select.value === 'not-sure') {
+      hint.textContent = 'Describe it in the next step. The scoping call sorts out which service fits.';
+    }
+    link.hidden = !s;
+  }
+
+  function briefText(goal) {
+    var systems = checked('system'), other = val('system_other');
+    if (other) systems = systems.filter(function (s) { return s !== 'Other'; }).concat([other]);
+    var contact = [val('name') + (val('company') ? ', ' + val('company') : ''), val('email')];
+    if (val('website')) contact.push(val('website'));
+    if (val('source')) contact.push('Found GTDataWorks via ' + val('source'));
+    var indent = function (lines) { return lines.map(function (l) { return '  ' + l; }); };
+    return ['Project brief for GTDataWorks', '',
+      'Project'].concat(indent([serviceName()]), ['', 'Goal'], indent(goal.split(/\r?\n/)),
+      ['', 'Systems'], indent([systems.length ? systems.join(', ') : 'None listed']),
+      ['', 'Budget'], indent([checked('budget')[0] || 'Not stated']),
+      ['', 'Timeline'], indent([checked('timeline')[0] || 'Not stated']),
+      ['', 'Contact'], indent(contact)).join('\n');
+  }
+  function mailHref(text) {
+    return 'mailto:agents@gtdataworks.com?subject=' + encodeURIComponent('Project brief: ' + serviceName()) +
+      '&body=' + encodeURIComponent(text.replace(/\n/g, '\r\n'));
+  }
+  /* build the brief; keep the mailto link under ~1900 chars by shortening only the goal in the link */
+  function build() {
+    var goal = val('goal'), text = briefText(goal), href = mailHref(text), note = '';
+    while (href.length > 1900 && goal.length > 120) {
+      goal = goal.slice(0, goal.length - 80).replace(/\s+\S*$/, '') + ' [...]';
+      href = mailHref(briefText(goal) + '\n\n(Goal shortened to fit the email link; the full brief is in the copy box on the site.)');
+      note = 'Long brief: the email link carries a shortened goal. Use Copy brief and paste the full text into the email.';
+    }
+    out.value = text;
+    out.style.height = 'auto';
+    out.style.height = (out.scrollHeight + 4) + 'px';
+    mail.setAttribute('href', href);
+    say(note);
+  }
+
+  function show(i, focus) {
+    current = i;
+    steps.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+    bars.forEach(function (b, k) { b.className = k < i ? 'is-done' : (k === i ? 'is-current' : ''); });
+    stepNow.textContent = String(i + 1);
+    back.hidden = i === 0;
+    next.hidden = i === LAST;
+    next.textContent = i === LAST - 1 ? 'Build the brief' : 'Continue';
+    mail.hidden = copy.hidden = privacy.hidden = i !== LAST;
+    if (i === LAST) build(); else say('');
+    paint(i);
+    if (focus) {
+      if (form.getBoundingClientRect().top < 0) form.scrollIntoView();
+      var legend = steps[i].querySelector('legend');
+      legend.setAttribute('tabindex', '-1');
+      legend.focus();
+    }
+  }
+
+  function advance() {
+    attempted[current] = true;
+    if (paint(current)) show(current + 1, true); else focusFirstError(current);
+  }
+
+  next.addEventListener('click', advance);
+  back.addEventListener('click', function () { if (current > 0) show(current - 1, true); });
+  form.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.type !== 'checkbox' && e.target.type !== 'radio') {
+      e.preventDefault();
+      if (current < LAST) advance();
+    }
+  });
+  function onChange(e) {
+    var name = e.target && e.target.name;
+    if (name === 'service') hintFor();
+    if (name === 'system') otherWrap.hidden = checked('system').indexOf('Other') === -1;
+    if (e.type === 'change' && name) touched[name] = true;
+    paint(current);
+  }
+  form.addEventListener('input', onChange);
+  form.addEventListener('change', onChange);
+  form.addEventListener('focusout', function (e) {
+    if (e.target && e.target.name && e.target.type !== 'checkbox' && e.target.type !== 'radio') { touched[e.target.name] = true; paint(current); }
+  });
+
+  /* optional POST endpoint (Formspree/Basin style); empty data-endpoint means plain mailto */
+  mail.addEventListener('click', function (e) {
+    if (!endpoint) return;
+    e.preventDefault();
+    if (mail.getAttribute('aria-disabled') === 'true') return;
+    var data = {
+      service: val('service'), service_name: serviceName(), goal: val('goal'), systems: checked('system'),
+      system_other: val('system_other'), budget: checked('budget')[0] || '', timeline: checked('timeline')[0] || '',
+      name: val('name'), company: val('company'), email: val('email'), website: val('website'), source: val('source'),
+      brief: out.value, _subject: 'Project brief: ' + serviceName(), _gotcha: val('_gotcha')
+    };
+    say('Sending.');
+    fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) {
+        if (!r.ok) throw new Error(String(r.status));
+        mail.textContent = 'Sent';
+        mail.setAttribute('aria-disabled', 'true');
+        say('Sent. GTDataWorks will reply to ' + val('email') + '.');
+      })
+      .catch(function () {
+        say('This page could not send it, so your email client is opening instead.');
+        window.location.href = mail.getAttribute('href');
+      });
+  });
+  if (endpoint) privacy.textContent = 'The brief is sent through the form service configured for this page. If that fails, your email client opens with the brief instead.';
+
+  /* preselect from ?service=<slug> */
+  var m = /[?&]service=([^&#]*)/.exec(window.location.search);
+  if (m) {
+    var want = decodeURIComponent(m[1].replace(/\+/g, ' '));
+    Array.prototype.forEach.call(select.options, function (o) { if (o.value === want) select.value = want; });
+  }
+  form.classList.add('is-enhanced');
+  hintFor();
+  show(0, false);
+})();
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="services/index.html">Services</a><a href="tool-failure-recovery.html">Selected work</a><a href="about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

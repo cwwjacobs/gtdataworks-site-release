@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Engineering &amp; Fine-Tuning — GTDataWorks</title>
+<meta name="description" content="Prompt packs and LoRA fine-tunes developed against a held-out test set with deterministic grading, so you get a before-and-after score. $500–$2,000, 1–2 weeks.">
+<link rel="canonical" href="https://gtdataworks.com/services/prompt-engineering.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Prompt Engineering &amp; Fine-Tuning — GTDataWorks">
+<meta property="og:description" content="Prompt packs and LoRA fine-tunes developed against a held-out test set with deterministic grading, so you get a before-and-after score. $500–$2,000, 1–2 weeks.">
+<meta property="og:url" content="https://gtdataworks.com/services/prompt-engineering.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-services-prompt-engineering">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="../services/index.html" aria-current="page">Services</a></li>
+      <li><a href="../tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="../about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="../contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+  /* Service detail — page-specific layout only; components come from styles.css */
+  body.page-services-prompt-engineering .svc-block + .svc-block { margin-top: clamp(44px, 5.5vw, 72px); }
+  body.page-services-prompt-engineering .svc-block > .lede { font-size: 16.5px; margin: -.4em 0 1.3em; }
+  body.page-services-prompt-engineering .deliverables .checklist li + li { margin-top: .6em; }
+  body.page-services-prompt-engineering .deliverables .seal { margin: 24px 0 0; }
+  /* the build sequence: a real sequence, so it is numbered */
+  body.page-services-prompt-engineering .steps-list { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  body.page-services-prompt-engineering .steps-list li { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; row-gap: 4px; margin: 0; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.08); }
+  body.page-services-prompt-engineering .steps-list li:first-child { border-top: 0; padding-top: 0; }
+  body.page-services-prompt-engineering .steps-list li:last-child { padding-bottom: 0; }
+  body.page-services-prompt-engineering .steps-list li::before { counter-increment: step; content: counter(step, decimal-leading-zero); grid-row: 1 / span 2; font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: .25em; }
+  body.page-services-prompt-engineering .steps-list h3 { font-size: 18px; margin: 0; }
+  body.page-services-prompt-engineering .steps-list p { margin: 0; color: #d7d2e6; font-size: 15.5px; max-width: 58ch; }
+  /* tiers sit in a 670px column: name above price reads the same in every tier */
+  body.page-services-prompt-engineering .tier .row-between { flex-direction: column; align-items: flex-start; gap: 2px; margin-bottom: 10px; }
+  body.page-services-prompt-engineering .tier .price { font-size: 20px; }
+  body.page-services-prompt-engineering .fit h3 { font-size: 17px; margin-bottom: .5em; }
+  body.page-services-prompt-engineering .fit ul { margin: 0; padding-left: 1.1em; color: #d7d2e6; font-size: 16px; }
+  body.page-services-prompt-engineering .fit li + li { margin-top: .55em; }
+  body.page-services-prompt-engineering .qa details { border-top: 1px solid rgba(255,255,255,.09); }
+  body.page-services-prompt-engineering .qa details:last-of-type { border-bottom: 1px solid rgba(255,255,255,.09); }
+  body.page-services-prompt-engineering .qa summary { cursor: pointer; list-style: none; position: relative; padding: 16px 40px 16px 0; font-weight: 500; font-size: 17px; }
+  body.page-services-prompt-engineering .qa summary::-webkit-details-marker { display: none; }
+  body.page-services-prompt-engineering .qa summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 18px; color: var(--muted); }
+  body.page-services-prompt-engineering .qa details[open] summary::after { content: "−"; }
+  body.page-services-prompt-engineering .qa details p { margin: 0 0 18px; color: #d7d2e6; max-width: var(--measure); }
+  body.page-services-prompt-engineering .side .related { list-style: none; padding: 0; margin: 0; }
+  body.page-services-prompt-engineering .side .related li + li { margin-top: 8px; }
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../services/index.html">Services</a><span>/</span>Prompt Engineering &amp; Fine-Tuning</p>
+    <h1>Prompt Engineering &amp; Fine-Tuning</h1>
+    <p class="lede">Prompts and model tunes measured against a test set, not a demo.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="../contact.html?service=prompt-engineering">Start a brief for this service</a>
+      <a class="btn btn-glass btn-lg" href="../services/index.html">All services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <span class="light-local is-gold" style="left:-120px;top:54%" aria-hidden="true"></span>
+  <div class="wrap grid grid-sidebar">
+    <div class="svc-main">
+
+      <div class="svc-block">
+        <h2>What it is</h2>
+        <div class="prose">
+          <p>Marketing copy in a house style, legal summaries that keep the defined terms, ticket classification, field extraction from invoices: tasks where the model&rsquo;s exact behaviour matters and &ldquo;usually right&rdquo; is not good enough. GTDataWorks writes and tests prompts for GPT, Claude and Gemini against a held-out test set with deterministic grading, so the result is a before-and-after score rather than a convincing demo on three examples.</p>
+          <p>Your users, or your code, get consistent output: the same structure every time, the edge cases handled the way the test set says they should be, and a versioned prompt pack that drops into your application through a short integration snippet. Where prompting alone cannot reach the target, the studio fine-tunes an open model on your data with LoRA and measures it against the same test set.</p>
+        </div>
+      </div>
+
+      <div class="svc-block">
+        <h2>What you get</h2>
+        <div class="stack lift lit lit-purple deliverables"><article class="glass slab">
+          <ul class="checklist">
+            <li>Versioned prompt pack</li>
+            <li>Test set and grading script</li>
+            <li>Score report</li>
+            <li>Integration snippet</li>
+          </ul>
+          <p class="seal">A score, not a demo</p>
+        </article></div>
+      </div>
+
+      <div class="svc-block">
+        <h2>How the work runs</h2>
+        <p class="lede">The build steps once the quote is agreed. The brief, scoping call and quote are <a href="../services/index.html#process">the same for every service</a>.</p>
+        <div class="glass-soft tile">
+          <ol class="steps-list">
+            <li>
+              <h3>Define correct</h3>
+              <p>Agree what a correct output is for this task: the format, the hard constraints, and 5 to 10 examples of acceptable and unacceptable output, written down.</p>
+            </li>
+            <li>
+              <h3>Build the test set</h3>
+              <p>Collect 50 to 200 real inputs with reference outputs. Split them into a development set used for writing prompts and a held-out set that is not looked at until the end.</p>
+            </li>
+            <li>
+              <h3>Baseline score</h3>
+              <p>Run your current prompt, or a plain one, against the held-out set with the deterministic grader. This is the before number, and it goes in the report unchanged.</p>
+            </li>
+            <li>
+              <h3>Iterate on the development set</h3>
+              <p>Prompt variants, few-shot examples, structured output, model choice; each variant is scored and kept in the pack&rsquo;s version history. If the ceiling is too low, a LoRA fine-tune of an open model on your data.</p>
+            </li>
+            <li>
+              <h3>Final score and handover</h3>
+              <p>One run on the held-out set becomes the score report. You receive the prompt pack, the test set, the grading script and an integration snippet in your language.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="svc-block">
+        <h2>Pricing</h2>
+        <div class="grid grid-2">
+          <div class="glass-soft tier">
+            <div class="row-between"><h3>Fixed price</h3><span class="price">$500–$2,000</span></div>
+            <p>Per prompt pack or tuning project, including test set and score report.</p>
+          </div>
+          <div class="glass-soft tier">
+            <div class="row-between"><h3>Hourly</h3><span class="price">$80–$150/hr</span></div>
+            <p>Custom development and ongoing iteration.</p>
+          </div>
+        </div>
+        <div class="note" style="margin-top:20px"><p>Prices are in USD and are starting points. The final quote follows a scoping call.</p></div>
+      </div>
+
+      <div class="svc-block fit">
+        <h2>Where it fits</h2>
+        <div class="grid grid-2">
+          <div>
+            <h3>A good fit when</h3>
+            <ul>
+              <li>The task is a transformation of text you can define: classify, extract, summarize, rewrite in a style.</li>
+              <li>You can supply, or help assemble, 50 or more real examples with known-good outputs.</li>
+              <li>The output goes into a system or in front of customers, so format and consistency matter.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Not a fit when</h3>
+            <ul>
+              <li>The answer depends on documents or fresh data the model has not seen. That needs retrieval: <a href="../services/conversational-ai.html">Conversational AI &amp; RAG Agents</a>.</li>
+              <li>You want a complete agent or chat product; a prompt is one component of that. Start with <a href="../services/conversational-ai.html">Conversational AI</a> or <a href="../services/ai-integration.html">AI Integration &amp; APIs</a>.</li>
+              <li>You want to compare whole systems, models or vendors rather than improve one task. That is <a href="../services/evaluation-benchmarking.html">Agent Evaluation &amp; Benchmarking</a>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-block qa">
+        <h2>Questions</h2>
+        <details>
+          <summary>How is accuracy measured?</summary>
+          <p>Deterministically wherever possible: exact match, schema validation, and rubric checks a script can run the same way every time. Where a human judgement is unavoidable, tone for instance, a short written rubric and a sampled human review are recorded next to the automated score. The grading script ships with the pack, so you can reproduce the number yourself.</p>
+        </details>
+        <details>
+          <summary>Which models does this cover?</summary>
+          <p>Prompting: GPT, Claude and Gemini, through your own API keys. Fine-tuning: open-weight models from the Hugging Face hub with LoRA through PEFT, trained on hardware you choose. The tuned weights are yours. Closed models are prompted, not tuned.</p>
+        </details>
+        <details>
+          <summary>Is my data used to train anything?</summary>
+          <p>Only when you ask for a fine-tune, and then only your model: the training data and the resulting weights stay yours. Prompt work uses your examples in the test set and nowhere else. Nothing is pooled across clients, and model calls run on your keys under your agreement with the provider.</p>
+        </details>
+        <details>
+          <summary>What happens when the provider updates the model?</summary>
+          <p>Scores can move. The test set and grading script exist so that you can re-run them against the new model version in minutes and see whether the prompt still holds. If it does not, the hourly tier covers the fix, and the versioned pack shows what changed.</p>
+        </details>
+      </div>
+
+    </div>
+
+    <aside class="glass-soft tile sticky side" aria-label="Service facts">
+      <h3>At a glance</h3>
+      <dl class="facts">
+        <dt>Timeline</dt><dd>1–2 weeks</dd>
+        <dt>Pricing from</dt><dd><span class="price">$500</span> fixed price</dd>
+        <dt>Best for</dt><dd>Agencies, legal and finance teams, and product teams that need consistent model output.</dd>
+      </dl>
+      <h3>Stack</h3>
+      <ul class="chips">
+        <li><span class="chip">GPT, Claude and Gemini prompting</span></li>
+        <li><span class="chip">Hugging Face Transformers and PEFT (LoRA)</span></li>
+        <li><span class="chip">Deterministic grading rubrics</span></li>
+        <li><span class="chip">Human review where it matters</span></li>
+      </ul>
+      <h3>Related</h3>
+      <ul class="related">
+        <li><a href="../services/evaluation-benchmarking.html">Agent Evaluation &amp; Benchmarking</a></li>
+        <li><a href="../services/conversational-ai.html">Conversational AI &amp; RAG Agents</a></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="stack lit lit-pink"><div class="glass slab cta-band">
+      <h2>Bring the task and ten examples</h2>
+      <p class="lede">Ten real inputs with the output you wanted, and a sentence on what counts as wrong, are enough to scope the work. The test set is built from there.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="../contact.html?service=prompt-engineering">Start a brief for this service</a>
+        <a class="btn btn-glass btn-lg" href="mailto:agents@gtdataworks.com">Email the studio</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Prompt Engineering & Fine-Tuning",
+  "description": "Prompts and model tunes measured against a test set, not a demo.",
+  "serviceType": "Prompt engineering and LLM fine-tuning",
+  "provider": {"@type": "Organization", "name": "GTDataWorks", "url": "https://gtdataworks.com/"},
+  "areaServed": "Worldwide",
+  "url": "https://gtdataworks.com/services/prompt-engineering.html",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": 500, "maxPrice": 2000},
+    "url": "https://gtdataworks.com/contact.html?service=prompt-engineering"
+  }
+}
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="../services/index.html">Services</a><a href="../tool-failure-recovery.html">Selected work</a><a href="../about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

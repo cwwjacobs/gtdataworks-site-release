@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Evaluation &amp; Benchmarking — GTDataWorks</title>
+<meta name="description" content="Deterministic agent evaluation on your scenarios: per-attempt receipts and a retained-proof report. Built on Tool Failure Recovery v2 and Assay Agent Evals.">
+<link rel="canonical" href="https://gtdataworks.com/services/evaluation-benchmarking.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Agent Evaluation &amp; Benchmarking — GTDataWorks">
+<meta property="og:description" content="Deterministic agent evaluation on your scenarios: per-attempt receipts and a retained-proof report. Built on Tool Failure Recovery v2 and Assay Agent Evals.">
+<meta property="og:url" content="https://gtdataworks.com/services/evaluation-benchmarking.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-services-evaluation-benchmarking">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="../services/index.html" aria-current="page">Services</a></li>
+      <li><a href="../tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="../about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="../contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+  body.page-services-evaluation-benchmarking .svc-main > * + * { margin-top: clamp(44px, 6vw, 72px); }
+  body.page-services-evaluation-benchmarking .svc-main .checklist li + li { margin-top: 16px; }
+  body.page-services-evaluation-benchmarking .svc-main .checklist strong { display: block; font-weight: 600; }
+  body.page-services-evaluation-benchmarking .svc-main .checklist span { color: #d7d2e6; font-size: 15.5px; }
+  body.page-services-evaluation-benchmarking .svc-proof { margin-top: 28px; max-width: var(--measure); }
+  body.page-services-evaluation-benchmarking .svc-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 18px 20px; }
+  body.page-services-evaluation-benchmarking .svc-stats .num { font-size: clamp(26px, 2.6vw, 34px); }
+  body.page-services-evaluation-benchmarking .svc-proof .chart-caption { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.07); }
+  body.page-services-evaluation-benchmarking .svc-steps { list-style: none; counter-reset: step; padding: 0; margin: 0; }
+  body.page-services-evaluation-benchmarking .svc-steps li { display: grid; grid-template-columns: 2.2em minmax(0, 1fr); column-gap: 12px; padding: 18px 0; margin: 0; border-top: 1px solid rgba(255,255,255,.07); }
+  body.page-services-evaluation-benchmarking .svc-steps li:first-child { border-top: 0; padding-top: 2px; }
+  body.page-services-evaluation-benchmarking .svc-steps li:last-child { padding-bottom: 2px; }
+  body.page-services-evaluation-benchmarking .svc-steps li::before { counter-increment: step; content: counter(step, decimal-leading-zero); grid-row: 1 / span 2; font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: .25em; }
+  body.page-services-evaluation-benchmarking .svc-steps h3 { font-size: 18px; margin: 0 0 .3em; }
+  body.page-services-evaluation-benchmarking .svc-steps p { grid-column: 2; margin: 0; color: #d7d2e6; font-size: 15.5px; }
+  body.page-services-evaluation-benchmarking .svc-fit h3 { font-size: 17px; color: var(--muted); font-weight: 500; margin-bottom: .6em; }
+  body.page-services-evaluation-benchmarking .svc-fit ul { margin: 0; padding-left: 1.1em; color: #d7d2e6; font-size: 15.5px; }
+  body.page-services-evaluation-benchmarking .svc-fit li + li { margin-top: .6em; }
+  body.page-services-evaluation-benchmarking .svc-qa > div + div { border-top: 1px solid rgba(255,255,255,.07); margin-top: 20px; padding-top: 20px; }
+  body.page-services-evaluation-benchmarking .svc-qa h3 { font-size: 18px; margin: 0 0 .35em; }
+  body.page-services-evaluation-benchmarking .svc-qa p { margin: 0; color: #d7d2e6; font-size: 15.5px; }
+  body.page-services-evaluation-benchmarking .svc-aside .facts { margin-bottom: 4px; }
+  body.page-services-evaluation-benchmarking .svc-links { list-style: none; padding: 0; margin: 0; }
+  body.page-services-evaluation-benchmarking .svc-links li + li { margin-top: 8px; }
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../services/index.html">Services</a><span>/</span>Agent Evaluation &amp; Benchmarking</p>
+    <h1>Agent Evaluation &amp; Benchmarking</h1>
+    <p class="lede">Deterministic test suites that tell you whether an agent actually works.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="../contact.html?service=evaluation-benchmarking">Start a brief for this service</a>
+      <a class="btn btn-glass btn-lg" href="../services/index.html">All services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <span class="light-local is-cyan" style="right:-160px;top:-40px"></span>
+  <div class="wrap grid grid-sidebar">
+    <div class="svc-main">
+
+      <div>
+        <h2>What it is</h2>
+        <div class="prose">
+          <p>A demo proves that an agent can work once. An evaluation tells you how often it works, on which inputs, and what happens when a tool fails. GTDataWorks writes the scenarios with you, grades every attempt with deterministic code rather than a model's opinion, and keeps a receipt for each attempt, so a result can be re-checked by someone who was not in the room. Where automation is not enough, a person reviews the disagreement and that review is recorded too.</p>
+          <p>Tool Failure Recovery v2 is a recorded 500-scenario study of agent tool-failure recovery. It retains accepted and failed outcomes and distinguishes evaluation evidence from the successful examples selected for training. The case study documents its protocol, counts, and limits.</p>
+        </div>
+        <div class="glass-dark chart svc-proof">
+          <div class="svc-stats">
+            <div class="stat"><span class="num">500</span><span class="stat-label">scenarios</span></div>
+            <div class="stat"><span class="num">629</span><span class="stat-label">recorded attempts</span></div>
+            <div class="stat"><span class="num">447</span><span class="stat-label">accepted scenarios</span></div>
+            <div class="stat"><span class="num">53</span><span class="stat-label">retries exhausted</span></div>
+          </div>
+          <p class="chart-caption">Historical Tool Failure Recovery v2 study. Model attempts exclude 54 synthetic terminal markers. <a href="../tool-failure-recovery.html">Inspect the study, source checks, and scope.</a></p>
+        </div>
+      </div>
+
+      <div>
+        <h2>What you get</h2>
+        <div class="stack lift lit lit-gold"><article class="glass slab">
+          <ul class="checklist">
+            <li><strong>Scenario set</strong><span>The inputs, expected outcomes and failure conditions you agreed to test, in a form that can be run again after every change.</span></li>
+            <li><strong>Grading script</strong><span>Deterministic code that scores each attempt the same way every time. You receive it, so you can re-grade the results yourself.</span></li>
+            <li><strong>Results with per-attempt receipts</strong><span>A score per model, prompt or agent variant, and for every attempt a receipt: what went in, what came out, the grader's verdict and a SHA-256 hash.</span></li>
+            <li><strong>Retained-proof report</strong><span>A finding ledger, an evidence manifest with SHA-256 hashes for every file, and a negative control that shows the graders can fail.</span></li>
+          </ul>
+        </article></div>
+      </div>
+
+      <div>
+        <h2>How the work runs</h2>
+        <div class="glass-soft tile">
+          <ol class="svc-steps">
+            <li><h3>Define the scenarios with you</h3><p>What the agent must do, what counts as success, and which failures to inject: timeouts, bad tool output, missing permissions. The scenario count is set by what is being decided, and it sets the price.</p></li>
+            <li><h3>Write deterministic graders</h3><p>Each scenario gets a grader in code that returns the same verdict for the same output every time. Where a verdict cannot be decided in code, it goes to human review rather than to another model.</p></li>
+            <li><h3>Run every variant with per-attempt receipts</h3><p>Each model, prompt or agent variant runs the agreed scenario set in the evaluation runner. Every attempt, including retries and failures, is kept with its receipt.</p></li>
+            <li><h3>Human review of disagreements</h3><p>Attempts where a grader's verdict is in doubt, or where you disagree with it, are reviewed by hand. The review and its reasoning are recorded alongside the receipt.</p></li>
+            <li><h3>Retained-proof report</h3><p>The results arrive as a report a stranger can re-check: a finding ledger with IDs and dispositions, an evidence manifest listing every file with its size and SHA-256 hash, and a negative control, a deliberately wrong submission the graders must fail.</p></li>
+          </ol>
+        </div>
+      </div>
+
+      <div>
+        <h2>Pricing</h2>
+        <div class="glass-soft tier"><div class="row-between"><h3>Per evaluation</h3><span class="price">$500–$2,000</span></div><p>Scoped by scenario count and models compared; includes per-attempt receipts and a retained-proof report.</p></div>
+        <div class="note" style="margin-top:18px"><p>Prices are in USD and are starting points. The final quote follows a scoping call, where the scenario count and the number of variants compared set the figure.</p></div>
+      </div>
+
+      <div class="svc-fit">
+        <h2>Where it fits</h2>
+        <div class="grid grid-2">
+          <div>
+            <h3>A good fit when</h3>
+            <ul>
+              <li>You are choosing between models, prompts or vendors and need a number you can defend, not a demo.</li>
+              <li>You have an agent that calls tools and want to know what it does when a tool fails, before your users find out.</li>
+              <li>The result will be read by someone sceptical: a buyer, an auditor, a technical lead.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Not a fit when</h3>
+            <ul>
+              <li>You need the prompt itself written or tuned. See <a href="../services/prompt-engineering.html">Prompt Engineering &amp; Fine-Tuning</a>, which includes a test set and score report.</li>
+              <li>You want a live view of a system in production rather than a point-in-time comparison. See <a href="../services/monitoring-analytics.html">Monitoring &amp; Analytics for AI Systems</a>.</li>
+              <li>You need prompts, tools and data flows audited for security rather than measured for accuracy. See <a href="../services/security-compliance.html">Security &amp; Compliance for AI</a>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>Questions</h2>
+        <div class="glass-soft tile svc-qa">
+          <div><h3>Can the results be published?</h3><p>Yes, if you decide to; the results are yours. Because every attempt carries a receipt and the report includes an evidence manifest, anyone you hand the bundle to can check a published number against the attempts behind it.</p></div>
+          <div><h3>Does GTDataWorks train on my scenarios or transcripts?</h3><p>No. Your scenarios, transcripts and results are used for your evaluation and nothing else. The studio draws the same line in its own dataset licensing: evaluation rights are not training rights.</p></div>
+          <div><h3>Which models can be evaluated?</h3><p>Any model you can give API access to, including fine-tunes and self-hosted open models, and whole agents as long as the runner can invoke them. Several variants can be compared in one evaluation; the count is part of the scope.</p></div>
+          <div><h3>What is a negative control, and why is it in the report?</h3><p>A deliberately wrong submission run through the same graders. If the graders pass it, the graders are broken. It is in every report so you can see that the checks are capable of failing before you trust them when they pass.</p></div>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="glass-soft tile sticky svc-aside" aria-label="Service facts">
+      <h3>At a glance</h3>
+      <dl class="facts">
+        <dt>Timeline</dt><dd>1–2 weeks</dd>
+        <dt>Pricing from</dt><dd><span class="price">$500</span> per evaluation</dd>
+        <dt>Best for</dt><dd>R&amp;D teams, serious AI deployments, and buyers evaluating vendors.</dd>
+      </dl>
+      <h3>Stack</h3>
+      <ul class="chips">
+        <li><span class="chip">Assay Agent Evals</span></li>
+        <li><span class="chip">Scenario packs</span></li>
+        <li><span class="chip">Deterministic graders</span></li>
+        <li><span class="chip">scikit-learn and NLP metrics</span></li>
+        <li><span class="chip">A/B frameworks</span></li>
+        <li><span class="chip">Receipt bundles with SHA-256 hashes</span></li>
+      </ul>
+      <h3>Related</h3>
+      <ul class="svc-links">
+        <li><a href="../services/prompt-engineering.html">Prompt Engineering &amp; Fine-Tuning</a></li>
+        <li><a href="../services/security-compliance.html">Security &amp; Compliance for AI</a></li>
+        <li><a href="../services/monitoring-analytics.html">Monitoring &amp; Analytics for AI Systems</a></li>
+      </ul>
+      <h3>Published work</h3>
+      <ul class="svc-links">
+        <li><a href="https://huggingface.co/datasets/novcor/tool-failure-recovery-v2-public" rel="noopener">Tool Failure Recovery v2, public specimen</a></li>
+        <li><a href="https://agensi.io/skills/ai-agent-testing-evaluation-bundle" rel="noopener">AI Agent Testing and Evaluation Bundle</a> on Agensi, <span class="price">$19</span></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="stack lit lit-pink"><div class="glass slab cta-band">
+      <h2>Get a number you can defend</h2>
+      <p class="lede">Bring the agent, the models or the prompts you are deciding between. The scenarios are written with you, and the results come back with receipts.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="../contact.html?service=evaluation-benchmarking">Start a brief for this service</a>
+        <a class="btn btn-glass btn-lg" href="mailto:agents@gtdataworks.com">Email the studio</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Agent Evaluation & Benchmarking",
+  "description": "Deterministic test suites that tell you whether an agent actually works.",
+  "url": "https://gtdataworks.com/services/evaluation-benchmarking.html",
+  "serviceType": "LLM agent evaluation and benchmarking",
+  "provider": {
+    "@type": "Organization",
+    "name": "GTDataWorks",
+    "url": "https://gtdataworks.com/",
+    "email": "agents@gtdataworks.com"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Per evaluation",
+      "description": "Scoped by scenario count and models compared; includes per-attempt receipts and a retained-proof report. $500–$2,000; final quote after a scoping call.",
+      "priceCurrency": "USD"
+    }
+  ]
+}
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="../services/index.html">Services</a><a href="../tool-failure-recovery.html">Selected work</a><a href="../about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

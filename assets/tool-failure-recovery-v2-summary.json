@@ -1,0 +1,116 @@
+{
+  "schema": "gtdataworks.public-evidence-summary.v1",
+  "title": "Tool Failure Recovery v2 \u2014 preserved evaluation evidence",
+  "verified_on": "2026-11-07",
+  "evidence_status": "Historical upstream evidence pack; superseded as the current commercial release.",
+  "source_artifact": "DataSetFactory-working-state-2026-08-26.zip",
+  "source_member_root": "DataSetFactory/studio/packs/tool-failure-recovery-v2/",
+  "verification": {
+    "method": "Read archived source bytes without extracting or modifying them. Recounted JSONL rows and outcomes; checked SHA-256 against the included pack manifest.",
+    "manifest_files_checked": 8,
+    "manifest_files_matched": 8,
+    "artifact_sha256": {
+      "DataSetFactory/studio/packs/tool-failure-recovery-v2/SHA256SUMS.txt": "e6badfacaceaff2dda6585874663190169619900741e09561ad709cd94c8c578",
+      "DataSetFactory/studio/packs/tool-failure-recovery-v2/full_eval_500/FULL_EVAL.json": "f5a5a763c7d75d878d03185fc039467aa7fc3c9edeefc840f2a1254bc4d8582c",
+      "DataSetFactory/studio/packs/tool-failure-recovery-v2/full_eval_500/scenarios.full.jsonl": "a7654b7f8a4d583dc92b45cb9bdd0c38a1ea8219949bfd5cf5aaa4fe02ef83cb",
+      "DataSetFactory/studio/packs/tool-failure-recovery-v2/pack.json": "47049266476cfbf758e9b9a115dd641586a9789856d0cde975b87bdb759ebd61",
+      "DataSetFactory/studio/packs/tool-failure-recovery-v2/raw_attempts_683/index.jsonl": "38d568250b423f3326d2694d6a7827bec7799542b2a8635405ae78f1b1e475b3",
+      "DataSetFactory/studio/packs/tool-failure-recovery-v2/success_sft_447/success_sft.sft_messages.jsonl": "aacab402b2f73f070161fb177b8a2ca16f2fef345e86a4842086f83f1abdc236",
+      "DataSetFactory/studio/state/tool_failure_pack/runs/v2_canonical/full_view/FULL_VIEW.json": "f5a5a763c7d75d878d03185fc039467aa7fc3c9edeefc840f2a1254bc4d8582c",
+      "DataSetFactory/studio/state/tool_failure_pack/runs/v2_canonical/full_view/scenarios.full.jsonl": "a7654b7f8a4d583dc92b45cb9bdd0c38a1ea8219949bfd5cf5aaa4fe02ef83cb"
+    },
+    "limitations": [
+      "Checksum agreement establishes consistency with the included manifest, not independent authorship or semantic correctness.",
+      "No fresh model execution, rubric rerun, full tape validation, or independent human review was performed for this verification."
+    ]
+  },
+  "capture": {
+    "model_id": "gpt-5.6-luna",
+    "model_id_basis": "Recorded in every upstream receipt-index row; not independently attested.",
+    "protocol": "tool_failure_semantic_v2",
+    "prompt_builder": "replay_direct",
+    "scenario_count": 500,
+    "unique_scenario_ids": 500,
+    "templates": 10,
+    "accepted_scenarios": 447,
+    "terminal_failure_scenarios": 53,
+    "preserved_receipt_records": 683,
+    "model_attempt_records": 629,
+    "synthetic_terminal_records": 54,
+    "receipt_status_counts": {
+      "MALFORMED_FINAL": 1,
+      "REJECTED_GRADER_FAIL": 176,
+      "RETRY_EXHAUSTED": 54,
+      "SCORED": 452
+    },
+    "per_template_outcomes": {
+      "ms001_wrong_order": {
+        "ACCEPTED": 50
+      },
+      "ms002_skipped_step": {
+        "ACCEPTED": 50
+      },
+      "ms003_cascading": {
+        "ACCEPTED": 50
+      },
+      "rc001_loop": {
+        "ACCEPTED": 50
+      },
+      "tc001_wrong_tool": {
+        "ACCEPTED": 50
+      },
+      "tc002_missing_arg": {
+        "ACCEPTED": 50
+      },
+      "tc003_schema_violation": {
+        "ACCEPTED": 49,
+        "RETRY_EXHAUSTED": 1
+      },
+      "tc004_wrong_value": {
+        "ACCEPTED": 48,
+        "RETRY_EXHAUSTED": 2
+      },
+      "tx001_timeout": {
+        "ACCEPTED": 50
+      },
+      "tx003_permission": {
+        "RETRY_EXHAUSTED": 50
+      }
+    },
+    "sampling_caveat": "Grader-conditioned bounded retries. Later attempts are conditionally sampled; counts are not independent fixed-N trials."
+  },
+  "derived_training_view": {
+    "rows": 447,
+    "selection": "Successful recoveries only",
+    "evaluation_blind": false,
+    "limitation": "Includes scenarios from both planned splits; do not present as a held-out evaluation set."
+  },
+  "separate_permission_diagnostic": {
+    "scenario_count": 50,
+    "attempts_per_scenario": 9,
+    "model_attempts": 450,
+    "accepted_attempts": 0,
+    "synthetic_terminal_records": 50,
+    "total_receipts": 500,
+    "failed_checks": [
+      "recovery_outcome_valid",
+      "no_new_errors"
+    ],
+    "attempts_with_forbidden_tools": 0,
+    "observed_strategy_counts": {
+      "respect_permission_boundary": 450
+    },
+    "receipt_set_sha256": "1d573e623bdd214bd78e9e768833b0f10fc95a4356cfbc43cc53d89a67278ba2",
+    "receipt_set_digest_definition": "SHA256 over concatenated UTF-8 lines sorted by archive member path, each line: path + one ASCII space + lowercase file SHA256 + LF.",
+    "pooled_with_primary": false,
+    "claim_boundary": "This diagnostic measures conformance to this fixture and grader. All 450 recorded attempts used respect_permission_boundary and recorded no forbidden tools; rejection does not establish permission bypass."
+  },
+  "release_metadata": {
+    "upstream_status": "FINALIZED",
+    "human_reviewed_field": true,
+    "human_reviewed_timestamp": "2026-08-24T13:20:43.871207Z",
+    "review_verification": "Metadata assertion only; reviewer sign-off not independently established.",
+    "current_commercial_release": false,
+    "superseded_marker": "packs/tool-failure-recovery-v2/SUPERSEDED.md"
+  }
+}

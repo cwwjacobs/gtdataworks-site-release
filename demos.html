@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent prototypes — GTDataWorks</title>
+<meta name="description" content="GTDataWorks agent prototypes: customer intake, a RAG showcase with scripted walkthrough, voice/SMS lead qualification and an internal knowledge agent.">
+<link rel="canonical" href="https://gtdataworks.com/demos.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GTDataWorks">
+<meta property="og:title" content="Agent prototypes — GTDataWorks">
+<meta property="og:description" content="GTDataWorks agent prototypes: customer intake, a RAG showcase with scripted walkthrough, voice/SMS lead qualification and an internal knowledge agent.">
+<meta property="og:url" content="https://gtdataworks.com/demos.html">
+<meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#141a1e">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cinzel-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css?v=20261107-contrast1">
+
+</head>
+<body class="page-demos">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="lights" aria-hidden="true">
+  <span class="orb orb-gold" data-depth="0.045"></span>
+  <span class="orb orb-cyan" data-depth="0.06"></span>
+  <span class="orb orb-gold-2" data-depth="0.05"></span>
+  <span class="orb orb-cyan-2" data-depth="0.06"></span>
+</div>
+
+<header class="site-nav">
+  <nav class="wrap nav-inner" aria-label="Primary">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="36" height="36">
+      <span class="brand-name">GTDataWorks</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="services/index.html" >Services</a></li>
+      <li><a href="tool-failure-recovery.html">Selected work</a></li>
+      <li><a href="about.html" >About</a></li>
+      <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" >Send a request</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+<style>
+/* ---- Prototypes page ------------------------------------------------- */
+
+/* overview ledger: five cells (name, what it does, status, estimate, link) */
+body.page-demos .proto-ledger .ledger-row { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.45fr) minmax(0, 1.15fr) minmax(0, 1fr) auto; }
+body.page-demos .proto-ledger .ledger-row > span { font-size: 16px; }
+body.page-demos .proto-ledger .status { color: var(--muted); }
+body.page-demos .proto-ledger .est { font-family: var(--font-mono); font-size: 14px; color: var(--text); }
+body.page-demos .proto-ledger .badge-live { font-size: inherit; }
+body.page-demos .overview-note { margin-top: 22px; }
+
+/* prototype sections */
+body.page-demos .proto-main > * + * { margin-top: 40px; }
+body.page-demos .proto-main .slab > h3 { font-size: 18px; margin-bottom: 16px; }
+body.page-demos .proto-text h3 { font-size: 19px; margin: 0 0 .5em; }
+body.page-demos .proto-text .grid-2 { margin-top: 30px; }
+body.page-demos .proto-text .checklist li { color: #d7d2e6; }
+body.page-demos .legend { margin-top: 14px; }
+body.page-demos .legend-swatch { border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); }
+body.page-demos .sw-person { border-color: var(--pink); background: rgba(255,46,154,.10); }
+body.page-demos .sw-system { border-color: var(--cyan); background: rgba(47,227,255,.10); }
+body.page-demos .sw-receipt { border-color: var(--gold); background: rgba(242,193,78,.12); }
+body.page-demos .sw-dash { height: 0; border: 0; border-top: 1px dashed rgba(255,255,255,.6); background: none; vertical-align: 3px; border-radius: 0; }
+
+/* sidebar */
+body.page-demos .proto-aside .facts dd { font-size: 15px; }
+body.page-demos .metrics { list-style: none; padding: 0; margin: 0; font-size: 15px; color: var(--muted); }
+body.page-demos .metrics li { position: relative; padding-left: 16px; }
+body.page-demos .metrics li::before { content: ""; position: absolute; left: 0; top: .72em; width: 7px; height: 1px; background: var(--faint); }
+body.page-demos .proto-aside .btn { margin-top: 24px; }
+
+/* ---- Flow diagrams: HTML nodes and CSS connectors, top to bottom.
+       Same values as the svg-node / svg-edge classes; the receipt step is gold. ---- */
+body.page-demos .flow { display: flex; flex-direction: column; align-items: center; font-size: 14px; line-height: 1.35; }
+body.page-demos .fnode { position: relative; width: 100%; max-width: 420px; padding: 11px 14px 12px; border-radius: var(--r-ui); border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); color: var(--text); }
+body.page-demos .fnode b { display: block; font-weight: 500; }
+body.page-demos .fnode .mono { display: block; font-size: 12px; line-height: 1.4; color: #d7d2e6; margin-top: 3px; }
+body.page-demos .fnode.is-person { border-color: var(--pink); background: rgba(255,46,154,.10); }
+body.page-demos .fnode.is-system { border-color: var(--cyan); background: rgba(47,227,255,.10); }
+body.page-demos .fnode.is-receipt { border-color: var(--gold); background: rgba(242,193,78,.12); box-shadow: 0 0 28px -8px rgba(242,193,78,.45); }
+body.page-demos .fnode.is-receipt .mono { color: #e4d6b0; }
+
+/* vertical connector with arrowhead; optional mono label to its right */
+body.page-demos .farrow { position: relative; width: 100%; height: 30px; flex: none; }
+body.page-demos .farrow::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,.38); }
+body.page-demos .farrow::after { content: ""; position: absolute; left: 50%; bottom: 1px; width: 7px; height: 7px; margin-left: -4px; border-right: 1.4px solid rgba(255,255,255,.65); border-bottom: 1.4px solid rgba(255,255,255,.65); transform: rotate(45deg); }
+body.page-demos .farrow.has-label { height: 44px; }
+body.page-demos .flabel { position: absolute; left: calc(50% + 10px); top: 50%; transform: translateY(-50%); max-width: calc(50% - 14px); font: 12px/1.3 var(--font-mono); color: var(--muted); }
+body.page-demos .farrow.is-gold::before { background: var(--gold); }
+body.page-demos .farrow.is-gold::after { border-color: var(--gold); }
+body.page-demos .fstub { position: relative; width: 1px; height: 16px; background: rgba(255,255,255,.38); flex: none; }
+
+/* pair: two parties exchanging messages until a condition is met */
+body.page-demos .fpair { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; width: 100%; }
+body.page-demos .fpair .fnode { max-width: none; }
+body.page-demos .floop { display: flex; flex-direction: column; gap: 10px; padding: 0 8px; }
+body.page-demos .fl { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+body.page-demos .fl i { position: relative; display: block; width: 52px; height: 1px; background: rgba(255,255,255,.38); }
+body.page-demos .fl i::after { content: ""; position: absolute; top: -3px; right: 0; width: 7px; height: 7px; border-right: 1.4px solid rgba(255,255,255,.65); border-bottom: 1.4px solid rgba(255,255,255,.65); transform: rotate(-45deg); }
+body.page-demos .fl.rev i::after { right: auto; left: 0; transform: rotate(135deg); }
+body.page-demos .fl em { font: 12px/1 var(--font-mono); font-style: normal; color: var(--muted); }
+
+/* fork: a step that splits into two outcomes, optionally merging below */
+body.page-demos .ffork { position: relative; display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; width: 100%; }
+body.page-demos .ffork::before, body.page-demos .ffork::after { content: ""; position: absolute; left: calc(25% - 4px); right: calc(25% - 4px); border-top: 1px solid rgba(255,255,255,.38); }
+body.page-demos .ffork::before { top: 0; }
+body.page-demos .ffork::after { bottom: 0; }
+body.page-demos .ffork:not(.merge)::after { display: none; }
+body.page-demos .fbranch { display: flex; flex-direction: column; align-items: center; }
+body.page-demos .fbranch .farrow { height: 26px; }
+body.page-demos .fbranch .farrow.has-label { height: 34px; }
+body.page-demos .fbranch .fnode { max-width: none; }
+body.page-demos .fbranch .fstub { flex: 1; min-height: 16px; height: auto; }
+
+/* ---- Sequence diagram: four lanes with lifelines; messages are arrows between lane centres ---- */
+body.page-demos .seq { font-size: 14px; line-height: 1.35; }
+body.page-demos .seq-head { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); text-align: center; padding-bottom: 6px; }
+body.page-demos .seq-head > div { font-weight: 500; }
+body.page-demos .seq-head .mono { display: block; font-size: 12px; color: #d7d2e6; font-weight: 400; }
+body.page-demos .seq-body { list-style: none; margin: 0; padding: 16px 0 4px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 8px;
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.22) 0 5px, transparent 5px 11px),
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.22) 0 5px, transparent 5px 11px),
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.22) 0 5px, transparent 5px 11px),
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.22) 0 5px, transparent 5px 11px);
+  background-size: 1px 100%; background-repeat: no-repeat; background-position: 12.5% 0, 37.5% 0, 62.5% 0, 87.5% 0; }
+body.page-demos .seq-body > li { margin: 0; position: relative; }
+body.page-demos .seq-msg { padding: 0 0 16px; text-align: center; }
+body.page-demos .seq-text { display: inline-block; padding: 2px 8px; border-radius: 6px; background: rgba(9,9,14,.78); }
+body.page-demos .seq-msg::before { content: ""; position: absolute; left: var(--in); right: var(--in); bottom: 6px; height: 1px; background: rgba(255,255,255,.42); }
+body.page-demos .seq-msg.rev::before { background: repeating-linear-gradient(90deg, rgba(255,255,255,.42) 0 5px, transparent 5px 9px); }
+body.page-demos .seq-msg::after { content: ""; position: absolute; bottom: 3px; right: var(--in); width: 7px; height: 7px; margin-right: -1px; border-right: 1.4px solid rgba(255,255,255,.7); border-bottom: 1.4px solid rgba(255,255,255,.7); transform: rotate(-45deg); }
+body.page-demos .seq-msg.rev::after { right: auto; left: var(--in); margin-left: -1px; transform: rotate(135deg); }
+body.page-demos .c12 { grid-column: 1 / 3; --in: 25%; }
+body.page-demos .c23 { grid-column: 2 / 4; --in: 25%; }
+body.page-demos .c24 { grid-column: 2 / 5; --in: 16.667%; }
+body.page-demos .seq-self { grid-column: 2 / 4; margin-left: 25%; padding: 10px 14px 11px; border-radius: var(--r-ui); border: 1px solid var(--gold); background: rgba(242,193,78,.12); box-shadow: 0 0 28px -8px rgba(242,193,78,.45); text-align: left; }
+body.page-demos .seq-self b { display: block; font-weight: 500; }
+body.page-demos .seq-self .mono { display: block; font-size: 12px; line-height: 1.4; color: #e4d6b0; margin-top: 3px; }
+body.page-demos .seq-who { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+/* ---- Scripted walkthrough ---- */
+body.page-demos .walk-head { display: flex; justify-content: space-between; align-items: center; gap: 12px 18px; flex-wrap: wrap; margin-bottom: 10px; }
+body.page-demos .walk-head h3 { margin: 0; }
+body.page-demos .walk-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); padding: 6px 11px; border-radius: var(--r-ui); border: 1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.2); }
+body.page-demos .walk-tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--muted); }
+body.page-demos .walk-intro { font-size: 15px; color: var(--muted); max-width: var(--measure); margin-bottom: 18px; }
+body.page-demos .walk-controls { display: none; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+body.page-demos .walk.is-stepping .walk-controls { display: flex; }
+body.page-demos .walk-controls .btn[hidden] { display: none; }
+body.page-demos .walk-turns { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+body.page-demos .walk-turns > li { margin: 0; display: flex; flex-direction: column; align-items: flex-start; max-width: 92%; }
+body.page-demos .walk-turns > li[hidden] { display: none; }
+body.page-demos .turn-user { align-self: flex-end; align-items: flex-end; }
+body.page-demos .turn-who { font: 12px/1 var(--font-mono); color: var(--faint); margin-bottom: 6px; }
+body.page-demos .bubble { position: relative; padding: 12px 16px; border-radius: var(--r-ui); font-size: 15px; line-height: 1.5; color: var(--text);
+  border: 1px solid transparent; background-image: var(--glass-fill), var(--edge-soft); background-clip: padding-box, border-box; background-origin: padding-box, border-box;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12); }
+body.page-demos .turn-user .bubble { background-image: linear-gradient(160deg, rgba(255,255,255,.13), rgba(255,255,255,.06)), var(--edge-soft); }
+body.page-demos .turn-sys .bubble { background-image: var(--glass-fill-dark), linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.05)); font-size: 14px; color: var(--muted); }
+body.page-demos .turn-receipt .bubble { border-left: 3px solid var(--gold); }
+body.page-demos .bubble p { margin: 0 0 .6em; }
+body.page-demos .bubble p:last-child { margin: 0; }
+body.page-demos .bubble .mono { font-size: 12.5px; color: var(--muted); }
+body.page-demos .docs { list-style: none; margin: 0; padding: 0; }
+body.page-demos .docs li { margin: 0; padding: 8px 0; border-top: 1px solid rgba(255,255,255,.08); }
+body.page-demos .docs li:first-child { border-top: 0; padding-top: 0; }
+body.page-demos .docs li:last-child { padding-bottom: 0; }
+body.page-demos .docs .mono { display: block; color: var(--cyan); font-size: 13px; margin-bottom: 2px; }
+body.page-demos .docs q { color: var(--text); }
+body.page-demos .cite { font-size: 13px; color: var(--muted); margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.08); }
+body.page-demos .cite ol { margin: 4px 0 0; padding-left: 1.5em; }
+body.page-demos .cite li { margin-top: 2px; }
+body.page-demos .mini-chart { display: grid; grid-template-columns: repeat(3, 52px); gap: 14px; align-items: end; height: 70px; margin: 26px 0 0; }
+body.page-demos .mini-chart span { position: relative; display: block; background: rgba(47,227,255,.16); border: 1px solid var(--cyan); border-bottom: 0; border-radius: 3px 3px 0 0; }
+body.page-demos .mini-chart span::after { content: attr(data-v); position: absolute; top: -19px; left: 0; right: 0; text-align: center; font: 11px/1 var(--font-mono); color: var(--muted); }
+body.page-demos .mini-chart-x { display: grid; grid-template-columns: repeat(3, 52px); gap: 14px; text-align: center; font: 11px/1 var(--font-mono); color: var(--muted); border-top: 1px solid rgba(255,255,255,.22); padding-top: 6px; width: max-content; }
+body.page-demos .mini-chart-cap { font-size: 12.5px; color: var(--faint); margin: 8px 0 0; }
+
+/* ---- Responsive: diagrams stack below 760px ---- */
+@media (max-width: 900px) {
+  body.page-demos .proto-ledger .ledger-row { grid-template-columns: 1fr auto; row-gap: 6px; }
+  body.page-demos .proto-ledger .ledger-row > h3 { grid-column: 1; order: 0; }
+  body.page-demos .proto-ledger .ledger-row > a { grid-column: 2; order: 0; justify-self: end; }
+  body.page-demos .proto-ledger .ledger-row > :nth-child(2) { grid-column: 1 / -1; order: 1; color: var(--muted); font-size: 15px; }
+  body.page-demos .proto-ledger .ledger-row > :nth-child(3) { grid-column: 1 / -1; order: 2; font-size: 15px; }
+  body.page-demos .proto-ledger .ledger-row > :nth-child(4) { grid-column: 1 / -1; order: 3; }
+  body.page-demos .proto-ledger .status::before { content: "Status:"; color: var(--faint); margin-right: .4em; }
+  body.page-demos .proto-ledger .est::before { content: "Estimate:"; color: var(--faint); font-family: var(--font-body); font-size: 15px; margin-right: .4em; }
+}
+@media (max-width: 759px) {
+  body.page-demos .fpair { grid-template-columns: 1fr; }
+  body.page-demos .floop { flex-direction: row; justify-content: center; gap: 26px; padding: 6px 0; }
+  body.page-demos .fl { flex-direction: row; gap: 8px; }
+  body.page-demos .fl i { width: 1px; height: 36px; }
+  body.page-demos .fl i::after { top: auto; bottom: 0; right: auto; left: -3px; transform: rotate(45deg); }
+  body.page-demos .fl.rev i::after { bottom: auto; top: 0; left: -3px; transform: rotate(-135deg); }
+
+  body.page-demos .fstub.pre-fork { height: 28px; }
+  body.page-demos .fstub.pre-fork::after { content: ""; position: absolute; left: -3px; bottom: 1px; width: 7px; height: 7px; border-right: 1.4px solid rgba(255,255,255,.65); border-bottom: 1.4px solid rgba(255,255,255,.65); transform: rotate(45deg); }
+  body.page-demos .ffork { grid-template-columns: 1fr; row-gap: 12px; padding: 12px 0 12px 14px; border-left: 1px solid rgba(255,255,255,.28); border-top: 1px solid rgba(255,255,255,.28); border-bottom: 1px solid rgba(255,255,255,.28); border-radius: 0 0 0 var(--r-ui); }
+  body.page-demos .ffork::before, body.page-demos .ffork::after { display: none; }
+  body.page-demos .fbranch { align-items: stretch; }
+  body.page-demos .fbranch .fstub { display: none; }
+  body.page-demos .fbranch .farrow { height: auto; margin-bottom: 5px; }
+  body.page-demos .fbranch .farrow:not(.has-label) { display: none; }
+  body.page-demos .fbranch .farrow::before, body.page-demos .fbranch .farrow::after { display: none; }
+  body.page-demos .fbranch .farrow .flabel { position: static; transform: none; max-width: none; }
+
+  body.page-demos .seq-head { display: none; }
+  body.page-demos .seq-body { grid-template-columns: 1fr; row-gap: 18px; background: none; padding: 0; }
+  body.page-demos .seq-msg, body.page-demos .seq-self { grid-column: 1 !important; margin-left: 0; text-align: left; padding: 10px 12px 11px; border-radius: var(--r-ui); border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); }
+  body.page-demos .seq-self { border-color: var(--gold); background: rgba(242,193,78,.12); }
+  body.page-demos .seq-text { display: block; padding: 0; background: none; }
+  body.page-demos .seq-who { position: static; width: auto; height: auto; overflow: visible; clip: auto; clip-path: none; display: block; font: 12px/1.3 var(--font-mono); color: var(--muted); margin-bottom: 3px; }
+  body.page-demos .seq-body > li::before, body.page-demos .seq-body > li.seq-msg.rev::before { content: ""; position: absolute; left: 20px; right: auto; top: -18px; bottom: auto; height: 18px; width: 1px; background: rgba(255,255,255,.38); }
+  body.page-demos .seq-body > li.seq-msg.rev::before { background: repeating-linear-gradient(to bottom, rgba(255,255,255,.5) 0 3px, transparent 3px 6px); }
+  body.page-demos .seq-body > li::after, body.page-demos .seq-body > li.seq-msg.rev::after { content: ""; position: absolute; left: 17px; right: auto; top: -7px; bottom: auto; margin: 0; width: 7px; height: 7px; border-right: 1.4px solid rgba(255,255,255,.65); border-bottom: 1.4px solid rgba(255,255,255,.65); transform: rotate(45deg); }
+  body.page-demos .seq-body > li:first-child::before, body.page-demos .seq-body > li:first-child::after { display: none; }
+
+  body.page-demos .walk-turns > li { max-width: 100%; }
+}
+</style>
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a><span>/</span>Prototypes</p>
+    <h1>Agent prototypes</h1>
+    <p class="lede">Four agents GTDataWorks is building as working demonstrations and internal tools. Each one maps to a service in the catalog, and each ships with the same receipts a client build would.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" href="contact.html">Build one of these for your team</a>
+      <a class="btn btn-glass btn-lg" href="contact.html#brief">Try the intake brief builder</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight" id="overview">
+  <span class="light-local is-purple" style="left:55%;top:-140px"></span>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The four prototypes</h2>
+      <p class="lede">These are prototypes and specifications, not shipped products. The intake agent exists today as the brief builder on the contact page: a static form with no backend and no model call. The other three are specified below to the level a build starts from. Nothing on this page calls a live model.</p>
+    </div>
+    <div class="ledger proto-ledger">
+      <div class="ledger-row ledger-head"><span>Prototype</span><span>What it does</span><span>Status</span><span>Estimate</span><span></span></div>
+      <div class="ledger-row"><h3>Customer Intake Agent</h3><span>Collects a project brief from a visitor and turns it into a lead</span><span class="status"><span class="badge-live">Live</span>&nbsp;as the brief builder on the Contact page</span><span class="est">2 weeks to full CRM-connected version</span><a href="#intake">Details</a></div>
+      <div class="ledger-row"><h3>Data Expert Showcase Agent</h3><span>Answers questions over a document corpus and cites the passages it used</span><span class="status">Prototype spec with scripted walkthrough</span><span class="est">3–4 weeks</span><a href="#showcase">Details</a></div>
+      <div class="ledger-row"><h3>Lead Qualification Voice/SMS Agent</h3><span>Calls or texts new leads, asks the qualifying questions, books demos</span><span class="status">Prototype spec</span><span class="est">4 weeks</span><a href="#lead-qual">Details</a></div>
+      <div class="ledger-row"><h3>Internal Knowledge Base Agent</h3><span>Answers questions about internal documents and code, within the asker's access</span><span class="status">Prototype spec</span><span class="est">2–3 weeks</span><a href="#knowledge">Details</a></div>
+    </div>
+    <div class="note overview-note"><p>Status is literal. Live means the static brief builder on the contact page, which calls no model. Prototype spec means the design on this page, with an estimate in working weeks for a scoped build; a scoping call turns an estimate into a quote.</p></div>
+  </div>
+</section>
+
+<!-- ============================ 1. Customer Intake Agent ============================ -->
+<section class="section anchor-offset" id="intake">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Customer Intake Agent</h2>
+      <p class="lede">Qualifies a visitor, gathers the project brief and hands a complete lead to the studio, with a receipt of the conversation attached.</p>
+    </div>
+  </div>
+  <div class="wrap grid grid-sidebar">
+    <div class="proto-main">
+      <div class="stack lit lit-cyan"><article class="glass slab">
+        <h3>Flow: from visit to lead</h3>
+        <div class="glass-dark diagram" role="img" aria-label="Flowchart. The visitor and the intake agent exchange questions and answers until the brief is complete. The lead is scored and written to the CRM. A follow-up call is booked and the studio is notified. A receipt of the session is logged.">
+          <div class="flow">
+            <div class="fpair">
+              <div class="fnode is-person"><b>Visitor</b><span class="mono">web widget on gtdataworks.com</span></div>
+              <span class="floop"><span class="fl"><i></i><em>answers</em></span><span class="fl rev"><i></i><em>asks</em></span></span>
+              <div class="fnode"><b>Intake agent</b><span class="mono">goals, budget band, timeline, contact; answers the FAQ</span></div>
+            </div>
+            <div class="farrow has-label"><span class="flabel">when the brief is complete</span></div>
+            <div class="fnode is-system"><b>Lead scored and written to the CRM</b><span class="mono">HubSpot or Salesforce REST API</span></div>
+            <div class="fstub pre-fork"></div>
+            <div class="ffork merge">
+              <div class="fbranch"><div class="farrow"></div><div class="fnode is-system"><b>Follow-up call booked</b><span class="mono">Google Calendar API</span></div><div class="fstub"></div></div>
+              <div class="fbranch"><div class="farrow"></div><div class="fnode is-system"><b>Studio notified</b><span class="mono">email through n8n or Zapier</span></div><div class="fstub"></div></div>
+            </div>
+            <div class="farrow is-gold"></div>
+            <div class="fnode is-receipt"><b>Receipt logged</b><span class="mono">what was asked, what was answered, what was written to the CRM, and when</span></div>
+          </div>
+        </div>
+        <div class="legend" aria-hidden="true"><span><i class="legend-swatch sw-person"></i>Person</span><span><i class="legend-swatch"></i>Agent step</span><span><i class="legend-swatch sw-system"></i>External system</span><span><i class="legend-swatch sw-receipt"></i>Receipt</span></div>
+        <p class="chart-caption">The CRM write, the booking, the notification and the receipt are the two-week build. The live brief builder stops after the conversation: it assembles the brief for you to send, with no backend and no model call.</p>
+      </article></div>
+
+      <div class="proto-text">
+        <h3>Purpose</h3>
+        <p class="prose">Automate the first contact without hiding anything from the person on the other end. The agent asks what you are trying to build, collects budget band, timeline and contact details, answers the usual pre-sales questions from a fixed set of studio facts, and books a follow-up call. Today the form of record is the <a href="contact.html#brief">brief builder on the contact page</a>: a static, no-backend version of the same flow that composes the brief for you to send.</p>
+        <div class="grid grid-2">
+          <div>
+            <h3>Core features</h3>
+            <ul class="checklist">
+              <li>Conversational form-filling: name, company, project type, budget band, timeline, contact details</li>
+              <li>Pre-chat FAQ answered only from the published catalog: prices, timelines, what ships</li>
+              <li>Lead scoring against the catalog: service fit, budget band, urgency</li>
+              <li>Lead created in HubSpot or Salesforce through the REST API, with the brief attached</li>
+              <li>Receipt per session: what was asked, what was answered, what was written to the CRM, and when</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Integrations</h3>
+            <p class="prose">HubSpot or Salesforce REST API to create the lead. n8n or Zapier to send the confirmation email. Google Calendar API to book the follow-up call. Hosted on Modal or Google Cloud Run, with the model behind the OpenAI or Anthropic API.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="glass-soft tile sticky proto-aside">
+      <dl class="facts">
+        <dt>Status</dt><dd>Live as the <a href="contact.html#brief">brief builder</a> on the Contact page</dd>
+        <dt>Estimate</dt><dd>2 weeks to full CRM-connected version</dd>
+        <dt>Service</dt><dd><a href="services/crm-erp-integration.html">CRM &amp; ERP AI Integration</a><br><a href="services/agent-orchestration.html">Agent Orchestration &amp; Workflow Automation</a></dd>
+      </dl>
+      <h3>Stack</h3>
+      <ul class="chips"><li><span class="chip">OpenAI or Anthropic API</span></li><li><span class="chip">LangChain</span></li><li><span class="chip">Node.js</span></li><li><span class="chip">React widget</span></li><li><span class="chip">HubSpot or Salesforce REST API</span></li><li><span class="chip">n8n or Zapier</span></li><li><span class="chip">Google Calendar API</span></li><li><span class="chip">Modal or Cloud Run</span></li></ul>
+      <h3>Metrics tracked</h3>
+      <ul class="metrics"><li>Conversion rate, chat to lead</li><li>Engagement time per session</li><li>Satisfaction, from a quick rating at the end</li></ul>
+      <a class="btn btn-glass btn-sm" href="contact.html?service=crm-erp-integration">Brief this build</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================ 2. Data Expert Showcase Agent ============================ -->
+<section class="section anchor-offset" id="showcase">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Data Expert Showcase Agent</h2>
+      <p class="lede">A public assistant that answers questions over a document corpus and shows which passages the answer came from.</p>
+    </div>
+  </div>
+  <div class="wrap grid grid-sidebar">
+    <div class="proto-main">
+      <div class="stack lit lit-gold"><article class="glass slab">
+        <h3>Sequence: one question, end to end</h3>
+        <div class="glass-dark diagram" role="img" aria-label="Sequence diagram with four lanes: visitor, agent, index and model. The visitor asks to summarize Q3 sales data. The agent embeds the question and queries the index for the top passages. The index returns passages with ids and scores. The agent prompts the model with the question and those passages only. The model returns a summary with citations. The agent writes a receipt with the question, document ids, model, prompt version and response hash. The agent replies with the summary and chart, with sources and the receipt id.">
+          <div class="seq">
+            <div class="seq-head"><div>Visitor<span class="mono">web widget</span></div><div>Agent<span class="mono">LangChain</span></div><div>Index<span class="mono">pgvector</span></div><div>Model<span class="mono">Claude or GPT</span></div></div>
+            <ol class="seq-body">
+              <li class="seq-msg c12"><span class="seq-who">Visitor to agent</span><span class="seq-text">“Summarize Q3 sales data”</span></li>
+              <li class="seq-msg c23"><span class="seq-who">Agent to index</span><span class="seq-text">embed the question, query top-k</span></li>
+              <li class="seq-msg c23 rev"><span class="seq-who">Index to agent</span><span class="seq-text">top passages with ids and scores</span></li>
+              <li class="seq-msg c24"><span class="seq-who">Agent to model</span><span class="seq-text">prompt: question and passages only</span></li>
+              <li class="seq-msg c24 rev"><span class="seq-who">Model to agent</span><span class="seq-text">summary with citations</span></li>
+              <li class="seq-self"><span class="seq-who">Agent</span><b>Receipt written</b><span class="mono">question, document ids and scores, model, prompt version, response hash</span></li>
+              <li class="seq-msg c12 rev"><span class="seq-who">Agent to visitor</span><span class="seq-text">summary and chart, with sources and receipt id</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="legend" aria-hidden="true"><span><i class="legend-swatch sw-dash"></i>Reply</span><span><i class="legend-swatch sw-receipt"></i>Receipt</span></div>
+        <p class="chart-caption">The model only sees the retrieved passages, so every sentence in the answer can be traced to a document id on the receipt.</p>
+      </article></div>
+
+      <div class="glass-soft tile walk" id="walkthrough">
+        <div class="walk-head">
+          <h3>Scripted walkthrough</h3>
+          <span class="walk-tag">Scripted walkthrough, not a live model</span>
+        </div>
+        <p class="walk-intro">Fixed text that steps through one query the way the showcase agent would handle it: question, retrieval, the passages it found, the answer with its sources, and the receipt. Nothing is generated when you click. The three documents are a fictional sample corpus.</p>
+        <div class="walk-controls">
+          <button class="btn btn-glass btn-sm" type="button" data-walk-next>Next step</button>
+          <button class="btn btn-ghost btn-sm" type="button" data-walk-reset hidden>Restart</button>
+          <span class="small muted" data-walk-count aria-live="polite">Step 1 of 5</span>
+        </div>
+        <ol class="walk-turns" aria-live="polite">
+          <li class="turn turn-user"><span class="turn-who">Visitor</span><div class="bubble">Summarize Q3 sales data.</div></li>
+          <li class="turn turn-sys"><span class="turn-who">Retrieval</span><div class="bubble"><p>Embedded the question and searched the sample index: 3 documents, 41 chunks. 3 passages scored above the 0.70 cut-off.</p><span class="mono">index sample-corpus, top-k 5, cut-off 0.70</span></div></li>
+          <li class="turn turn-sys"><span class="turn-who">Top documents</span><div class="bubble"><ol class="docs">
+            <li><span class="mono">[1] q3-sales-summary.md, section 2, score 0.84</span><q>Q3 revenue closed at $1.24M, 8% above Q2.</q></li>
+            <li><span class="mono">[2] regional-breakdown.csv, rows 12–40, score 0.79</span><q>Midwest 61% of new orders, West 22%, Northeast 17%.</q></li>
+            <li><span class="mono">[3] board-notes-october.md, section 4, score 0.71</span><q>September includes a one-off wholesale order of $90k.</q></li>
+          </ol></div></li>
+          <li class="turn turn-agent"><span class="turn-who">Agent</span><div class="bubble">
+            <p>Q3 revenue was $1.24M, up 8% on Q2 [1]. Most of the gain came from the Midwest, which took 61% of new orders [2]. September includes a one-off wholesale order of $90k; without it, Q3 is level with Q2 [3].</p>
+            <div class="mini-chart" aria-hidden="true"><span style="height:87%" data-v="1.08"></span><span style="height:93%" data-v="1.15"></span><span style="height:100%" data-v="1.24"></span></div>
+            <div class="mini-chart-x" aria-hidden="true"><span>Q1</span><span>Q2</span><span>Q3</span></div>
+            <p class="mini-chart-cap">Revenue by quarter, $M. Sample data.</p>
+            <div class="cite">Sources<ol><li>q3-sales-summary.md, section 2 (0.84)</li><li>regional-breakdown.csv, rows 12–40 (0.79)</li><li>board-notes-october.md, section 4 (0.71)</li></ol></div>
+          </div></li>
+          <li class="turn turn-receipt"><span class="turn-who">Receipt</span><div class="bubble">Receipt written: the question, the 3 document ids with scores, the model and prompt version, a hash of the response, and the timestamp. The reply above carries the receipt id, so the answer can be re-checked later against the same passages.</div></li>
+        </ol>
+      </div>
+
+      <div class="proto-text">
+        <h3>Purpose</h3>
+        <p class="prose">Show retrieval-augmented generation working the way a client build would. The question goes to an index, the top passages come back with scores, the model answers from those passages and nothing else, and the reply lists its sources. A visitor can inspect the whole chain instead of taking the answer on trust. The public corpus is a small fixture of sample documents, not client data.</p>
+        <div class="grid grid-2">
+          <div>
+            <h3>Core features</h3>
+            <ul class="checklist">
+              <li>Question answering over a document corpus with embeddings and top-k retrieval</li>
+              <li>A citation on every claim: document, section and retrieval score</li>
+              <li>Summaries of long documents on request</li>
+              <li>A basic chart from retrieved tables on request</li>
+              <li>Receipt per query: question, document ids and scores, model and prompt version, response hash</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Integrations</h3>
+            <p class="prose">Embedded on the site as a React widget. Session logs go to a Postgres table for the metrics in the sidebar. Optionally the GitHub API, so the same agent can answer questions about a public repository as a technical demo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="glass-soft tile sticky proto-aside">
+      <dl class="facts">
+        <dt>Status</dt><dd>Prototype spec with scripted walkthrough</dd>
+        <dt>Estimate</dt><dd>3–4 weeks</dd>
+        <dt>Service</dt><dd><a href="services/conversational-ai.html">Conversational AI &amp; RAG Agents</a></dd>
+      </dl>
+      <h3>Stack</h3>
+      <ul class="chips"><li><span class="chip">Anthropic or OpenAI API</span></li><li><span class="chip">LangChain</span></li><li><span class="chip">pgvector, Chroma or Pinecone</span></li><li><span class="chip">React</span></li><li><span class="chip">Postgres session log</span></li><li><span class="chip">Modal or Cloud Run</span></li></ul>
+      <h3>Metrics tracked</h3>
+      <ul class="metrics"><li>Demos run</li><li>“Found this useful” clicks</li><li>Query success rate: answered with sources, or declined</li></ul>
+      <a class="btn btn-glass btn-sm" href="contact.html?service=conversational-ai">Brief this build</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================ 3. Lead Qualification Voice/SMS Agent ============================ -->
+<section class="section anchor-offset" id="lead-qual">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Lead Qualification Voice/SMS Agent</h2>
+      <p class="lede">Calls or texts a new inbound lead, delivers a short approved pitch, asks the qualifying questions and books a demo when the answers fit.</p>
+    </div>
+  </div>
+  <div class="wrap grid grid-sidebar">
+    <div class="proto-main">
+      <div class="stack lit lit-purple"><article class="glass slab">
+        <h3>Flow: from new lead to booked demo</h3>
+        <div class="glass-dark diagram" role="img" aria-label="Flowchart. A new lead in the CRM triggers the qualification agent. After a policy check it contacts the lead through Twilio by voice or SMS; the lead answers and the exchange repeats. The answers are scored. If qualified, a demo is booked and the CRM marked; if not, the lead is handed back with notes. Either way a receipt is written.">
+          <div class="flow">
+            <div class="fnode is-system"><b>New lead in the CRM</b><span class="mono">HubSpot or Salesforce webhook</span></div>
+            <div class="farrow has-label"><span class="flabel">trigger</span></div>
+            <div class="fnode"><b>Qualification agent</b><span class="mono">your approved script; policy check before any outbound action</span></div>
+            <div class="farrow has-label"><span class="flabel">call, or text if unanswered</span></div>
+            <div class="fpair">
+              <div class="fnode is-system"><b>Twilio</b><span class="mono">voice call, SMS fallback</span></div>
+              <span class="floop"><span class="fl"><i></i><em>asks</em></span><span class="fl rev"><i></i><em>answers</em></span></span>
+              <div class="fnode is-person"><b>Lead</b><span class="mono">replies in their own words; can opt out at any turn</span></div>
+            </div>
+            <div class="farrow has-label"><span class="flabel">answers scored</span></div>
+            <div class="fnode"><b>Qualified?</b><span class="mono">fit, budget, timing, authority</span></div>
+            <div class="fstub pre-fork"></div>
+            <div class="ffork merge">
+              <div class="fbranch"><div class="farrow has-label"><span class="flabel">yes</span></div><div class="fnode is-system"><b>Demo booked</b><span class="mono">Google Calendar invite; CRM marked qualified</span></div><div class="fstub"></div></div>
+              <div class="fbranch"><div class="farrow has-label"><span class="flabel">no, or unsure</span></div><div class="fnode is-system"><b>Handed back</b><span class="mono">CRM marked not now, with notes and a follow-up date</span></div><div class="fstub"></div></div>
+            </div>
+            <div class="farrow is-gold"></div>
+            <div class="fnode is-receipt"><b>Receipt written</b><span class="mono">transcript, answers, consent, outcome, timestamps</span></div>
+          </div>
+        </div>
+        <div class="legend" aria-hidden="true"><span><i class="legend-swatch sw-person"></i>Person</span><span><i class="legend-swatch"></i>Agent step</span><span><i class="legend-swatch sw-system"></i>External system</span><span><i class="legend-swatch sw-receipt"></i>Receipt</span></div>
+        <p class="chart-caption">Every outbound call or text passes a policy check first, and every contact ends in a receipt whether or not the lead qualifies.</p>
+      </article></div>
+
+      <div class="proto-text">
+        <h3>Purpose</h3>
+        <p class="prose">For B2B clients with more inbound leads than hours to call them. The agent reaches each new lead within minutes over Twilio, by voice with SMS as the fallback, follows a script you approve, records the answers, and either books a demo or hands the lead back with notes. Consent and opt-out are handled at the start of every contact and written to the receipt. This is the hardest of the four to build: voice adds latency, interruptions and transcription quality to the test plan, which is why the estimate is four weeks.</p>
+        <div class="grid grid-2">
+          <div>
+            <h3>Core features</h3>
+            <ul class="checklist">
+              <li>Outbound calls through Twilio Voice, with speech recognition and synthesis on the call; SMS conversation when the call is not answered</li>
+              <li>Pitch and qualifying questions approved by you and versioned, so a change in the script shows up in the receipts</li>
+              <li>Opt-out honoured on the first ask and recorded</li>
+              <li>Demo booked through the Google Calendar API, invite sent to the lead</li>
+              <li>CRM updated with the outcome, the answers and the receipt id</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Integrations</h3>
+            <p class="prose">HubSpot or Salesforce REST API for the lead record and the write-back. Twilio Voice and Messaging. Google Calendar API for the booking, with a Zoom link as an option. Orchestrated in Node.js with a Python backend; each outbound action is gated by a policy check and logged as a JSONL receipt, the Terminus Gate Protocol pattern.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="glass-soft tile sticky proto-aside">
+      <dl class="facts">
+        <dt>Status</dt><dd>Prototype spec</dd>
+        <dt>Estimate</dt><dd>4 weeks</dd>
+        <dt>Service</dt><dd><a href="services/agent-orchestration.html">Agent Orchestration &amp; Workflow Automation</a></dd>
+      </dl>
+      <h3>Stack</h3>
+      <ul class="chips"><li><span class="chip">Python</span></li><li><span class="chip">Node.js</span></li><li><span class="chip">Twilio Voice and SMS</span></li><li><span class="chip">OpenAI or Anthropic API</span></li><li><span class="chip">HubSpot or Salesforce REST API</span></li><li><span class="chip">Google Calendar API</span></li><li><span class="chip">Terminus Gate Protocol receipts</span></li><li><span class="chip">Modal or Cloud Run</span></li></ul>
+      <h3>Metrics tracked</h3>
+      <ul class="metrics"><li>Calls made</li><li>Response rate</li><li>Leads scheduled</li><li>Qualification rate</li></ul>
+      <a class="btn btn-glass btn-sm" href="contact.html?service=agent-orchestration">Brief this build</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================ 4. Internal Knowledge Base Agent ============================ -->
+<section class="section anchor-offset" id="knowledge">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Internal Knowledge Base Agent</h2>
+      <p class="lede">Answers questions about internal documents and code, scoped to what the person asking is allowed to read.</p>
+    </div>
+  </div>
+  <div class="wrap grid grid-sidebar">
+    <div class="proto-main">
+      <div class="stack lit lit-cyan"><article class="glass slab">
+        <h3>Flow: a question, checked and answered</h3>
+        <div class="glass-dark diagram" role="img" aria-label="Flowchart. A question arrives from Slack, a command line or an MCP client. An access check limits retrieval to the sources the asker may read. Retrieval searches documents, wiki pages and repositories. The agent answers with citations, or says the answer is not in the sources. A receipt records who asked, what was searched and what was returned.">
+          <div class="flow">
+            <div class="fnode is-person"><b>Question</b><span class="mono">from Slack, a command line or an MCP client</span></div>
+            <div class="farrow"></div>
+            <div class="fnode"><b>Access check</b><span class="mono">OAuth scope: which sources this person may read; read-only</span></div>
+            <div class="farrow has-label"><span class="flabel">allowed sources only</span></div>
+            <div class="fnode is-system"><b>Retrieval</b><span class="mono">vector search over documents, wiki and repositories; pgvector or Chroma</span></div>
+            <div class="farrow has-label"><span class="flabel">top passages</span></div>
+            <div class="fnode"><b>Answer with citations</b><span class="mono">file and section for each claim; “not in the sources” when it is not</span></div>
+            <div class="farrow is-gold"></div>
+            <div class="fnode is-receipt"><b>Receipt written</b><span class="mono">who asked, which sources were searched, which were returned</span></div>
+          </div>
+        </div>
+        <div class="legend" aria-hidden="true"><span><i class="legend-swatch sw-person"></i>Person</span><span><i class="legend-swatch"></i>Agent step</span><span><i class="legend-swatch sw-system"></i>External system</span><span><i class="legend-swatch sw-receipt"></i>Receipt</span></div>
+        <p class="chart-caption">Ingestion runs separately: a scheduled script embeds documents, wiki pages and repositories into the index and labels each chunk with its source and access group.</p>
+      </article></div>
+
+      <div class="proto-text">
+        <h3>Purpose</h3>
+        <p class="prose">Built for the studio's own use first: find the LangChain example from a past project, summarize the SOP on agent security, list which repositories use a given library. It is not client-facing, but it is the same pattern as a client's internal knowledge agent, and it is where the access-control and logging work gets proven before it ships to anyone else.</p>
+        <div class="grid grid-2">
+          <div>
+            <h3>Core features</h3>
+            <ul class="checklist">
+              <li>Retrieval over documents, wiki pages and repositories, with per-source access labels</li>
+              <li>Access check on every question: read-only, scoped by OAuth to the sources the asker may see</li>
+              <li>Answers cite file and section, and say “not in the sources” rather than guess</li>
+              <li>Exposed as an MCP server, so Claude, ChatGPT or any MCP client can use it as a tool</li>
+              <li>Receipt per question: who asked, which sources were searched, which were returned</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Integrations</h3>
+            <p class="prose">Slack or a command-line client for questions. GitHub for repositories. A scheduled ingestion script that records what it indexed and when. Served as an MCP server on Modal or Google Cloud Run.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="glass-soft tile sticky proto-aside">
+      <dl class="facts">
+        <dt>Status</dt><dd>Prototype spec</dd>
+        <dt>Estimate</dt><dd>2–3 weeks</dd>
+        <dt>Service</dt><dd><a href="services/llm-connectors.html">Custom LLM Connectors &amp; MCP Tools</a></dd>
+      </dl>
+      <h3>Stack</h3>
+      <ul class="chips"><li><span class="chip">LangChain</span></li><li><span class="chip">pgvector or Chroma</span></li><li><span class="chip">MCP server, TypeScript or Python</span></li><li><span class="chip">OAuth 2.0</span></li><li><span class="chip">Read-only adapters</span></li><li><span class="chip">GitHub API</span></li><li><span class="chip">Slack API</span></li><li><span class="chip">Modal or Cloud Run</span></li></ul>
+      <h3>Metrics tracked</h3>
+      <ul class="metrics"><li>Questions answered</li><li>Answers with at least one citation</li><li>Declined for lack of sources</li><li>Access checks that withheld a source</li></ul>
+      <a class="btn btn-glass btn-sm" href="contact.html?service=llm-connectors">Brief this build</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================ Closing call to action ============================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="stack lit lit-pink"><div class="glass slab cta-band">
+      <h2>Build one for your team</h2>
+      <p class="lede">Pick the prototype closest to what you need and name the systems it has to touch. The estimates above are working weeks for a scoped build; a scoping call turns one into a fixed quote.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="contact.html">Start a project brief</a>
+        <a class="btn btn-glass btn-lg" href="services/index.html">See the service catalog</a>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<script>
+/* Scripted walkthrough: reveals one fixed turn at a time. Without JS the whole transcript is shown. */
+(function () {
+  'use strict';
+  var walk = document.getElementById('walkthrough');
+  if (!walk) return;
+  var turns = Array.prototype.slice.call(walk.querySelectorAll('.walk-turns > li'));
+  var next = walk.querySelector('[data-walk-next]');
+  var reset = walk.querySelector('[data-walk-reset]');
+  var count = walk.querySelector('[data-walk-count]');
+  if (!turns.length || !next || !reset || !count) return;
+  var i = 0;
+  function render(scroll) {
+    turns.forEach(function (t, k) { t.hidden = k > i; });
+    var done = i >= turns.length - 1;
+    next.disabled = done;
+    next.textContent = done ? 'Walkthrough complete' : 'Next step';
+    reset.hidden = i === 0;
+    count.textContent = 'Step ' + (i + 1) + ' of ' + turns.length;
+    if (scroll && turns[i].scrollIntoView) turns[i].scrollIntoView({ block: 'nearest' });
+  }
+  next.addEventListener('click', function () { if (i < turns.length - 1) { i += 1; render(true); } });
+  reset.addEventListener('click', function () { i = 0; render(false); next.focus(); });
+  walk.classList.add('is-stepping');
+  render(false);
+})();
+</script>
+
+</main>
+
+<footer class="quiet-footer"><div class="wrap quiet-footer-inner"><p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p><nav aria-label="Footer"><a href="services/index.html">Services</a><a href="tool-failure-recovery.html">Selected work</a><a href="about.html">About</a><a href="mailto:agents@gtdataworks.com">Contact</a></nav></div></footer>
+<style>.quiet-footer{padding:28px 0;border-top:1px solid #3b4746}.quiet-footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}.quiet-footer p,.quiet-footer a{font-size:13px;color:#aebbb6;margin:0}.quiet-footer nav{display:flex;flex-wrap:wrap;gap:20px}</style>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>
