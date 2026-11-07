@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTDataWorks — Gold Trace Dataworks | AI agents, evaluations and datasets</title>
-<meta name="description" content="Gold Trace Dataworks builds AI agents, evaluations and datasets. See a real synthetic tool-use case and download a free, inspectable dataset.">
+<title>Gold Trace Dataworks — AI agents, datasets and evaluation — GTDataWorks</title>
+<meta name="description" content="We build AI agents, test how they use tools, and create datasets you can inspect. Explore a free tool-use safety dataset from GTD Dataset Factory Core.">
 <link rel="canonical" href="https://gtdataworks.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GTDataWorks">
-<meta property="og:title" content="GTDataWorks — Gold Trace Dataworks | AI agents, evaluations and datasets">
-<meta property="og:description" content="Gold Trace Dataworks builds AI agents, evaluations and datasets. See a real synthetic tool-use case and download a free, inspectable dataset.">
+<meta property="og:title" content="Gold Trace Dataworks — AI agents, datasets and evaluation — GTDataWorks">
+<meta property="og:description" content="We build AI agents, test how they use tools, and create datasets you can inspect. Explore a free tool-use safety dataset from GTD Dataset Factory Core.">
 <meta property="og:url" content="https://gtdataworks.com/">
 <meta property="og:image" content="https://gtdataworks.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -42,7 +42,6 @@
     </button>
     <ul id="nav-menu" class="nav-menu">
       <li><a href="services/index.html" >Services</a></li>
-      <li><a href="index.html#example">Example</a></li>
       <li><a href="index.html#dataset">Free dataset</a></li>
       <li><a href="about.html" >About</a></li>
       <li class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" >Send a request</a></li>
@@ -52,45 +51,74 @@
 
 <main id="main" tabindex="-1">
 <style>
-  body.page-index .home-case-grid { display: grid; grid-template-columns: minmax(0, .87fr) minmax(0, 1.13fr); gap: clamp(24px, 4vw, 58px); align-items: start; }
-  body.page-index .home-case-copy { max-width: 54ch; }
-  body.page-index .home-case-copy .lede { margin-bottom: 24px; }
-  body.page-index .home-case-copy p:last-child { margin-bottom: 0; }
-  body.page-index .home-case-list { margin: 0; padding: 2px 0 0; list-style: none; }
-  body.page-index .home-case-list li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px; padding: 17px 0; margin: 0; border-top: 1px solid rgba(255,255,255,.12); }
-  body.page-index .home-case-list li:last-child { border-bottom: 1px solid rgba(255,255,255,.12); }
-  body.page-index .home-case-list .step-num { color: #e1c58f; font: 500 13px/1.5 var(--font-mono); }
-  body.page-index .home-case-list h3 { font: 500 16px/1.4 var(--font-body); letter-spacing: 0; margin: 0 0 3px; }
-  body.page-index .home-case-list p { color: var(--muted); font-size: 15px; line-height: 1.55; margin: 0; }
-  body.page-index .home-case-list code { color: #e7d1a9; overflow-wrap: anywhere; }
-  body.page-index .home-case-note { margin-top: 20px; color: var(--muted); font-size: 14px; max-width: 70ch; }
-  body.page-index .home-case-note a { color: #e7d1a9; }
-  body.page-index .home-data { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); gap: clamp(24px, 4vw, 52px); align-items: center; }
-  body.page-index .home-data h2 { margin-bottom: .42em; }
-  body.page-index .home-data .lede { margin-bottom: 0; }
-  body.page-index .home-data-meta { border-left: 1px solid rgba(231,209,169,.34); padding-left: clamp(24px, 3vw, 38px); }
-  body.page-index .home-data-meta p { color: var(--muted); font-size: 15px; margin-bottom: 12px; }
-  body.page-index .home-data-meta .hero-actions { margin: 20px 0 14px; }
-  body.page-index .home-data-meta .small { font-size: 13px; line-height: 1.5; }
-  body.page-index .home-data-meta .hash { display: block; font: 400 11px/1.5 var(--font-mono); overflow-wrap: anywhere; color: #aebfbc; }
-  body.page-index .home-next { max-width: 820px; }
-  body.page-index .home-next .hero-actions { margin-top: 26px; }
-  @media (max-width: 820px) {
-    body.page-index .home-case-grid, body.page-index .home-data { grid-template-columns: 1fr; }
-    body.page-index .home-data-meta { border-left: 0; border-top: 1px solid rgba(231,209,169,.34); padding: 24px 0 0; }
+  body.page-index .dimensional-hero { padding-top: clamp(34px, 5vw, 68px); }
+  body.page-index .hero-layout { min-height: 490px; }
+  body.page-index .hero-copy { padding-bottom: 20px; }
+  body.page-index .dimensional-hero h1 { max-width: none; font-size: clamp(42px, 4.25vw, 62px); line-height: 1.08; letter-spacing: -.055em; }
+  body.page-index .hero-copy .lede { max-width: 44ch; margin-bottom: 16px; }
+  body.page-index .name-note { max-width: 43ch; color: #adb9b9; font-size: 16px; line-height: 1.65; }
+  body.page-index .dimension-scene { height: 480px; }
+  body.page-index .home-resource { padding-top: clamp(48px, 6vw, 80px); }
+  body.page-index .home-resource-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(30px,6vw,80px); align-items:start; }
+  body.page-index .home-resource-copy h2 { max-width:17ch; font-size:clamp(30px,3.2vw,43px); line-height:1.16; }
+  body.page-index .home-resource-copy > p { max-width:43ch; }
+  body.page-index .home-resource-copy .hero-actions { margin:26px 0 13px; }
+  body.page-index .resource-meta { color:#aebcbb; font-size:13px; }
+  body.page-index .dataset-details { max-width:46ch; margin-top:22px; border-top:1px solid rgba(221,202,167,.2); padding-top:16px; }
+  body.page-index .dataset-details summary { color:#e4c999; cursor:pointer; padding:4px 0; font-size:14px; }
+  body.page-index .dataset-details p { color:#bac5c3; font-size:14px; line-height:1.65; margin:14px 0 0; }
+  body.page-index .dataset-details code { display:block; font-size:11px; overflow-wrap:anywhere; margin-top:8px; }
+  body.page-index .example-panel { padding:clamp(25px,3.2vw,42px); border:1px solid rgba(232,210,172,.19); border-radius:20px; background:linear-gradient(145deg,rgba(54,65,68,.7),rgba(29,40,45,.9)); box-shadow:0 18px 50px rgba(0,0,0,.12); }
+  body.page-index .example-panel h3 { font-family:var(--font-body); font-size:24px; letter-spacing:-.025em; line-height:1.25; margin:0 0 12px; }
+  body.page-index .example-panel > p { color:#bdc8c6; font-size:15px; line-height:1.6; }
+  body.page-index .example-trace { margin:24px 0; }
+  body.page-index .example-trace > div { display:grid; grid-template-columns:100px minmax(0,1fr); gap:16px; padding:15px 0; border-top:1px solid rgba(255,255,255,.1); }
+  body.page-index .example-trace dt { font-size:13px; color:#aab9b8; }
+  body.page-index .example-trace dd { margin:0; color:#ece6d9; font-size:15px; }
+  body.page-index .example-trace code { font-size:13px; overflow-wrap:anywhere; color:#ebc992; }
+  body.page-index .example-caption { display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between; padding-top:16px; border-top:1px solid rgba(255,255,255,.1); font-size:13px; }
+  body.page-index .example-caption span { color:#aab9b8; }
+  body.page-index .example-caption a { color:#e4c999; }
+  body.page-index .home-contact { padding-top:0; }
+  body.page-index .home-contact-inner { display:flex; justify-content:space-between; gap:35px; align-items:center; border-top:1px solid rgba(221,202,167,.2); padding-top:46px; }
+  body.page-index .home-contact h2 { font-size:clamp(28px,3vw,38px); margin:0 0 13px; }
+  body.page-index .home-contact p { color:#b9c4c2; max-width:52ch; margin:0; }
+  body.page-index .home-contact-actions { flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:16px; }
+  body.page-index .home-contact-actions > a:last-child { color:#d8c9ae; font-size:14px; }
+  body.page-index .home-footer { margin-top:0; padding:24px 0 30px; border-top:1px solid rgba(255,255,255,.08); }
+  body.page-index .home-footer-inner { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; align-items:center; }
+  body.page-index .home-footer p, body.page-index .home-footer a { color:#a6b4b3; font-size:13px; margin:0; }
+  body.page-index .home-footer nav { display:flex; gap:24px; flex-wrap:wrap; }
+  @media (max-width:900px) {
+    body.page-index .hero-layout { min-height:0; }
+    body.page-index .hero-copy { padding-bottom:0; }
+    body.page-index .dimensional-hero h1 { font-size:clamp(40px,6.5vw,58px); }
+    body.page-index .dimension-scene { margin-top:-20px; margin-bottom:-30px; }
+  }
+  @media (max-width:760px) {
+    body.page-index .home-resource-grid { grid-template-columns:1fr; gap:30px; }
+    body.page-index .home-contact-inner { align-items:flex-start; flex-direction:column; gap:26px; }
+    body.page-index .home-contact-actions { align-items:flex-start; }
+  }
+  @media (max-width:540px) {
+    body.page-index .dimensional-hero h1 { font-size:clamp(35px,9.5vw,49px); }
+    body.page-index .name-note { font-size:15px; }
+    body.page-index .dimension-scene { height:390px; margin-top:-30px; margin-bottom:-35px; }
+    body.page-index .example-trace > div { grid-template-columns:88px minmax(0,1fr); gap:10px; }
+    body.page-index .home-footer-inner { align-items:flex-start; flex-direction:column; }
   }
 </style>
-
 <section class="hero dimensional-hero" aria-labelledby="home-heading">
   <div class="hero-atmosphere" aria-hidden="true"></div>
   <div class="wrap hero-layout">
     <div class="hero-copy">
       <p class="eyebrow"><span class="eyebrow-line"></span> GOLD TRACE DATAWORKS</p>
-      <h1 id="home-heading">Find the signal.<span>Keep the trace.</span></h1>
-      <p class="lede">We build AI agents, evaluations and datasets. Gold Trace is our method: find the veins worth preserving in messy work, keep the evidence, and carry it forward into systems people can use.</p>
+      <h1 id="home-heading">We build AI agents.<span>Then we test them.</span></h1>
+      <p class="lede">We build agents, test how they use tools, and create datasets that make their behavior easier to inspect.</p>
+      <p class="name-note">Gold Trace means preserving what is useful—and the evidence behind it—so others can build on it.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="#example">See an example <span aria-hidden="true" class="cta-chevron"></span></a>
-        <a class="btn btn-glass btn-lg" href="contact.html">Work with us</a>
+        <a class="btn btn-primary btn-lg" href="#dataset">Explore the free dataset <span aria-hidden="true" class="cta-chevron"></span></a>
+        <a class="btn btn-glass btn-lg" href="services/index.html">Our services</a>
       </div>
     </div>
     <div class="dimension-scene" aria-hidden="true">
@@ -124,118 +152,53 @@
           <div class="slab-bottomline"><span><i class="slab-check"></i> SYNTHETIC CASE</span><span>8 TOOL CALLS</span></div>
         </div>
       </div>
-      <div class="scene-tag scene-tag-top"><span>01 / SOURCE</span><strong>SCENARIO</strong></div>
-      <div class="scene-tag scene-tag-side"><span>03 / REVIEW</span><strong>CHECKED</strong></div>
       <div class="scene-axis scene-axis-a"></div><div class="scene-axis scene-axis-b"></div>
       <span class="scene-glint scene-glint-a"></span><span class="scene-glint scene-glint-b"></span>
     </div>
   </div>
-  <div class="wrap hero-footline"><span>FOLLOW THE EVIDENCE.</span><span>ST. PAUL, MINNESOTA</span></div>
 </section>
-
-<section class="section" id="example" aria-labelledby="example-heading">
-  <div class="wrap">
-    <div class="home-case-grid">
-      <div class="home-case-copy">
-        <p class="eyebrow">ONE EXAMPLE / FROM GTD DATASET FACTORY CORE</p>
-        <h2 id="example-heading">A denied action must stay denied.</h2>
-        <p class="lede">In a synthetic security case, an agent has enough evidence to try isolating an endpoint. The tool refuses. The useful trace is what happens next.</p>
-        <p>Our first reference summary incorrectly said isolation was completed. The tool result said otherwise. We corrected the record and added a check for that false completion claim.</p>
-      </div>
-      <div class="glass-soft slab">
-        <ol class="home-case-list" aria-label="CD-010 reference trace">
-          <li><span class="step-num">01</span><div><h3>Correlate the alert</h3><p>Observe endpoint, file and network evidence before acting.</p></div></li>
-          <li><span class="step-num">02</span><div><h3>Attempt containment</h3><p><code>isolate_endpoint</code> returns <code>permission_denied</code>.</p></div></li>
-          <li><span class="step-num">03</span><div><h3>Verify the state</h3><p>A fresh <code>get_asset</code> shows the endpoint is still connected.</p></div></li>
-          <li><span class="step-num">04</span><div><h3>Carry the finding forward</h3><p>The case is escalated with the evidence and the failed action recorded.</p></div></li>
-        </ol>
-        <p class="home-case-note">CD-010 is a deterministic synthetic reference episode, not a measured model run. <a href="assets/cyber-defense-case-cd-010.json">Inspect the full row (JSON)</a>.</p>
-      </div>
+<section class="section home-resource" id="dataset" aria-labelledby="dataset-heading">
+  <div class="wrap home-resource-grid">
+    <div class="home-resource-copy">
+      <p class="eyebrow">A FREE SAMPLE OF OUR WORK</p>
+      <h2 id="dataset-heading">Tool calls. Outcomes. The record in between.</h2>
+      <p>Explore ten synthetic cyber defense cases from GTD Dataset Factory Core. Each includes tool calls, results, and a reference report.</p>
+      <p>Use them to examine how an agent should handle evidence, permissions, and failed actions.</p>
+      <div class="hero-actions"><a class="btn btn-primary btn-lg" href="assets/cyber-defense-public-v1.zip" download>Download 10 cases</a></div>
+      <p class="resource-meta">JSONL + documentation · 47 KB · No signup</p>
+      <details class="dataset-details">
+        <summary>Dataset details &amp; license</summary>
+        <p>Cyber Defense Public v1.1.1 · CDLA-Permissive-2.0. Six training cases and four validation cases. Includes tool definitions, a dataset card, provenance records and file hashes.</p>
+        <p>These are synthetic reference examples. They illustrate expected behavior; they do not measure a model’s performance.</p>
+        <p>ZIP SHA-256<code>aba699a54d10783fdb3ae2e50da147010345274b8faef9763f3b39e1bcdbc78a</code></p>
+      </details>
     </div>
+    <article class="example-panel" id="example" aria-labelledby="example-heading">
+      <p class="eyebrow">INSIDE THE DATASET / CASE CD-010</p>
+      <h3 id="example-heading">What happens when a tool says no?</h3>
+      <p>An agent tries to isolate a device. Permission is denied. It checks the device’s state and records the failed action for escalation.</p>
+      <dl class="example-trace">
+        <div><dt>Tool result</dt><dd><code>permission_denied</code></dd></div>
+        <div><dt>Device state</dt><dd>Still connected</dd></div>
+        <div><dt>Final report</dt><dd>Isolation failed. Case escalated.</dd></div>
+      </dl>
+      <div class="example-caption"><span>Synthetic reference trace</span><a href="assets/cyber-defense-case-cd-010.json">Inspect this case (JSON)</a></div>
+    </article>
   </div>
 </section>
-
-<section class="section" id="dataset" aria-labelledby="dataset-heading">
-  <span class="light-local is-gold" style="left:65%;top:-60px"></span>
-  <div class="wrap">
-    <div class="stack depth-1 lit lit-gold"><div class="glass slab home-data">
-      <div>
-        <p class="eyebrow">FREE AND INSPECTABLE</p>
-        <h2 id="dataset-heading">Take the cases with you.</h2>
-        <p class="lede">Cyber Defense Public v1.1.1 has ten distinct synthetic cases, with tool contracts, reference calls, outcomes and final reports. Six are for training; four are scenario-level validation cases.</p>
-      </div>
-      <div class="home-data-meta">
-        <p>The ZIP includes a dataset card, license, provenance records, file hashes and a tool-call training export. It contains no private evaluation cases.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="assets/cyber-defense-public-v1.zip" download>Download the dataset</a>
-        </div>
-        <p class="small">47 KB ZIP · CDLA-Permissive-2.0. This sample helps inspect reference behavior; it does not establish model performance or general security capability.</p>
-        <span class="hash">SHA-256 aba699a54d10783fdb3ae2e50da147010345274b8faef9763f3b39e1bcdbc78a</span>
-      </div>
-    </div></div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="work-heading">
-  <div class="wrap">
-    <div class="home-next">
-      <p class="eyebrow">BUILD WITH US</p>
-      <h2 id="work-heading">Have a useful vein to follow?</h2>
-      <p class="lede">We build agents that use your tools, evaluations that reveal their failures, and datasets that preserve the evidence. Tell us what the system should do and what would count as proof.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="contact.html">Send a build request</a>
-        <a class="btn btn-glass btn-lg" href="services/index.html">Explore the work</a>
-      </div>
-      <p class="small muted" style="margin-top:18px">You can also write to <a href="mailto:agents@gtdataworks.com">agents@gtdataworks.com</a>.</p>
-    </div>
+<section class="section home-contact" aria-labelledby="work-heading">
+  <div class="wrap home-contact-inner">
+    <div><h2 id="work-heading">What would you like to build?</h2><p>Tell us what the agent should do, which tools it needs, and how you’ll know it worked.</p></div>
+    <div class="home-contact-actions"><a class="btn btn-primary btn-lg" href="contact.html">Send a build request</a><a href="mailto:agents@gtdataworks.com">agents@gtdataworks.com</a></div>
   </div>
 </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <a class="brand" href="index.html">
-        <img src="assets/logo.svg" alt="" width="36" height="36">
-        <span class="brand-name">GTDataWorks</span>
-      </a>
-      <p class="muted">Gold Trace Dataworks, by Terminus Protocol. AI agents, evaluations and datasets with the evidence carried forward.</p>
-      <p class="muted small">St. Paul, Minnesota<br><a href="mailto:agents@gtdataworks.com">agents@gtdataworks.com</a></p>
-    </div>
-    <nav class="footer-col" aria-label="Site">
-      <h2>Site</h2>
-      <ul>
-        <li><a href="services/index.html">Services</a></li>
-        <li><a href="demos.html">Prototypes</a></li>
-        <li><a href="mcpize.html">MCPize</a></li>
-        <li><a href="insights.html">Market insights</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Start a brief</a></li>
-      </ul>
-    </nav>
-    <nav class="footer-col" aria-label="Core services">
-      <h2>Core services</h2>
-      <ul>
-        <li><a href="services/conversational-ai.html">Conversational AI &amp; RAG</a></li>
-        <li><a href="services/agent-orchestration.html">Agent orchestration</a></li>
-        <li><a href="services/prompt-engineering.html">Prompt engineering</a></li>
-        <li><a href="services/evaluation-benchmarking.html">Agent evaluation</a></li>
-        <li><a href="services/mcp-servers.html">Managed MCP servers</a></li>
-      </ul>
-    </nav>
-    <nav class="footer-col" aria-label="Elsewhere">
-      <h2>Elsewhere</h2>
-      <ul>
-        <li><a href="https://terminusprotocol.io" rel="noopener">terminusprotocol.io</a></li>
-        <li><a href="https://github.com/cwwjacobs" rel="noopener">GitHub</a></li>
-        <li><a href="https://huggingface.co/novcor" rel="noopener">Hugging Face</a></li>
-        <li><a href="https://agensi.io/skills/ai-agent-testing-evaluation-bundle" rel="noopener">Agensi</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="wrap footer-legal">
-    <p class="small muted">© 2026 GTDataWorks by Terminus Protocol. Prices in USD; a final quote follows a scoping call. Market figures on this site are estimates from a November 2026 review of Upwork listings and are labelled as such.</p>
+<footer class="home-footer">
+  <div class="wrap home-footer-inner">
+    <p>© 2026 Gold Trace Dataworks · St. Paul, Minnesota</p>
+    <nav aria-label="Footer"><a href="services/index.html">Services</a><a href="about.html">About</a><a href="https://github.com/cwwjacobs" rel="noopener">GitHub</a></nav>
   </div>
 </footer>
 
